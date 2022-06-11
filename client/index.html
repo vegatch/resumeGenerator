@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Resume</title>
+</head>
+<body>
+    <form action="/resume" method="post">
+
+        <fieldset>
+            <legend>Personal information</legend>
+            <div>
+                <input type="text" name="personId" id="personId" readonly="yes" disabled="true">
+            </div>
+            </div>
+                <input type="text" name="firstName" id="firstName" placeholder="Please enter your firstname" >
+            <div>
+            <div>
+                <input type="text" name="middleName" id="middleName" placeholder="Please enter your middlename" >
+            </div>
+            <div>
+                <input type="text" name="lastName " id="lastName" placeholder="Please enter your lastname" >
+            </div>
+            <div>
+                <input type="text" name="title " id="title" placeholder="Please enter your profession title" >
+            </div>
+            <div>
+                <input type="text" name="address" id="address" placeholder="City, State, Zip code, (open to remote)"> 
+            </div>    
+            <div>
+                <input type="text" name="email" id="email" placeholder="Please enter your email"> 
+            </div>
+            <div>
+                <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Please enter your phone number"> 
+            </div>
+            <button type="button" id="submit">Add person</button>
+        </fieldset>
+        
+        <fieldset >
+            <legend>Professional links (LinkedIn, GitHub etc.)</legend>
+            <div>
+                <input type="text" name="urlname" id="urlname" placeholder="Please enter your url name"> 
+            </div>
+            <div>
+                <input type="text" name="url" id="url" placeholder="Please enter your url"> 
+            </div>
+            <button type="button" id="submit">Add link</button>
+        </fieldset>
+        
+        <fieldset >
+            <legend>Resume objective</legend>
+            <div>
+                <textarea name="objective" id="objective" cols="30" rows="10" placeholder="please enter your objective here"></textarea>
+            </div>
+            
+            <button type="button" id="submit">Add objective</button>
+        </fieldset>
+        <fieldset >
+            <legend>Skills</legend>
+            <div>
+                <input type="text" name="technicalSkills" id="technicalSkills" placeholder="Please list your technical skills"> 
+            </div>
+            <div>
+                <input type="text" name="marketableSkills" id="marketableSkills" placeholder="Please list your marketable skills"> 
+            </div>
+            
+            <button type="button" id="submit">Add skills</button>
+        </fieldset>
+        <fieldset >
+            <legend>Technical Project Highlights</legend>
+            <div>
+                <input type="text" name="projectRole" id="projectRole" placeholder="Please enter your role"> 
+            </div>
+            <div>
+                <input type="text" name="projectName" id="projectName" placeholder="Please enter project name"> 
+            </div>
+            <div>
+                <input type="text" name="projectLanguage" id="projectLanguage" placeholder="Please list languages used in project"> 
+            </div>
+            <div>
+                <input type="text" name="projectUrl" id="projectUrl" placeholder="Please enter project url"> 
+            </div>
+            <div>
+                <input type="text" name="projectHighlightOne" id="projectHighlightOne" placeholder="Please enter project highlights"> 
+            </div>
+            <div>
+                <input type="text" name="projectHighlightTwo" id="projectHighlightTwo" placeholder="Please enter project highlights"> 
+            </div>
+            <div>
+                <input type="text" name="projectHighlightThree" id="projectHighlightThree" placeholder="Please enter project highlights"> 
+            </div>
+
+            <button type="button" id="submit">Add projects</button>
+        </fieldset>
+        
+        <fieldset >
+            <legend>Work Experience</legend>
+            <div>
+                <input type="text" name="companyName" id="companyName" placeholder="Please enter your company"> 
+            </div>
+            <div>
+                <input type="text" name="companyLocation" id="companyLocation" placeholder="Please enter project name"> 
+            </div>
+            <div>
+                <input type="text" name="projectLanguage" id="projectLanguage" placeholder="Please enter company location  (City, State)"> 
+            </div>
+            <div>
+                <input type="text" name="positionInCompany" id="positionInCompany" placeholder="Please enter your position"> 
+            </div>
+            <div>
+                <input type="text" name="durationInCompany" id="durationInCompany" placeholder="Please start and end (Month Year - Month Year)"> 
+            </div>
+            <div>
+                <input type="text" name="realizationInCompanyOne" id="realizationInCompanyOne" placeholder="Please enter your realization"> 
+            </div>
+            <div>
+                <input type="text" name="realizationInCompanyTwo" id="realizationInCompanyTwo" placeholder="Please enter your realization"> 
+            </div>
+            <div>
+                <input type="text" name="realizationInCompanyThree" id="realizationInCompanyThree" placeholder="Please enter your realization"> 
+            </div>
+
+            <button type="button" id="submit">Add work</button>
+        </fieldset>
+        <button type="button" id="GenerateReusme">Generate Resume</button>
+    </form>
+</body>
+</html>
