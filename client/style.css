@@ -8,3 +8,8 @@ form input{
     width: 15rem;
     margin: .5rem 0rem;
 }
+
+.container{
+    background-color: aqua;
+    height: 50vh;
+}
