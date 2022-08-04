@@ -44,16 +44,17 @@ app
     .use(express.json())
     .use(express.urlencoded({ extended: true}))
 
-    // .get('/api/allresume', async (req, res) => {     
-    //   let sqlQuery = "SELECT * FROM resumedb.complete_resume LIMIT 1";
+    .get('/api/allresume', async (req, res) => {     
+      let sqlQuery = "SELECT * FROM resumedb.complete_resume LIMIT 1";
   
-    //   db.query(sqlQuery, (err, results) => {
-    //     if(err) throw err;
-    //   // await renderMysql(sql);
-    //     res.send(results);
-    //   });
-    // })
+      db.query(sqlQuery, (err, results) => {
+        if(err) throw err;
 
+        // res.send(results);
+      });
+    })
+
+   
 
     .get('/api/allresume/:id',[
       check('personId').escape()
