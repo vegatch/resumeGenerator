@@ -50,7 +50,7 @@ app
       db.query(sqlQuery, (err, results) => {
         if(err) throw err;
 
-        // res.send(results);
+        res.send(results);
       });
     })
 
@@ -221,9 +221,9 @@ app
                        .not().isEmpty().withMessage("State can't be null")
                        .escape().trim(),
         check('zcode').isInt().withMessage('Only numbers are allowed').escape().trim(),        
-        check('remote').isAlpha().withMessage('Only letters are allowed').escape().trim(),
-        check('relocalization').isAlpha().withMessage('Only letters are allowed').escape().trim(),
-        check('email').isEmail().withMessage('incorrect value from email').escape().trim(),
+        check('remote').isInt().withMessage('Only numbers are allowed').escape().trim(),
+        check('relocalization').isInt().withMessage('Only numbers are allowed').escape().trim(),
+        check('email').isEmail().withMessage('incorrect value from email').escape().trim().normalizeEmail(),
         check('phoneNumber').isMobilePhone().withMessage('incorrect phone number').escape().trim(),
 
      ], async (req, res)=> {     
@@ -265,11 +265,11 @@ app
 
     mediaId = body.media_id,
     personId = body.pidSocio, 
-    linkedIn = 'LinkedIN'
+    linkedIn = `LinkedIn`,
     linkedInUrl= body.linkedIn, 
-    gitHub = 'GitHub'
+    gitHub = `GitHub`,
     gitHubUrl= body.gitHub, 
-    porfolio = 'Portfolio'
+    porfolio = `Portfolio`,
     portfolioUrl= body.portfolio,       
     createUser = `sba`
    try{
@@ -511,7 +511,7 @@ app
   
       if(req.body.length === 0) throw err;
 
-      var sql = `INSERT INTO resumedb.person_work(work_id, person_id, work_number, tech_work, company_name, company_city, company_state, job_role, work_start_month,  work_start_year, still_work_there, work_end_month, work_end_year, work_achievement1, work_achievement2, work_achievement3, work_achievement4, work_achievement5, work_achievement6, work_achievement7, work_achievement8, work_achievement9, work_achievement10,        create_user) 
+      var sql = `INSERT INTO resumedb.person_work(work_id, person_id, work_number, work_type, company_name, company_city, company_state, job_role, work_start_month,  work_start_year, still_work_there, work_end_month, work_end_year, work_achievement1, work_achievement2, work_achievement3, work_achievement4, work_achievement5, work_achievement6, work_achievement7, work_achievement8, work_achievement9, work_achievement10,        create_user) 
       VALUES ("${workId}", "${personId}", "${workNum}", "${workType_}",  "${companyName_}", "${companyCity_}", "${companyState_}", "${positionInCompany_}", "${companyStartMonth_}", "${companyStartYear_}", "${stillWorkThere_}","${companyEndMonth_}", "${companyEndYear_}",  "${workAchiev1_}", "${workAchiev2_}",
       "${workAchiev3_}", "${workAchiev4_}", "${workAchiev5_}", "${workAchiev6_}", "${workAchiev7_}", "${workAchiev8_}", "${workAchiev9_}", "${workAchiev10_}", "${createUser}")`;
 

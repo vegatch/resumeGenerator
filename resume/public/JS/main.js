@@ -266,7 +266,7 @@ const renderError = function(data){
     errorContainer.innerHTML ='';
     data.errors.forEach(err =>{
         errorContainer.innerHTML +=`<li>${err.msg} for ${err.param}</li>`
-        setTimeout(() =>{ errorContainer.innerHTML = " " },4000)
+        setTimeout(() =>{ errorContainer.innerHTML = " " },4000000)
     })
 }
 

@@ -5,7 +5,7 @@ let loadToHtml = function(data){
     const resumeDiv = document.querySelector('.container');
 
     data.forEach((el)=>{
-    
+
             let headerDiv = document.createElement("div")
             headerDiv.classList.add("header-container")
             resumeDiv.append(headerDiv)
@@ -15,13 +15,12 @@ let loadToHtml = function(data){
             let nameP = document.createElement("p")
             let titleP = document.createElement("p")
             nameP.innerHTML = `${el.fullname}`
-            titleP.innerHTML = `${el.titleOne}`
-    
+            titleP.innerHTML =  `${el.title1} / ${el.title2}`
+            
             let headerNewline = document.createElement("br")
-    
+  
             nameTitleDiv.append(nameP, titleP)
             headerDiv.append(nameTitleDiv, headerNewline)
-    
     
     
             let contactDiv = document.createElement("div")
@@ -34,11 +33,11 @@ let loadToHtml = function(data){
             let resumeMediaDiv = document.createElement('div')
             resumeMediaDiv.classList.add("media-container")
             let LinkedINLink = document.createElement("a")
-            LinkedINLink.href = `${el.linkedInUrl}`
-            LinkedINLink.textContent =`${el.linkedIn} |`
+            LinkedINLink.href = `${el.linkedin_url}`
+            LinkedINLink.textContent =`${el.linkedin} |`
             let gitHubLink = document.createElement("a")
-            gitHubLink.href = `${el.gitHubUrl}`
-            gitHubLink.textContent = ` ${el.gitHub} |`
+            gitHubLink.href = `${el.github_url}`
+            gitHubLink.textContent = ` ${el.github} |`
             let portfolioLink = document.createElement("a")
             portfolioLink.href = ` ${el.portfolioUrl}`
             portfolioLink.textContent =`${el.portfolio}`
@@ -69,93 +68,190 @@ let loadToHtml = function(data){
             educationP.textContent = 'EDUCATION'
             educationHeaderDiv.append(educationP)
     
-            let educationNewLine = document.createElement("br")
-            let educationWrapper = document.createElement("div")
-            educationWrapper.classList.add("groupContainerA")
-            let educationFirstRowDiv = document.createElement("div")
-            educationFirstRowDiv.classList.add("flex-container")
-            let leftFirstRowDiv = document.createElement("div")
-            leftFirstRowDiv.classList.add("left-row")
-            leftFirstRowDiv.classList.add("flex-container")
-            let schoolNameP = document.createElement("p")
-            schoolNameP.classList.add("text-bold")
-            schoolNameP.textContent = `${el.schoolname1}`
-            let schoolDetails = document.createElement("p")
-            schoolDetails.textContent = ` | ${el.schoolsubject1}`
-            schoolDetails.classList.add("text-margin")
-            leftFirstRowDiv.append(schoolNameP, schoolDetails)
-    
-            let rightFirstRowDiv = document.createElement("div")
-            rightFirstRowDiv.classList.add("right-row")
-    
-            let schoolLocationP = document.createElement("p")
-            schoolLocationP.classList.add("text-bold")
-            schoolLocationP.textContent = `${el.schoolcity1}, ${el.schoolstate1} ${el.attendancemethod1}`
-            rightFirstRowDiv.append(schoolLocationP)
-            educationFirstRowDiv.append( educationNewLine, leftFirstRowDiv, rightFirstRowDiv)
-    
-    
-            let educationSecondRowDiv = document.createElement("div")
-            educationSecondRowDiv.classList.add("flex-container")
-            let leftSecondRowDiv = document.createElement("div")
-            leftSecondRowDiv.classList.add("left-row")
-            let certificateTitleDiv = document.createElement("div")
-            let courseTitleP = document.createElement("p")
-            courseTitleP.classList.add('titlePara')
-            courseTitleP.textContent = `${el.certificate1}` 
-            certificateTitleDiv.append(courseTitleP)
-            educationSecondRowDiv.append(certificateTitleDiv)
-    
-            let rightSecondRowDiv = document.createElement("div")
-            rightSecondRowDiv.classList.add("right-row")            
-    
-            let certificateDateDiv = document.createElement("div")
-            let schoolYearP = document.createElement("p")
-            schoolYearP.textContent = `${el.completionmonth1} ${el.completionyear1}` 
-            certificateDateDiv.append(schoolYearP)
-            rightSecondRowDiv.append(certificateDateDiv)
-            educationSecondRowDiv.append(leftSecondRowDiv, rightSecondRowDiv)       
-    
-            let educationUl = document.createElement("div")
-            educationUl.classList.add('schoolSkills', 'sub-container')
-            let educationLi = document.createElement("div")
-            educationUl.append(educationLi)
-    
-            let educationOne = document.createTextNode(`${el.achievement_one1}`)
-            let educationTwo = document.createTextNode(`${el.achievement_two1}`)
-            let educationThree = document.createTextNode(`${el.achievement_three1}`)
-    
-            let achievementDivOne = document.createElement("div")
-            achievementDivOne.classList.add( "flex-container", "subContainer-flex")
-            let spanOne = document.createElement("span") 
-            spanOne.classList.add("circle")
-            achievementDivOne.append(spanOne)
-            achievementDivOne.append(educationOne)
-            educationUl.append(achievementDivOne)
-    
-            let achievementDivTwo = document.createElement("div")
-            achievementDivTwo.classList.add("flex-container", "subContainer-flex")
-            let spanTwo = document.createElement("span") 
-            spanTwo.classList.add("circle")
-            achievementDivTwo.append(spanTwo)
-            achievementDivTwo.append(educationTwo)
-            educationUl.append(achievementDivTwo)
-    
-            let achievementDivThree = document.createElement("div")
-            achievementDivThree.classList.add("flex-container", "subContainer-flex")
-            let spanThree = document.createElement("span") 
-            spanThree.classList.add("circle")
-            achievementDivThree.append(spanThree)
-            achievementDivThree.append(educationThree)
-            educationUl.append(achievementDivThree)
-            educationWrapper.append(educationFirstRowDiv, educationSecondRowDiv, educationUl)            
+            if(el.schooltype1 === 'IT'){ 
+            
+                let educationNewLine = document.createElement("br")
+                let educationWrapper = document.createElement("div")
+                educationWrapper.classList.add("groupContainerA")
+                let educationFirstRowDiv = document.createElement("div")
+                educationFirstRowDiv.classList.add("flex-container")
+                let leftFirstRowDiv = document.createElement("div")
+                leftFirstRowDiv.classList.add("left-row")
+                leftFirstRowDiv.classList.add("flex-container")
+                let schoolNameP = document.createElement("p")
+                schoolNameP.classList.add("text-bold")
+                schoolNameP.textContent = `${el.schoolname1}`
+                let schoolDetails = document.createElement("p")
+                schoolDetails.textContent = ` `
+                schoolDetails.classList.add("text-margin")
+                leftFirstRowDiv.append(schoolNameP, schoolDetails)    
+                let rightFirstRowDiv = document.createElement("div")
+                rightFirstRowDiv.classList.add("right-row")
+        
+                let schoolLocationP = document.createElement("p")
+                schoolLocationP.classList.add("text-bold")
+                schoolLocationP.textContent = `${el.schoolcity1}, ${el.schoolstate1} ${el.attendancemethod1}`
+                rightFirstRowDiv.append(schoolLocationP)
+                educationFirstRowDiv.append( educationNewLine, leftFirstRowDiv, rightFirstRowDiv)
+        
+        
+                let educationSecondRowDiv = document.createElement("div")
+                educationSecondRowDiv.classList.add("flex-container")
+                let leftSecondRowDiv = document.createElement("div")
+                leftSecondRowDiv.classList.add("left-row")
+                let certificateTitleDiv = document.createElement("div")
+                let courseTitleP = document.createElement("p")
+                courseTitleP.classList.add('titlePara')
+                courseTitleP.textContent = `${el.certificate1}` 
+                certificateTitleDiv.append(courseTitleP)
+                educationSecondRowDiv.append(certificateTitleDiv)
+        
+                let rightSecondRowDiv = document.createElement("div")
+                rightSecondRowDiv.classList.add("right-row")            
+        
+                let certificateDateDiv = document.createElement("div")
+                let schoolYearP = document.createElement("p")
+                schoolYearP.textContent = `${el.completionmonth1} ${el.completionyear1}` 
+                certificateDateDiv.append(schoolYearP)
+                rightSecondRowDiv.append(certificateDateDiv)
+                educationSecondRowDiv.append(leftSecondRowDiv, rightSecondRowDiv)       
+            
+            
+                let educationUl = document.createElement("div")
+                educationUl.classList.add('schoolSkills', 'sub-container')
+                let educationLi = document.createElement("div")
+                educationUl.append(educationLi)
+        
+                let educationOne = document.createTextNode(`${el.achievement_one1}`)
+                let educationTwo = document.createTextNode(`${el.achievement_two1}`)
+                let educationThree = document.createTextNode(`${el.achievement_three1}`)
+                
+                let achievementDivOne = document.createElement("div")
+                achievementDivOne.classList.add( "flex-container", "subContainer-flex")
+                let spanOne = document.createElement("span") 
+                spanOne.classList.add("circle")
+                achievementDivOne.append(spanOne)
+                achievementDivOne.append(educationOne)
+                educationUl.append(achievementDivOne)
+        
+                let achievementDivTwo = document.createElement("div")
+                achievementDivTwo.classList.add("flex-container", "subContainer-flex")
+                let spanTwo = document.createElement("span") 
+                spanTwo.classList.add("circle")
+                achievementDivTwo.append(spanTwo)
+                achievementDivTwo.append(educationTwo)
+                educationUl.append(achievementDivTwo)
+        
+                let achievementDivThree = document.createElement("div")
+                achievementDivThree.classList.add("flex-container", "subContainer-flex")
+                let spanThree = document.createElement("span") 
+                spanThree.classList.add("circle")
+                achievementDivThree.append(spanThree)
+                achievementDivThree.append(educationThree)
+                educationUl.append(achievementDivThree)
+                educationWrapper.append(educationFirstRowDiv, educationSecondRowDiv, educationUl) 
+                educationDiv.append(educationHeaderDiv, educationWrapper)
+
+            }
+            else
+            {
+                                
+                let educationNewLine = document.createElement("br")
+                let educationWrapper = document.createElement("div")
+                educationWrapper.classList.add("groupContainerA")
+                let educationFirstRowDiv = document.createElement("div")
+                educationFirstRowDiv.classList.add("flex-container")
+                let leftFirstRowDiv = document.createElement("div")
+                leftFirstRowDiv.classList.add("left-row")
+                leftFirstRowDiv.classList.add("flex-container")
+                let schoolNameP = document.createElement("p")
+                schoolNameP.classList.add("text-bold")
+                schoolNameP.textContent = `${el.schoolname1}`
+                let schoolDetails = document.createElement("p")
+                schoolDetails.textContent = ` `
+                schoolDetails.classList.add("text-margin")
+                leftFirstRowDiv.append(schoolNameP, schoolDetails)    
+                let rightFirstRowDiv = document.createElement("div")
+                rightFirstRowDiv.classList.add("right-row")
+        
+                let schoolLocationP = document.createElement("p")
+                schoolLocationP.classList.add("text-bold")
+                schoolLocationP.textContent = `${el.schoolcity1}, ${el.schoolstate1} ${el.attendancemethod1}`
+                rightFirstRowDiv.append(schoolLocationP)
+                educationFirstRowDiv.append( educationNewLine, leftFirstRowDiv, rightFirstRowDiv)
+        
+        
+                let educationSecondRowDiv = document.createElement("div")
+                educationSecondRowDiv.classList.add("flex-container")
+                let leftSecondRowDiv = document.createElement("div")
+                leftSecondRowDiv.classList.add("left-row")
+                let certificateTitleDiv = document.createElement("div")
+                let courseTitleP = document.createElement("p")
+                courseTitleP.classList.add('titlePara')
+                courseTitleP.textContent = `${el.certificate1}` 
+                certificateTitleDiv.append(courseTitleP)
+                educationSecondRowDiv.append(certificateTitleDiv)
+        
+                let rightSecondRowDiv = document.createElement("div")
+                rightSecondRowDiv.classList.add("right-row")            
+        
+                let certificateDateDiv = document.createElement("div")
+                let schoolYearP = document.createElement("p")
+                schoolYearP.textContent = `${el.completionmonth1} ${el.completionyear1}` 
+                certificateDateDiv.append(schoolYearP)
+                rightSecondRowDiv.append(certificateDateDiv)
+                educationSecondRowDiv.append(leftSecondRowDiv, rightSecondRowDiv)       
+                
+            
+                    
+                
+                    // let educationUl = document.createElement("div")
+                    // educationUl.classList.add('schoolSkills', 'sub-container')
+                    // let educationLi = document.createElement("div")
+                    // educationUl.append(educationLi)
+            
+                    // let educationOne = document.createTextNode(`${el.achievement_one1}`)
+                    // let educationTwo = document.createTextNode(`${el.achievement_two1}`)
+                    // let educationThree = document.createTextNode(`${el.achievement_three1}`)
+                
+                // let achievementDivOne = document.createElement("div")
+                // achievementDivOne.classList.add( "flex-container", "subContainer-flex")
+                // let spanOne = document.createElement("span") 
+                // spanOne.classList.add("circle")
+                // achievementDivOne.append(spanOne)
+                // achievementDivOne.append(educationOne)
+                // educationUl.append(achievementDivOne)
+        
+                // let achievementDivTwo = document.createElement("div")
+                // achievementDivTwo.classList.add("flex-container", "subContainer-flex")
+                // let spanTwo = document.createElement("span") 
+                // spanTwo.classList.add("circle")
+                // achievementDivTwo.append(spanTwo)
+                // achievementDivTwo.append(educationTwo)
+                // educationUl.append(achievementDivTwo)
+        
+                // let achievementDivThree = document.createElement("div")
+                // achievementDivThree.classList.add("flex-container", "subContainer-flex")
+                // let spanThree = document.createElement("span") 
+                // spanThree.classList.add("circle")
+                // achievementDivThree.append(spanThree)
+                // achievementDivThree.append(educationThree)
+                // educationUl.append(achievementDivThree)
+                educationWrapper.append(educationFirstRowDiv, educationSecondRowDiv) 
+                educationDiv.append(educationHeaderDiv, educationWrapper)
+
+            }
+
+            
+           
         
     
 //     =====================================================
+        if(el.schooltype2 === 'IT'){
             let educationNewLine2 = document.createElement("br")
 
             let educationWrapper2 = document.createElement("div")
-            educationWrapper.classList.add("groupContainerB")
+            educationWrapper2.classList.add("groupContainerB")
             let educationFirstRowDiv2 = document.createElement("div")
             educationFirstRowDiv2.classList.add("flex-container")
             let leftFirstRowDiv2 = document.createElement("div")
@@ -165,7 +261,7 @@ let loadToHtml = function(data){
             schoolNameP2.classList.add("text-bold")
             schoolNameP2.textContent = `${el.schoolname2}`
             let schoolDetails2 = document.createElement("p")
-            schoolDetails2.textContent = ` | ${el.schoolsubject2}`
+            schoolDetails2.textContent = ``
             schoolDetails2.classList.add("text-margin")
             leftFirstRowDiv2.append(schoolNameP2, schoolDetails2)
     
@@ -233,100 +329,352 @@ let loadToHtml = function(data){
             achievementDivThree2.append(spanThree2)
             achievementDivThree2.append(educationThree2)
             educationUl2.append(achievementDivThree2)
-
             educationWrapper2.append(educationNewLine2, educationFirstRowDiv2, educationSecondRowDiv2, educationUl2)   
+            educationDiv.append(educationWrapper2)
+        }
+
+        if(el.schooltype2 === 'Other'){
+            let educationNewLine2 = document.createElement("br")
+
+            let educationWrapper2 = document.createElement("div")
+            educationWrapper2.classList.add("groupContainerB")
+            let educationFirstRowDiv2 = document.createElement("div")
+            educationFirstRowDiv2.classList.add("flex-container")
+            let leftFirstRowDiv2 = document.createElement("div")
+            leftFirstRowDiv2.classList.add("left-row")
+            leftFirstRowDiv2.classList.add("flex-container")
+            let schoolNameP2 = document.createElement("p")
+            schoolNameP2.classList.add("text-bold")
+            schoolNameP2.textContent = `${el.schoolname2}`
+            let schoolDetails2 = document.createElement("p")
+            schoolDetails2.textContent = ` `
+            schoolDetails2.classList.add("text-margin")
+            leftFirstRowDiv2.append(schoolNameP2, schoolDetails2)
+    
+            let rightFirstRowDiv2 = document.createElement("div")
+            rightFirstRowDiv2.classList.add("right-row")
+    
+            let schoolLocationP2 = document.createElement("p")
+            schoolLocationP2.classList.add("text-bold")
+            schoolLocationP2.textContent = `${el.schoolcity2}, ${el.schoolstate2} ${el.attendancemethod2}`
+            rightFirstRowDiv2.append(schoolLocationP2)
+            educationFirstRowDiv2.append(leftFirstRowDiv2, rightFirstRowDiv2)
+    
+    
+            let educationSecondRowDiv2 = document.createElement("div")
+            educationSecondRowDiv2.classList.add("flex-container")
+            let leftSecondRowDiv2 = document.createElement("div")
+            leftSecondRowDiv2.classList.add("left-row")
+            let certificateTitleDiv2 = document.createElement("div")
+            let courseTitleP2 = document.createElement("p")
+            courseTitleP2.textContent = `${el.certificate2}` 
+            certificateTitleDiv2.append(courseTitleP2)
+            leftSecondRowDiv2.append(certificateTitleDiv2)
+    
+            let rightSecondRowDiv2 = document.createElement("div")
+            rightSecondRowDiv2.classList.add("right-row")
+    
+            let certificateDateDiv2 = document.createElement("div")
+            let schoolYearP2 = document.createElement("p")
+            schoolYearP2.textContent = `${el.completionmonth2} ${el.completionyear2}` 
+            certificateDateDiv2.append(schoolYearP2)
+            rightSecondRowDiv2.append(certificateDateDiv2)    
+            
+            educationSecondRowDiv2.append(leftSecondRowDiv2, rightSecondRowDiv2)
+            educationWrapper2.append(educationNewLine2, educationFirstRowDiv2, educationSecondRowDiv2)
+            educationDiv.append(educationWrapper2)   
+        }
 
 // =========================================================
-let educationNewLine3 = document.createElement("br")
-let educationWrapper3 = document.createElement("div")
-educationWrapper.classList.add("groupContainerC")
+        if(el.schooltype3 === 'IT'){
 
-let educationFirstRowDiv3 = document.createElement("div")
-educationFirstRowDiv3.classList.add("flex-container")
-let leftFirstRowDiv3 = document.createElement("div")
-leftFirstRowDiv3.classList.add("left-row")
-leftFirstRowDiv3.classList.add("flex-container")
-let schoolNameP3 = document.createElement("p")
-schoolNameP3.classList.add("text-bold")
-schoolNameP3.textContent = `${el.schoolname3}`  
-let schoolDetails3 = document.createElement("p")
-schoolDetails3.textContent = ` | ${el.schoolsubject3}`
-schoolDetails3.classList.add("text-margin")
-leftFirstRowDiv3.append(schoolNameP3, schoolDetails3)
+            let educationNewLine3 = document.createElement("br")
+            let educationWrapper3 = document.createElement("div")
+            educationWrapper3.classList.add("groupContainerC")
 
-let rightFirstRowDiv3 = document.createElement("div")
-rightFirstRowDiv3.classList.add("right-row")
+            let educationFirstRowDiv3 = document.createElement("div")
+            educationFirstRowDiv3.classList.add("flex-container")
+            let leftFirstRowDiv3 = document.createElement("div")
+            leftFirstRowDiv3.classList.add("left-row")
+            leftFirstRowDiv3.classList.add("flex-container")
+            let schoolNameP3 = document.createElement("p")
+            schoolNameP3.classList.add("text-bold")
+            schoolNameP3.textContent = `${el.schoolname3}`  
+            let schoolDetails3 = document.createElement("p")
+            schoolDetails3.textContent = ``
+            schoolDetails3.classList.add("text-margin")
+            leftFirstRowDiv3.append(schoolNameP3, schoolDetails3)
 
-let schoolLocationP3 = document.createElement("p")
-schoolLocationP3.classList.add("text-bold")
-schoolLocationP3.textContent = `${el.schoolcity3}, ${el.schoolstate3} ${el.attendancemethod3}`
-rightFirstRowDiv3.append(schoolLocationP3)
-educationFirstRowDiv3.append(leftFirstRowDiv3, rightFirstRowDiv3)
+            let rightFirstRowDiv3 = document.createElement("div")
+            rightFirstRowDiv3.classList.add("right-row")
 
-let educationSecondRowDiv3 = document.createElement("div")
-educationSecondRowDiv3.classList.add("flex-container")
-let leftSecondRowDiv3 = document.createElement("div")
-leftSecondRowDiv3.classList.add("left-row")
-let certificateTitleDiv3 = document.createElement("div")
-let courseTitleP3 = document.createElement("p")
-courseTitleP3.textContent = `${el.certificate3}` 
-certificateTitleDiv3.append(courseTitleP3)
-leftSecondRowDiv3.append(certificateTitleDiv3)
+            let schoolLocationP3 = document.createElement("p")
+            schoolLocationP3.classList.add("text-bold")
+            schoolLocationP3.textContent = `${el.schoolcity3}, ${el.schoolstate3} ${el.attendancemethod3}`
+            rightFirstRowDiv3.append(schoolLocationP3)
+            educationFirstRowDiv3.append(leftFirstRowDiv3, rightFirstRowDiv3)
 
-let rightSecondRowDiv3 = document.createElement("div")
-rightSecondRowDiv3.classList.add("right-row")
+            let educationSecondRowDiv3 = document.createElement("div")
+            educationSecondRowDiv3.classList.add("flex-container")
+            let leftSecondRowDiv3 = document.createElement("div")
+            leftSecondRowDiv3.classList.add("left-row")
+            let certificateTitleDiv3 = document.createElement("div")
+            let courseTitleP3 = document.createElement("p")
+            courseTitleP3.textContent = `${el.certificate3}` 
+            certificateTitleDiv3.append(courseTitleP3)
+            leftSecondRowDiv3.append(certificateTitleDiv3)
 
-let certificateDateDiv3 = document.createElement("div")
-let schoolYearP3 = document.createElement("p")
-schoolYearP3.textContent = `${el.completionmonth3} ${el.completionyear3}` 
-certificateDateDiv3.append(schoolYearP3)
-rightSecondRowDiv3.append(certificateDateDiv3)
-educationSecondRowDiv3.append(leftSecondRowDiv3, rightSecondRowDiv3)
+            let rightSecondRowDiv3 = document.createElement("div")
+            rightSecondRowDiv3.classList.add("right-row")
 
-let educationUl3 = document.createElement("div")
-educationUl3.classList.add('schoolSkills')
-let educationLi3 = document.createElement("p")
-educationUl3.append(educationLi3)
+            let certificateDateDiv3 = document.createElement("div")
+            let schoolYearP3 = document.createElement("p")
+            schoolYearP3.textContent = `${el.completionmonth3} ${el.completionyear3}` 
+            certificateDateDiv3.append(schoolYearP3)
+            rightSecondRowDiv3.append(certificateDateDiv3)
+            educationSecondRowDiv3.append(leftSecondRowDiv3, rightSecondRowDiv3)
 
-let educationOne3 = document.createTextNode(`${el.achievement_one3}`)
-let educationTwo3 = document.createTextNode(`${el.achievement_two3}`)
-let educationThree3 = document.createTextNode(`${el.achievement_three3}`)
+            let educationUl3 = document.createElement("div")
+            educationUl3.classList.add('schoolSkills')
+            let educationLi3 = document.createElement("p")
+            educationUl3.append(educationLi3)
 
-let achievementDivOne3 = document.createElement("div")
-achievementDivOne3.classList.add("flex-container")
-let spanOne3 = document.createElement("span") 
-spanOne3.classList.add("circle")
-achievementDivOne3.append(spanOne3)
-achievementDivOne3.append(educationOne3)
-educationUl3.append(achievementDivOne3)
+            let educationOne3 = document.createTextNode(`${el.achievement_one3}`)
+            let educationTwo3 = document.createTextNode(`${el.achievement_two3}`)
+            let educationThree3 = document.createTextNode(`${el.achievement_three3}`)
 
-let achievementDivTwo3 = document.createElement("div")
-achievementDivTwo3.classList.add("flex-container")
-let spanTwo3 = document.createElement("span") 
-spanTwo3.classList.add("circle")
-achievementDivTwo3.append(spanTwo3)
-achievementDivTwo3.append(educationTwo3)
-educationUl3.append(achievementDivTwo3)
+            let achievementDivOne3 = document.createElement("div")
+            achievementDivOne3.classList.add("flex-container")
+            let spanOne3 = document.createElement("span") 
+            spanOne3.classList.add("circle")
+            achievementDivOne3.append(spanOne3)
+            achievementDivOne3.append(educationOne3)
+            educationUl3.append(achievementDivOne3)
 
-let achievementDivThree3 = document.createElement("div")
-achievementDivThree3.classList.add("flex-container")
-let spanThree3 = document.createElement("span") 
-spanThree3.classList.add("circle")
-achievementDivThree3.append(spanThree3)
-achievementDivThree3.append(educationThree3)
-educationUl3.append(achievementDivThree3)
+            let achievementDivTwo3 = document.createElement("div")
+            achievementDivTwo3.classList.add("flex-container")
+            let spanTwo3 = document.createElement("span") 
+            spanTwo3.classList.add("circle")
+            achievementDivTwo3.append(spanTwo3)
+            achievementDivTwo3.append(educationTwo3)
+            educationUl3.append(achievementDivTwo3)
 
-educationWrapper3.append(educationNewLine3, educationFirstRowDiv3, educationSecondRowDiv3, educationUl3)   
+            let achievementDivThree3 = document.createElement("div")
+            achievementDivThree3.classList.add("flex-container")
+            let spanThree3 = document.createElement("span") 
+            spanThree3.classList.add("circle")
+            achievementDivThree3.append(spanThree3)
+            achievementDivThree3.append(educationThree3)
+            educationUl3.append(achievementDivThree3)
+
+            educationWrapper3.append(educationNewLine3, educationFirstRowDiv3, educationSecondRowDiv3, educationUl3) 
+            educationDiv.append(educationWrapper3)
+        }  
+
+        
+        if(el.schooltype3 === 'Other'){
+
+            let educationNewLine3 = document.createElement("br")
+            let educationWrapper3 = document.createElement("div")
+            educationWrapper3.classList.add("groupContainerC")
+
+            let educationFirstRowDiv3 = document.createElement("div")
+            educationFirstRowDiv3.classList.add("flex-container")
+            let leftFirstRowDiv3 = document.createElement("div")
+            leftFirstRowDiv3.classList.add("left-row")
+            leftFirstRowDiv3.classList.add("flex-container")
+            let schoolNameP3 = document.createElement("p")
+            schoolNameP3.classList.add("text-bold")
+            schoolNameP3.textContent = `${el.schoolname3}`  
+            let schoolDetails3 = document.createElement("p")
+            schoolDetails3.textContent = ` `
+            schoolDetails3.classList.add("text-margin")
+            leftFirstRowDiv3.append(schoolNameP3, schoolDetails3)
+
+            let rightFirstRowDiv3 = document.createElement("div")
+            rightFirstRowDiv3.classList.add("right-row")
+
+            let schoolLocationP3 = document.createElement("p")
+            schoolLocationP3.classList.add("text-bold")
+            schoolLocationP3.textContent = `${el.schoolcity3}, ${el.schoolstate3} ${el.attendancemethod3}`
+            rightFirstRowDiv3.append(schoolLocationP3)
+            educationFirstRowDiv3.append(leftFirstRowDiv3, rightFirstRowDiv3)
+
+            let educationSecondRowDiv3 = document.createElement("div")
+            educationSecondRowDiv3.classList.add("flex-container")
+            let leftSecondRowDiv3 = document.createElement("div")
+            leftSecondRowDiv3.classList.add("left-row")
+            let certificateTitleDiv3 = document.createElement("div")
+            let courseTitleP3 = document.createElement("p")
+            courseTitleP3.textContent = `${el.certificate3}` 
+            certificateTitleDiv3.append(courseTitleP3)
+            leftSecondRowDiv3.append(certificateTitleDiv3)
+
+            let rightSecondRowDiv3 = document.createElement("div")
+            rightSecondRowDiv3.classList.add("right-row")
+
+            let certificateDateDiv3 = document.createElement("div")
+            let schoolYearP3 = document.createElement("p")
+            schoolYearP3.textContent = `${el.completionmonth3} ${el.completionyear3}` 
+            certificateDateDiv3.append(schoolYearP3)
+            rightSecondRowDiv3.append(certificateDateDiv3)
+            educationSecondRowDiv3.append(leftSecondRowDiv3, rightSecondRowDiv3)
+
+
+            educationWrapper3.append(educationNewLine3, educationFirstRowDiv3, educationSecondRowDiv3) 
+            educationDiv.append(educationWrapper3)
+        }  
+
+
+    // ==================== EDUCATION 4
+    
+// =========================================================
+if(el.schooltype4 === 'IT'){
+
+    let educationNewLine4 = document.createElement("br")
+    let educationWrapper4 = document.createElement("div")
+    educationWrapper4.classList.add("groupContainerC")
+
+    let educationFirstRowDiv4 = document.createElement("div")
+    educationFirstRowDiv4.classList.add("flex-container")
+    let leftFirstRowDiv4 = document.createElement("div")
+    leftFirstRowDiv4.classList.add("left-row")
+    leftFirstRowDiv4.classList.add("flex-container")
+    let schoolNameP4 = document.createElement("p")
+    schoolNameP4.classList.add("text-bold")
+    schoolNameP4.textContent = `${el.schoolname4}`  
+    let schoolDetails4 = document.createElement("p")
+    schoolDetails4.textContent = ``
+    schoolDetails4.classList.add("text-margin")
+    leftFirstRowDiv4.append(schoolNameP4, schoolDetails4)
+
+    let rightFirstRowDiv4 = document.createElement("div")
+    rightFirstRowDiv4.classList.add("right-row")
+
+    let schoolLocationP4 = document.createElement("p")
+    schoolLocationP4.classList.add("text-bold")
+    schoolLocationP4.textContent = `${el.schoolcity4}, ${el.schoolstate4} ${el.attendancemethod4}`
+    rightFirstRowDiv4.append(schoolLocationP4)
+    educationFirstRowDiv4.append(leftFirstRowDiv4, rightFirstRowDiv4)
+
+    let educationSecondRowDiv4 = document.createElement("div")
+    educationSecondRowDiv4.classList.add("flex-container")
+    let leftSecondRowDiv4 = document.createElement("div")
+    leftSecondRowDiv4.classList.add("left-row")
+    let certificateTitleDiv4 = document.createElement("div")
+    let courseTitleP4 = document.createElement("p")
+    courseTitleP4.textContent = `${el.certificate4}` 
+    certificateTitleDiv4.append(courseTitleP4)
+    leftSecondRowDiv4.append(certificateTitleDiv4)
+
+    let rightSecondRowDiv4 = document.createElement("div")
+    rightSecondRowDiv4.classList.add("right-row")
+
+    let certificateDateDiv4 = document.createElement("div")
+    let schoolYearP4 = document.createElement("p")
+    schoolYearP4.textContent = `${el.completionmonth4} ${el.completionyear4}` 
+    certificateDateDiv4.append(schoolYearP4)
+    rightSecondRowDiv4.append(certificateDateDiv4)
+    educationSecondRowDiv4.append(leftSecondRowDiv4, rightSecondRowDiv4)
+
+    let educationUl4 = document.createElement("div")
+    educationUl4.classList.add('schoolSkills')
+    let educationLi4 = document.createElement("p")
+    educationUl4.append(educationLi4)
+
+    let educationOne4 = document.createTextNode(`${el.achievement_one4}`)
+    let educationTwo4 = document.createTextNode(`${el.achievement_two4}`)
+    let educationThree4 = document.createTextNode(`${el.achievement_three4}`)
+
+    let achievementDivOne4 = document.createElement("div")
+    achievementDivOne4.classList.add("flex-container")
+    let spanOne4 = document.createElement("span") 
+    spanOne4.classList.add("circle")
+    achievementDivOne4.append(spanOne4)
+    achievementDivOne4.append(educationOne4)
+    educationUl4.append(achievementDivOne4)
+
+    let achievementDivTwo4 = document.createElement("div")
+    achievementDivTwo4.classList.add("flex-container")
+    let spanTwo4 = document.createElement("span") 
+    spanTwo4.classList.add("circle")
+    achievementDivTwo4.append(spanTwo4)
+    achievementDivTwo4.append(educationTwo4)
+    educationUl4.append(achievementDivTwo4)
+
+    let achievementDivThree4 = document.createElement("div")
+    achievementDivThree4.classList.add("flex-container")
+    let spanThree4 = document.createElement("span") 
+    spanThree4.classList.add("circle")
+    achievementDivThree4.append(spanThree4)
+    achievementDivThree4.append(educationThree4)
+    educationUl4.append(achievementDivThree4)
+
+    educationWrapper4.append(educationNewLine4, educationFirstRowDiv4, educationSecondRowDiv4, educationUl4) 
+    educationDiv.append(educationWrapper4)
+}  
+
+
+if(el.schooltype4 === 'Other'){
+
+    let educationNewLine4 = document.createElement("br")
+    let educationWrapper4 = document.createElement("div")
+    educationWrapper4.classList.add("groupContainerC")
+
+    let educationFirstRowDiv4 = document.createElement("div")
+    educationFirstRowDiv4.classList.add("flex-container")
+    let leftFirstRowDiv4 = document.createElement("div")
+    leftFirstRowDiv4.classList.add("left-row")
+    leftFirstRowDiv4.classList.add("flex-container")
+    let schoolNameP4 = document.createElement("p")
+    schoolNameP4.classList.add("text-bold")
+    schoolNameP4.textContent = `${el.schoolname4}`  
+    let schoolDetails4 = document.createElement("p")
+    schoolDetails4.textContent = ` `
+    schoolDetails4.classList.add("text-margin")
+    leftFirstRowDiv4.append(schoolNameP4, schoolDetails4)
+
+    let rightFirstRowDiv4 = document.createElement("div")
+    rightFirstRowDiv4.classList.add("right-row")
+
+    let schoolLocationP4 = document.createElement("p")
+    schoolLocationP4.classList.add("text-bold")
+    schoolLocationP4.textContent = `${el.schoolcity4}, ${el.schoolstate4} ${el.attendancemethod4}`
+    rightFirstRowDiv4.append(schoolLocationP4)
+    educationFirstRowDiv4.append(leftFirstRowDiv4, rightFirstRowDiv4)
+
+    let educationSecondRowDiv4 = document.createElement("div")
+    educationSecondRowDiv4.classList.add("flex-container")
+    let leftSecondRowDiv4 = document.createElement("div")
+    leftSecondRowDiv4.classList.add("left-row")
+    let certificateTitleDiv4 = document.createElement("div")
+    let courseTitleP4 = document.createElement("p")
+    courseTitleP4.textContent = `${el.certificate4}` 
+    certificateTitleDiv4.append(courseTitleP4)
+    leftSecondRowDiv4.append(certificateTitleDiv4)
+
+    let rightSecondRowDiv4 = document.createElement("div")
+    rightSecondRowDiv4.classList.add("right-row")
+
+    let certificateDateDiv4 = document.createElement("div")
+    let schoolYearP4 = document.createElement("p")
+    schoolYearP4.textContent = `${el.completionmonth4} ${el.completionyear4}` 
+    certificateDateDiv4.append(schoolYearP4)
+    rightSecondRowDiv4.append(certificateDateDiv4)
+    educationSecondRowDiv4.append(leftSecondRowDiv4, rightSecondRowDiv4)
+
+    educationWrapper4.append(educationNewLine4, educationFirstRowDiv4, educationSecondRowDiv4) 
+    educationDiv.append(educationWrapper4)
+
+}  
+
+resumeBodyDiv.append(educationDiv)
+
+
+
 //==========================================================
 
-        //     educationDiv.append(educationHeaderDiv, educationWrapper)
-        educationDiv.append(educationHeaderDiv, educationWrapper, educationWrapper2, educationWrapper3)
-        //     educationDiv.append(educationNewLine2, educationFirstRowDiv2, educationSecondRowDiv2, educationUl2)
-        //     educationDiv.append(educationNewLine3, educationFirstRowDiv3, educationSecondRowDiv3, educationUl3)
-            resumeBodyDiv.append(educationDiv)
-        //     resumeBodyDiv.append(educationNewLine, educationHeaderDiv, educationFirstRowDiv, educationSecondRowDiv, educationUl)
-    
-            // Education section : End
+// ============== Education section : End ============================
     
             // Skills section : Begin
             let skillsDiv = document.createElement("div")
@@ -344,19 +692,24 @@ educationWrapper3.append(educationNewLine3, educationFirstRowDiv3, educationSeco
             skillsTechP.textContent ="Technical Skills:"
             let skillsTechOneSpan = document.createElement("span")
             skillsTechOneSpan.classList.add("skills-margin", "rightSkillsType")
-            skillsTechOneSpan.textContent = `${el.skillTechOne}, ${el.skillTechTwo}, ${el.skillTechThree}, ${el.skillTechFour}, ${el.skillTechFive}, ${el.skillTechSix}, ${el.skillTechSeven}, ${el.skillTechEight}, ${el.skillTechNine}, ${el.skillTechTen}  `
-            let skillsTechTwoSpan = document.createElement("span")
-            skillsTechTwoSpan.textContent =``
-            let skillsTechThreeSpan= document.createElement("span")
-            skillsTechThreeSpan.textContent =""
-            let skillsTechFourSpan = document.createElement("span")
-            skillsTechFourSpan.textContent =""
-            let skillsTechFiveSpan = document.createElement("span")
-            skillsTechFiveSpan.textContent =" "
-            let skillsTechSixSpan = document.createElement("span")
-            skillsTechSixSpan.textContent =" "
-            skillsTechDiv.append(skillsTechP, skillsTechOneSpan, skillsTechTwoSpan, skillsTechThreeSpan, skillsTechFourSpan, skillsTechFiveSpan, skillsTechSixSpan)
+            skillsTechOneSpan.textContent = `${el.skill_tech1}, ${el.skill_tech2}, ${el.skill_tech3}, ${el.skill_tech4}, ${el.skill_tech5}, ${el.skill_tech6}, ${el.skill_tech7}, ${el.skill_tech8}, ${el.skill_tech9}, ${el.skill_tech10}  `
+            // let skillsTechTwoSpan = document.createElement("span")
+            // skillsTechTwoSpan.textContent =``
+            // let skillsTechThreeSpan= document.createElement("span")
+            // skillsTechThreeSpan.textContent =""
+            // let skillsTechFourSpan = document.createElement("span")
+            // skillsTechFourSpan.textContent =""
+            // let skillsTechFiveSpan = document.createElement("span")
+            // skillsTechFiveSpan.textContent =" "
+            // let skillsTechSixSpan = document.createElement("span")
+            // skillsTechSixSpan.textContent =" "
+            skillsTechDiv.append(skillsTechP, skillsTechOneSpan)
     
+
+            // skillsTechDiv.append(skillsTechP, skillsTechOneSpan, skillsTechTwoSpan, skillsTechThreeSpan, skillsTechFourSpan, skillsTechFiveSpan, skillsTechSixSpan)
+    
+
+
             let skillsMarketDiv = document.createElement("div")
             skillsMarketDiv.classList.add("flex-container", "skills-section-container")
             let skillsMarketP = document.createElement("p")
@@ -364,26 +717,19 @@ educationWrapper3.append(educationNewLine3, educationFirstRowDiv3, educationSeco
             skillsMarketP.textContent ="Marketable Skills:"
             let skillsMarketOne = document.createElement("span")
             skillsMarketOne.classList.add('skills-margin', 'rightSkillsType')
-            skillsMarketOne.textContent = `${el.skillMarketOne}, ${el.skillMarketTwo}, ${el.skillMarketThree}, ${el.skillMarketFour}, ${el.skillMarketFive}, ${el.skillMarketSix}, ${el.skillMarketSeven}, ${el.skillMarketEight}, ${el.skillMarketNine}, ${el.skillMarketTen}  `
-            let skillsMarketTwo = document.createElement("span")
-            skillsMarketTwo.textContent =""
-            let skillsMarketThree = document.createElement("span")
-            skillsMarketThree.textContent =""
-            let skillsMarketFour = document.createElement("span")
-            skillsMarketFour.textContent =""
-            let skillsMarketFive = document.createElement("span")
-            skillsMarketFive.textContent =""
-            let skillsMarketSix = document.createElement("span")
-            skillsMarketSix.textContent =""
-            skillsMarketDiv.append(skillsMarketP, skillsMarketOne, skillsMarketTwo, skillsMarketThree, skillsMarketFour, skillsMarketFive, skillsMarketSix)
+            skillsMarketOne.textContent = `${el.skill_market1}, ${el.skill_market2}, ${el.skill_market3}, ${el.skill_market4}, ${el.skill_market5}, ${el.skill_market6}, ${el.skill_market7}, ${el.skill_market8}, ${el.skill_market9}, ${el.skill_market10}  `
+           
+            skillsMarketDiv.append(skillsMarketP, skillsMarketOne)
     
+           
             skillsDetailDiv.append(skillsTechDiv, skillsMarketDiv)
             skillsDiv.append(skillsP, skillsDetailDiv)
             resumeDiv.append(skillsDiv)
-            // Skills section : End
+
+//================== Skills section : end================================
+               
     
-    
-            // Projects section : Begin
+//================== Projects section : Begin================================
     
             let projectsDiv = document.createElement("div")
             projectsDiv.classList.add("section-container")
@@ -676,16 +1022,151 @@ educationWrapper3.append(educationNewLine3, educationFirstRowDiv3, educationSeco
                 projectSubDiv1, projectSubDiv2, projectSubDiv3)
             resumeDiv.append(projectsDiv)
     
-            // Projects section : End
+//=================== Projects section : End=============================
             
-    
-            // Work experience : Begin ===============================
+//=======================Technical work Experience : BEGIN=============================== 
+
+  
+let techWorkDiv = document.createElement("div") // main container
+let techWorkHeaderDiv = document.createElement("div")
+let techWorkHeaderP = document.createElement("p")
+techWorkHeaderP.classList.add("headerSection", "text-bold", 'top-margin')
+techWorkHeaderP.textContent = "TECHNICAL WORK EXPERIENCE"
+techWorkHeaderDiv.append(techWorkHeaderP)
+
+    if(el.workType_1 === "IT") {    
+ 
+        let techWorkNewLine = document.createElement("br")
+
+        let techFirstRowOneDiv = document.createElement("div")
+        techFirstRowOneDiv.classList.add("flex-container")
+        let techFirstRowOneLeftDiv = document.createElement("div")
+        techFirstRowOneLeftDiv.classList.add("left-row")
+        let techFirstRowOneLeftP =document.createElement("p")
+        techFirstRowOneLeftP.classList.add("text-bold")
+        techFirstRowOneLeftP.textContent = `${el.companyName_1}`
+        techFirstRowOneLeftDiv.append(techFirstRowOneLeftP)
+
+        let techFirstRowOneRightDiv = document.createElement("div")
+        techFirstRowOneRightDiv.classList.add("right-row")
+        let techFirstRowOneRightP =document.createElement("p")
+        techFirstRowOneRightP.classList.add("text-bold")
+        techFirstRowOneRightP.textContent = ` ${el.companyCity_1}, ${el.companyState_1}`
+        techFirstRowOneRightDiv.append(techFirstRowOneRightP)
+
+        let techFirstRowTwoDiv = document.createElement("div")
+        techFirstRowTwoDiv.classList.add("flex-container")
+        let techFirstRowTwoLeftDiv = document.createElement("div")
+        techFirstRowTwoLeftDiv.classList.add("left-row")
+        let techFirstRowTwoLeftP =document.createElement("p")
+        techFirstRowTwoLeftP.textContent = `${el.jobRole_1}`
+        techFirstRowTwoDiv.append(techFirstRowTwoLeftP)
+
+        let techFirstRowTwoRightDiv = document.createElement("div")
+        techFirstRowTwoRightDiv.classList.add("right-row")
+        let techFirstRowTwoRightP =document.createElement("p")
+        // firstRowTwoRightP.classList.add("text-bold")
+        techFirstRowTwoRightP.textContent = `${el.workStartMonth_1} ${el.workStart_year_1} - ${el.workEndMonth_1} ${el.workEndYear_1}`
+        techFirstRowTwoRightDiv.append(techFirstRowTwoRightP)
+
+        let techWorkRealizationOneFirstDiv1 = document.createElement("div")
+        techWorkRealizationOneFirstDiv1.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst1 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst1.classList.add("circle")
+        let techWorkRealizationOneFirstP1 = document.createElement("p")
+        techWorkRealizationOneFirstP1.textContent = `${el.workAchiev1_1}`
+        techWorkRealizationOneFirstDiv1.append(spanTechWorkRealizationOneFirst1, techWorkRealizationOneFirstP1)
+
+        let techWorkRealizationOneFirstDiv2 = document.createElement("div")
+        techWorkRealizationOneFirstDiv2.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst2 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst2.classList.add("circle")
+        let techWorkRealizationOneFirstP2 = document.createElement("p")
+        techWorkRealizationOneFirstP2.textContent = `${el.workAchiev2_1}`
+        techWorkRealizationOneFirstDiv2.append(spanTechWorkRealizationOneFirst2, techWorkRealizationOneFirstP2)
+
+        let techWorkRealizationOneFirstDiv3 = document.createElement("div")
+        techWorkRealizationOneFirstDiv3.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst3 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst3.classList.add("circle")
+        let techWorkRealizationOneFirstP3 = document.createElement("p")
+        techWorkRealizationOneFirstP3.textContent = `${el.workAchiev3_1}`
+        techWorkRealizationOneFirstDiv3.append(spanTechWorkRealizationOneFirst3, techWorkRealizationOneFirstP3)
+
+        let techWorkRealizationOneFirstDiv4 = document.createElement("div")
+        techWorkRealizationOneFirstDiv4.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst4 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst4.classList.add("circle")
+        let techWorkRealizationOneFirstP4 = document.createElement("p")
+        techWorkRealizationOneFirstP4.textContent = `${el.workAchiev4_1}`
+        techWorkRealizationOneFirstDiv4.append(spanTechWorkRealizationOneFirst4, techWorkRealizationOneFirstP4)
+
+        let techWorkRealizationOneFirstDiv5 = document.createElement("div")
+        techWorkRealizationOneFirstDiv5.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst5 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst5.classList.add("circle")
+        let techWorkRealizationOneFirstP5 = document.createElement("p")
+        techWorkRealizationOneFirstP5.textContent = `${el.workAchiev5_1}`
+        techWorkRealizationOneFirstDiv5.append(spanTechWorkRealizationOneFirst5, techWorkRealizationOneFirstP5)
+
+        let techWorkRealizationOneFirstDiv6 = document.createElement("div")
+        techWorkRealizationOneFirstDiv6.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst6 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst6.classList.add("circle")
+        let techWorkRealizationOneFirstP6 = document.createElement("p")
+        techWorkRealizationOneFirstP6.textContent = `${el.workAchiev6_1}`
+        techWorkRealizationOneFirstDiv6.append(spanTechWorkRealizationOneFirst6, techWorkRealizationOneFirstP6)
+
+        let techWorkRealizationOneFirstDiv7 = document.createElement("div")
+        techWorkRealizationOneFirstDiv7.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst7 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst7.classList.add("circle")
+        let techWorkRealizationOneFirstP7 = document.createElement("p")
+        techWorkRealizationOneFirstP7.textContent = `${el.workAchiev7_1}`
+        techWorkRealizationOneFirstDiv7.append(spanTechWorkRealizationOneFirst7, techWorkRealizationOneFirstP7)
+
+        let techWorkRealizationOneFirstDiv8 = document.createElement("div")
+        techWorkRealizationOneFirstDiv8.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst8 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst8.classList.add("circle")
+        let techWorkRealizationOneFirstP8 = document.createElement("p")
+        techWorkRealizationOneFirstP8.textContent = `${el.workAchiev8_1}`
+        techWorkRealizationOneFirstDiv8.append(spanTechWorkRealizationOneFirst8, techWorkRealizationOneFirstP8)
+
+        let techWorkRealizationOneFirstDiv9 = document.createElement("div")
+        techWorkRealizationOneFirstDiv9.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst9 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst9.classList.add("circle")
+        let techWorkRealizationOneFirstP9 = document.createElement("p")
+        techWorkRealizationOneFirstP9.textContent = `${el.workAchiev9_1}`
+        techWorkRealizationOneFirstDiv9.append(spanTechWorkRealizationOneFirst9, techWorkRealizationOneFirstP9)
+
+        let techWorkRealizationOneFirstDiv10 = document.createElement("div")
+        techWorkRealizationOneFirstDiv10.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst10 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst10.classList.add("circle")
+        let techWorkRealizationOneFirstP10 = document.createElement("p")
+        techWorkRealizationOneFirstP10.textContent = `${el.workAchiev10_1}`
+        techWorkRealizationOneFirstDiv10.append(spanTechWorkRealizationOneFirst10, techWorkRealizationOneFirstP10)
+
+        techFirstRowOneDiv.append(techFirstRowOneLeftDiv, techFirstRowOneRightDiv)
+        techFirstRowTwoDiv.append(techFirstRowTwoLeftDiv, techFirstRowTwoRightDiv)
+
+        techWorkDiv.append(techWorkHeaderDiv, techWorkNewLine, techFirstRowOneDiv, techFirstRowTwoDiv, techWorkRealizationOneFirstDiv1, techWorkRealizationOneFirstDiv2, techWorkRealizationOneFirstDiv3, techWorkRealizationOneFirstDiv4, techWorkRealizationOneFirstDiv5, techWorkRealizationOneFirstDiv6, techWorkRealizationOneFirstDiv7, techWorkRealizationOneFirstDiv8, techWorkRealizationOneFirstDiv9, techWorkRealizationOneFirstDiv10)
+
+    }
+
+resumeDiv.append(techWorkDiv)
+
+
+// ======================Technical work Experience : END=================================
+//================== Other Work experience : Begin ===============================
     
             let workDiv = document.createElement("div") // main container
             let workHeaderDiv = document.createElement("div")
             let workHeaderP = document.createElement("p")
             workHeaderP.classList.add("headerSection", "text-bold", 'top-margin')
-            workHeaderP.textContent = "WORK EXPERIENCE"
+            workHeaderP.textContent = "OTHER WORK EXPERIENCE"
             workHeaderDiv.append(workHeaderP)
     
             let workNewLine = document.createElement("br")
