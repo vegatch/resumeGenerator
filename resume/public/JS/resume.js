@@ -1,6 +1,10 @@
-import {renderToHtml} from './render.js';
+// import {renderToHtml} from './render.js';
 // import {printSave} from './printSave.js'
 // printSave();
+
+
+
+
 let loadToHtml = function(data){
     const resumeDiv = document.querySelector('.container');
 
@@ -58,9 +62,10 @@ let loadToHtml = function(data){
 // ==================================================================================
 //                              Education section : Begin
 // ==================================================================================    
+
             let educationDiv = document.createElement("div")
             educationDiv.classList.add("education-container") // main div
-            
+            let EduNewLine1 = document.createElement("br")
             let educationHeaderDiv = document.createElement("div")
             let educationP = document.createElement("p")
             educationP.classList.add("headerSection")
@@ -150,7 +155,7 @@ let loadToHtml = function(data){
                 achievementDivThree.append(educationThree)
                 educationUl.append(achievementDivThree)
                 educationWrapper.append(educationFirstRowDiv, educationSecondRowDiv, educationUl) 
-                educationDiv.append(educationHeaderDiv, educationWrapper)
+                educationDiv.append(EduNewLine1, educationHeaderDiv, educationWrapper)
 
             }
             else
@@ -1033,128 +1038,131 @@ let techWorkHeaderP = document.createElement("p")
 techWorkHeaderP.classList.add("headerSection", "text-bold", 'top-margin')
 techWorkHeaderP.textContent = "TECHNICAL WORK EXPERIENCE"
 techWorkHeaderDiv.append(techWorkHeaderP)
+techWorkDiv.append(techWorkHeaderDiv)
 
     if(el.workType_1 === "IT") {    
  
-        let techWorkNewLine = document.createElement("br")
+        let techWorkNewLine1 = document.createElement("br")
 
-        let techFirstRowOneDiv = document.createElement("div")
-        techFirstRowOneDiv.classList.add("flex-container")
-        let techFirstRowOneLeftDiv = document.createElement("div")
-        techFirstRowOneLeftDiv.classList.add("left-row")
-        let techFirstRowOneLeftP =document.createElement("p")
-        techFirstRowOneLeftP.classList.add("text-bold")
-        techFirstRowOneLeftP.textContent = `${el.companyName_1}`
-        techFirstRowOneLeftDiv.append(techFirstRowOneLeftP)
+        let techFirstRowOneDiv1 = document.createElement("div")
+        techFirstRowOneDiv1.classList.add("flex-container")
+        let techFirstRowOneLeftDiv1 = document.createElement("div")
+        techFirstRowOneLeftDiv1.classList.add("left-row")
+        let techFirstRowOneLeftP1 =document.createElement("p")
+        techFirstRowOneLeftP1.classList.add("text-bold")
+        techFirstRowOneLeftP1.textContent = `${el.companyName_1}`
+        techFirstRowOneLeftDiv1.append(techFirstRowOneLeftP1)
 
-        let techFirstRowOneRightDiv = document.createElement("div")
-        techFirstRowOneRightDiv.classList.add("right-row")
-        let techFirstRowOneRightP =document.createElement("p")
-        techFirstRowOneRightP.classList.add("text-bold")
-        techFirstRowOneRightP.textContent = ` ${el.companyCity_1}, ${el.companyState_1}`
-        techFirstRowOneRightDiv.append(techFirstRowOneRightP)
+        let techFirstRowOneRightDiv1 = document.createElement("div")
+        techFirstRowOneRightDiv1.classList.add("right-row")
+        let techFirstRowOneRightP1 =document.createElement("p")
+        techFirstRowOneRightP1.classList.add("text-bold")
+        techFirstRowOneRightP1.textContent = ` ${el.companyCity_1}, ${el.companyState_1}`
+        techFirstRowOneRightDiv1.append(techFirstRowOneRightP1)
 
-        let techFirstRowTwoDiv = document.createElement("div")
-        techFirstRowTwoDiv.classList.add("flex-container")
-        let techFirstRowTwoLeftDiv = document.createElement("div")
-        techFirstRowTwoLeftDiv.classList.add("left-row")
-        let techFirstRowTwoLeftP =document.createElement("p")
-        techFirstRowTwoLeftP.textContent = `${el.jobRole_1}`
-        techFirstRowTwoDiv.append(techFirstRowTwoLeftP)
+        let techFirstRowTwoDiv1 = document.createElement("div")
+        techFirstRowTwoDiv1.classList.add("flex-container")
+        let techFirstRowTwoLeftDiv1 = document.createElement("div")
+        techFirstRowTwoLeftDiv1.classList.add("left-row")
+        let techFirstRowTwoLeftP1 =document.createElement("p")
+        techFirstRowTwoLeftP1.textContent = `${el.jobRole_1}`
+        techFirstRowTwoDiv1.append(techFirstRowTwoLeftP1)
 
-        let techFirstRowTwoRightDiv = document.createElement("div")
-        techFirstRowTwoRightDiv.classList.add("right-row")
-        let techFirstRowTwoRightP =document.createElement("p")
+        let techFirstRowTwoRightDiv1 = document.createElement("div")
+        techFirstRowTwoRightDiv1.classList.add("right-row")
+        let techFirstRowTwoRightP1 =document.createElement("p")
         // firstRowTwoRightP.classList.add("text-bold")
-        techFirstRowTwoRightP.textContent = `${el.workStartMonth_1} ${el.workStart_year_1} - ${el.workEndMonth_1} ${el.workEndYear_1}`
-        techFirstRowTwoRightDiv.append(techFirstRowTwoRightP)
+        techFirstRowTwoRightP1.textContent = `${el.workStartMonth_1} ${el.workStart_year_1} - ${el.workEndMonth_1} ${el.workEndYear_1}`
+        techFirstRowTwoRightDiv1.append(techFirstRowTwoRightP1)
 
-        let techWorkRealizationOneFirstDiv1 = document.createElement("div")
-        techWorkRealizationOneFirstDiv1.classList.add("flex-container")
-        let spanTechWorkRealizationOneFirst1 = document.createElement("span") 
-        spanTechWorkRealizationOneFirst1.classList.add("circle")
-        let techWorkRealizationOneFirstP1 = document.createElement("p")
-        techWorkRealizationOneFirstP1.textContent = `${el.workAchiev1_1}`
-        techWorkRealizationOneFirstDiv1.append(spanTechWorkRealizationOneFirst1, techWorkRealizationOneFirstP1)
+        let techWorkRealizationOneFirstDiv1_1 = document.createElement("div")
+        techWorkRealizationOneFirstDiv1_1.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst1_1 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst1_1.classList.add("circle")
+        let techWorkRealizationOneFirstP1_1 = document.createElement("p")
+        techWorkRealizationOneFirstP1_1.textContent = `${el.workAchiev1_1}`
+        techWorkRealizationOneFirstDiv1_1.append(spanTechWorkRealizationOneFirst1_1, techWorkRealizationOneFirstP1_1)
 
-        let techWorkRealizationOneFirstDiv2 = document.createElement("div")
-        techWorkRealizationOneFirstDiv2.classList.add("flex-container")
-        let spanTechWorkRealizationOneFirst2 = document.createElement("span") 
-        spanTechWorkRealizationOneFirst2.classList.add("circle")
-        let techWorkRealizationOneFirstP2 = document.createElement("p")
-        techWorkRealizationOneFirstP2.textContent = `${el.workAchiev2_1}`
-        techWorkRealizationOneFirstDiv2.append(spanTechWorkRealizationOneFirst2, techWorkRealizationOneFirstP2)
+        let techWorkRealizationOneFirstDiv2_1 = document.createElement("div")
+        techWorkRealizationOneFirstDiv2_1.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst2_1 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst2_1.classList.add("circle")
+        let techWorkRealizationOneFirstP2_1 = document.createElement("p")
+        techWorkRealizationOneFirstP2_1.textContent = `${el.workAchiev2_1}`
+        techWorkRealizationOneFirstDiv2_1.append(spanTechWorkRealizationOneFirst2_1, techWorkRealizationOneFirstP2_1)
 
-        let techWorkRealizationOneFirstDiv3 = document.createElement("div")
-        techWorkRealizationOneFirstDiv3.classList.add("flex-container")
-        let spanTechWorkRealizationOneFirst3 = document.createElement("span") 
-        spanTechWorkRealizationOneFirst3.classList.add("circle")
-        let techWorkRealizationOneFirstP3 = document.createElement("p")
-        techWorkRealizationOneFirstP3.textContent = `${el.workAchiev3_1}`
-        techWorkRealizationOneFirstDiv3.append(spanTechWorkRealizationOneFirst3, techWorkRealizationOneFirstP3)
+        let techWorkRealizationOneFirstDiv3_1 = document.createElement("div")
+        techWorkRealizationOneFirstDiv3_1.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst3_1 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst3_1.classList.add("circle")
+        let techWorkRealizationOneFirstP3_1 = document.createElement("p")
+        techWorkRealizationOneFirstP3_1.textContent = `${el.workAchiev3_1}`
+        techWorkRealizationOneFirstDiv3_1.append(spanTechWorkRealizationOneFirst3_1, techWorkRealizationOneFirstP3_1)
 
-        let techWorkRealizationOneFirstDiv4 = document.createElement("div")
-        techWorkRealizationOneFirstDiv4.classList.add("flex-container")
-        let spanTechWorkRealizationOneFirst4 = document.createElement("span") 
-        spanTechWorkRealizationOneFirst4.classList.add("circle")
-        let techWorkRealizationOneFirstP4 = document.createElement("p")
-        techWorkRealizationOneFirstP4.textContent = `${el.workAchiev4_1}`
-        techWorkRealizationOneFirstDiv4.append(spanTechWorkRealizationOneFirst4, techWorkRealizationOneFirstP4)
+        let techWorkRealizationOneFirstDiv4_1 = document.createElement("div")
+        techWorkRealizationOneFirstDiv4_1.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst4_1 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst4_1.classList.add("circle")
+        let techWorkRealizationOneFirstP4_1 = document.createElement("p")
+        techWorkRealizationOneFirstP4_1.textContent = `${el.workAchiev4_1}`
+        techWorkRealizationOneFirstDiv4_1.append(spanTechWorkRealizationOneFirst4_1, techWorkRealizationOneFirstP4_1)
 
-        let techWorkRealizationOneFirstDiv5 = document.createElement("div")
-        techWorkRealizationOneFirstDiv5.classList.add("flex-container")
-        let spanTechWorkRealizationOneFirst5 = document.createElement("span") 
-        spanTechWorkRealizationOneFirst5.classList.add("circle")
-        let techWorkRealizationOneFirstP5 = document.createElement("p")
-        techWorkRealizationOneFirstP5.textContent = `${el.workAchiev5_1}`
-        techWorkRealizationOneFirstDiv5.append(spanTechWorkRealizationOneFirst5, techWorkRealizationOneFirstP5)
+        let techWorkRealizationOneFirstDiv5_1 = document.createElement("div")
+        techWorkRealizationOneFirstDiv5_1.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst5_1 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst5_1.classList.add("circle")
+        let techWorkRealizationOneFirstP5_1 = document.createElement("p")
+        techWorkRealizationOneFirstP5_1.textContent = `${el.workAchiev5_1}`
+        techWorkRealizationOneFirstDiv5_1.append(spanTechWorkRealizationOneFirst5_1, techWorkRealizationOneFirstP5_1)
 
-        let techWorkRealizationOneFirstDiv6 = document.createElement("div")
-        techWorkRealizationOneFirstDiv6.classList.add("flex-container")
-        let spanTechWorkRealizationOneFirst6 = document.createElement("span") 
-        spanTechWorkRealizationOneFirst6.classList.add("circle")
-        let techWorkRealizationOneFirstP6 = document.createElement("p")
-        techWorkRealizationOneFirstP6.textContent = `${el.workAchiev6_1}`
-        techWorkRealizationOneFirstDiv6.append(spanTechWorkRealizationOneFirst6, techWorkRealizationOneFirstP6)
+        let techWorkRealizationOneFirstDiv6_1 = document.createElement("div")
+        techWorkRealizationOneFirstDiv6_1.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst6_1 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst6_1.classList.add("circle")
+        let techWorkRealizationOneFirstP6_1 = document.createElement("p")
+        techWorkRealizationOneFirstP6_1.textContent = `${el.workAchiev6_1}`
+        techWorkRealizationOneFirstDiv6_1.append(spanTechWorkRealizationOneFirst6_1, techWorkRealizationOneFirstP6_1)
 
-        let techWorkRealizationOneFirstDiv7 = document.createElement("div")
-        techWorkRealizationOneFirstDiv7.classList.add("flex-container")
-        let spanTechWorkRealizationOneFirst7 = document.createElement("span") 
-        spanTechWorkRealizationOneFirst7.classList.add("circle")
-        let techWorkRealizationOneFirstP7 = document.createElement("p")
-        techWorkRealizationOneFirstP7.textContent = `${el.workAchiev7_1}`
-        techWorkRealizationOneFirstDiv7.append(spanTechWorkRealizationOneFirst7, techWorkRealizationOneFirstP7)
+        let techWorkRealizationOneFirstDiv7_1 = document.createElement("div")
+        techWorkRealizationOneFirstDiv7_1.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst7_1 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst7_1.classList.add("circle")
+        let techWorkRealizationOneFirstP7_1 = document.createElement("p")
+        techWorkRealizationOneFirstP7_1.textContent = `${el.workAchiev7_1}`
+        techWorkRealizationOneFirstDiv7_1.append(spanTechWorkRealizationOneFirst7_1, techWorkRealizationOneFirstP7_1)
 
-        let techWorkRealizationOneFirstDiv8 = document.createElement("div")
-        techWorkRealizationOneFirstDiv8.classList.add("flex-container")
-        let spanTechWorkRealizationOneFirst8 = document.createElement("span") 
-        spanTechWorkRealizationOneFirst8.classList.add("circle")
-        let techWorkRealizationOneFirstP8 = document.createElement("p")
-        techWorkRealizationOneFirstP8.textContent = `${el.workAchiev8_1}`
-        techWorkRealizationOneFirstDiv8.append(spanTechWorkRealizationOneFirst8, techWorkRealizationOneFirstP8)
+        let techWorkRealizationOneFirstDiv8_1 = document.createElement("div")
+        techWorkRealizationOneFirstDiv8_1.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst8_1 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst8_1.classList.add("circle")
+        let techWorkRealizationOneFirstP8_1 = document.createElement("p")
+        techWorkRealizationOneFirstP8_1.textContent = `${el.workAchiev8_1}`
+        techWorkRealizationOneFirstDiv8_1.append(spanTechWorkRealizationOneFirst8_1, techWorkRealizationOneFirstP8_1)
 
-        let techWorkRealizationOneFirstDiv9 = document.createElement("div")
-        techWorkRealizationOneFirstDiv9.classList.add("flex-container")
-        let spanTechWorkRealizationOneFirst9 = document.createElement("span") 
-        spanTechWorkRealizationOneFirst9.classList.add("circle")
-        let techWorkRealizationOneFirstP9 = document.createElement("p")
-        techWorkRealizationOneFirstP9.textContent = `${el.workAchiev9_1}`
-        techWorkRealizationOneFirstDiv9.append(spanTechWorkRealizationOneFirst9, techWorkRealizationOneFirstP9)
+        let techWorkRealizationOneFirstDiv9_1 = document.createElement("div")
+        techWorkRealizationOneFirstDiv9_1.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst9_1 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst9_1.classList.add("circle")
+        let techWorkRealizationOneFirstP9_1 = document.createElement("p")
+        techWorkRealizationOneFirstP9_1.textContent = `${el.workAchiev9_1}`
+        techWorkRealizationOneFirstDiv9_1.append(spanTechWorkRealizationOneFirst9_1, techWorkRealizationOneFirstP9_1)
 
-        let techWorkRealizationOneFirstDiv10 = document.createElement("div")
-        techWorkRealizationOneFirstDiv10.classList.add("flex-container")
-        let spanTechWorkRealizationOneFirst10 = document.createElement("span") 
-        spanTechWorkRealizationOneFirst10.classList.add("circle")
-        let techWorkRealizationOneFirstP10 = document.createElement("p")
-        techWorkRealizationOneFirstP10.textContent = `${el.workAchiev10_1}`
-        techWorkRealizationOneFirstDiv10.append(spanTechWorkRealizationOneFirst10, techWorkRealizationOneFirstP10)
+        let techWorkRealizationOneFirstDiv10_1 = document.createElement("div")
+        techWorkRealizationOneFirstDiv10_1.classList.add("flex-container")
+        let spanTechWorkRealizationOneFirst10_1 = document.createElement("span") 
+        spanTechWorkRealizationOneFirst10_1.classList.add("circle")
+        let techWorkRealizationOneFirstP10_1 = document.createElement("p")
+        techWorkRealizationOneFirstP10_1.textContent = `${el.workAchiev10_1}`
+        techWorkRealizationOneFirstDiv10_1.append(spanTechWorkRealizationOneFirst10_1, techWorkRealizationOneFirstP10_1)
 
-        techFirstRowOneDiv.append(techFirstRowOneLeftDiv, techFirstRowOneRightDiv)
-        techFirstRowTwoDiv.append(techFirstRowTwoLeftDiv, techFirstRowTwoRightDiv)
+        techFirstRowOneDiv1.append(techFirstRowOneLeftDiv1, techFirstRowOneRightDiv1)
+        techFirstRowTwoDiv1.append(techFirstRowTwoLeftDiv1, techFirstRowTwoRightDiv1)
 
-        techWorkDiv.append(techWorkHeaderDiv, techWorkNewLine, techFirstRowOneDiv, techFirstRowTwoDiv, techWorkRealizationOneFirstDiv1, techWorkRealizationOneFirstDiv2, techWorkRealizationOneFirstDiv3, techWorkRealizationOneFirstDiv4, techWorkRealizationOneFirstDiv5, techWorkRealizationOneFirstDiv6, techWorkRealizationOneFirstDiv7, techWorkRealizationOneFirstDiv8, techWorkRealizationOneFirstDiv9, techWorkRealizationOneFirstDiv10)
+        techWorkDiv.append(techWorkNewLine1, techFirstRowOneDiv1, techFirstRowTwoDiv1, techWorkRealizationOneFirstDiv1_1, techWorkRealizationOneFirstDiv2_1, techWorkRealizationOneFirstDiv3_1, techWorkRealizationOneFirstDiv4_1, techWorkRealizationOneFirstDiv5_1, techWorkRealizationOneFirstDiv6_1, techWorkRealizationOneFirstDiv7_1, techWorkRealizationOneFirstDiv8_1, techWorkRealizationOneFirstDiv9_1, techWorkRealizationOneFirstDiv10_1)
 
     }
+
+
 
 resumeDiv.append(techWorkDiv)
 

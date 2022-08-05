@@ -1,4 +1,4 @@
-import {renderToHtml} from './render.js'
+// import {renderToHtml} from './render.js'
 // import { loadToHtml } from './resume.js'
 
 // import {shortid} from "https://unpkg.com/shortid-dist@1.0.5/dist/shortid-2.2.13.min.js"
@@ -709,7 +709,7 @@ fetch(states)
 
 //   }
   
-  renderToHtml();
+//   renderToHtml();
 //   loadToHtml(data);
 
 
