@@ -1,9 +1,10 @@
 body{
     font-family: 'Times New Roman', Times, serif;
+    font-size: 1.1em;
     
 }
 .container{
-    width: 60vw;
+    width: 70vw;
     margin: auto;
 }
 
@@ -22,19 +23,28 @@ body{
      /* margin-top: 5rem; */
 }
 
+.name-div{
+    margin-bottom: .4em;
+}
+
 .name-div p:first-child{
-    font-size: 2rem;
+    font-size: 1.9rem;
     font-weight: bold;
     padding-top: 2rem;
+    margin-bottom: .2rem;
 }
 
 .name-div p:last-child {
-    font-size: 1.3rem;
-    line-height: 1.6rem;
+    font-size: 1.4rem;
+    /* line-height: 1.6rem; */
 }
+
+
+
 .contact-div{
     display: flex;
     justify-content: center;
+    margin-bottom: .5em;
 }
 
 .contact-div p{
@@ -46,7 +56,8 @@ body{
 .media-container{
     display: flex;
     justify-content: center;
-    margin: .4rem;
+    /* margin: .4rem; */
+    margin-bottom: 1em;
 }
 
 .media-container a{
@@ -103,10 +114,12 @@ body{
     margin: .3rem 0rem;
 }
 
-.circle{
-    width: .3rem;
-    height: .3rem;
+.circle,
+.fa-circle-dot{
+    /* width: .3rem;
+    height: .3rem; */
     border-radius: 50%;
+    font-size: .4rem;
     background-color: black;
     margin-right: .5rem ;
     margin-left: 1.8rem;
@@ -118,12 +131,12 @@ body{
 }
 
 .left-row{
-    width: 75vw;
+    width: 70vw;
 }
 
 .right-row{
     text-align: right;
-    width: 30vw;
+    width: 28vw;
 }
 
 .rightSecondDiv-container{
@@ -156,3 +169,12 @@ body{
     margin-left: .3rem;
 }
 
+.list{
+    list-style-position: outside;
+    
+}
+.list li{
+    list-style-position: outside;
+    padding-left: 2rem;
+    padding-top: .6rem;
+}

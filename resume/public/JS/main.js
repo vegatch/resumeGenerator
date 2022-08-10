@@ -252,10 +252,16 @@ const educationUrl = '/api/education'
 // ==================== clear radion Button and CheckBox ===========
 
 let clearRadio = function(myName){
-const radioElement = document.getElementsByName(' " ' + myName +  ' " ');
-   for(let i=0; i < radioElement.length; i++)
+const radioElement = document.getElementsByName(myName);
+   for(let i = 0; i < radioElement.length; i +=1)
    return radioElement[i].checked = false;
+   
 }
+//  function refuses to work 
+
+// clearRadio("school_attendance_method")
+// console.log('log to see', clearRadio("school_attendance_method"))
+
 
 
 
@@ -370,6 +376,11 @@ formTitle.addEventListener('submit', (e) =>{
     titleId.defaultValue = shortid.generate();
     document.querySelector('#title1').value = '';
     document.querySelector('#title2').value = '';
+
+    hideInput()
+    document.querySelector(".box-Title2").style.display = "none"
+    document.querySelector(".box-Title1").style.display = "block"
+    document.querySelector("#title2").readOnly = false;
     
 
 })
@@ -459,7 +470,6 @@ formObjective.addEventListener('submit', (e) =>{
     // document.querySelector('#objective_id').defaultValue = generateString(12);
     document.querySelector('#objective_id').defaultValue = shortid.generate();
     document.querySelector("#objective").value ='';
-
 
 })
 
@@ -575,6 +585,21 @@ formProject.addEventListener('submit', (e) =>{
 
 
 //========================= WORK EXPERIENCE
+
+let clearFormWork = () => {
+    document.querySelector("#workAchiev1").value ='';
+    document.querySelector("#workAchiev2").value ='';
+    document.querySelector("#workAchiev3").value ='';    
+    document.querySelector("#workAchiev4").value =''; 
+    document.querySelector("#workAchiev5").value ='';  
+    document.querySelector("#workAchiev6").value ='';    
+    document.querySelector("#workAchiev7").value ='';   
+    document.querySelector("#workAchiev8").value ='';   
+    document.querySelector("#workAchiev9").value ='';   
+    document.querySelector("#workAchiev10").value ='';   
+    
+
+}
 formWork.addEventListener('submit', (e) =>{
     e.preventDefault();
 
@@ -593,8 +618,14 @@ formWork.addEventListener('submit', (e) =>{
     .then(data => console.log(data))
     .catch(error => console.log(error))
 
-        clearRadio("stillWorkHere")
-        clearRadio("workType")   
+        // clearRadio("stillWorkHere")
+        // clearRadio("workType")   
+        const workHere = document.getElementsByName("stillWorkHere");
+        for(let i = 0; i < workHere.length; i +=1)
+        workHere[i].checked = false;
+        const workType = document.getElementsByName("workType");
+        for(let i = 0; i < workType.length; i +=1)
+        workType[i].checked = false;
     document.querySelector('#work_id').defaultValue = shortid.generate();
     document.querySelector("#companyName").value ='';
     document.querySelector("#companyCity").value ='';
@@ -614,7 +645,24 @@ formWork.addEventListener('submit', (e) =>{
     document.querySelector("#workAchiev7").value ='';   
     document.querySelector("#workAchiev8").value ='';   
     document.querySelector("#workAchiev9").value ='';   
-    document.querySelector("#workAchiev10").value ='';            
+    document.querySelector("#workAchiev10").value ='';   
+    
+    hideInput()
+    document.querySelector('#nonItWork').checked = false;
+    document.querySelector(".box-Work1").style.display = "block"
+    document.querySelector("#workAchiev4").readOnly = false;
+    document.querySelector(".btn-work1").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 1) })
+
+    // document.querySelector("#workAchiev1").readOnly = false
+    // document.querySelector("#workAchiev2").readOnly = false
+    // document.querySelector("#workAchiev3").readOnly = false
+    // document.querySelector("#workAchiev4").readOnly = false
+    // document.querySelector("#workAchiev5").readOnly = false 
+    // document.querySelector("#workAchiev6").readOnly = false
+    // document.querySelector("#workAchiev7").readOnly = false
+    // document.querySelector("#workAchiev8").readOnly = false
+    // document.querySelector("#workAchiev9").readOnly = false
+    // document.querySelector("#workAchiev10").readOnly = false
 
 })
 
@@ -642,11 +690,14 @@ formEducation.addEventListener('submit', (e) =>{
     // const educ = document.getElementsByName("school_attendance_method");
     //     for(var i=0; i<educ.length; i++)
     //     educ[i].checked = false;
-        clearRadio("school_attendance_method")
-        clearRadio("eduFieldStudy")
+        // clearRadio("school_attendance_method")
+        // clearRadio("eduFieldStudy")
     const fieldStudy = document.getElementsByName("eduFieldStudy");
-        for(var i=0; i<fieldStudy.length; i++)
+        for(let i = 0; i < fieldStudy.length; i +=1)
         fieldStudy[i].checked = false;
+    const schoolAttendadance = document.getElementsByName("school_attendance_method");
+        for(let i = 0; i < schoolAttendadance.length; i +=1)
+        schoolAttendadance[i].checked = false;
     document.querySelector('#education_id').defaultValue = shortid.generate(); 
     document.querySelector("#school_name").value ='';
     document.querySelector("#school_city").value ='';
@@ -840,22 +891,68 @@ hideInput()
             document.querySelector("#" +  myfield + index).readOnly = true  
             document.querySelector("#" +  myError).style.display = "block";
             document.querySelector("#" +  myError).innerHTML = 'Oops! you reach the max alloqed. Please press button above'
-            setTimeout(() => {document.querySelector("#" +  myError).style.display = "none" }, 2000)
+            setTimeout(() => {document.querySelector("#" +  myError).style.display = "none" }, 6000)
             
         }
     }
 
-        
-    document.querySelector(".btn-work1").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 1) })
-    document.querySelector(".btn-work2").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 2) })
-    document.querySelector(".btn-work3").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 3) })
-    document.querySelector(".btn-work4").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 4) })
-    document.querySelector(".btn-work5").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 5) })
-    document.querySelector(".btn-work6").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 6) })
-    document.querySelector(".btn-work7").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 7) })
-    document.querySelector(".btn-work8").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 8) })
-    document.querySelector(".btn-work9").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 9) })
-    document.querySelector(".btn-work10").addEventListener('click', () =>{workHandlerUILastChild("box-Work", "workAchiev", 10, "msgError") })
+     // Tech work   
+     document.querySelector('#itWork').addEventListener('change',function(e){
+        if(this.checked){
+            hideInput()
+            clearFormWork()
+            document.querySelector(".box-Work1").style.display = "block"
+            document.querySelector("#workAchiev4").readOnly = false;  
+
+            document.querySelector(".btn-work1").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 1) })
+            document.querySelector(".btn-work2").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 2) })
+            document.querySelector(".btn-work3").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 3) })
+            document.querySelector(".btn-work4").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 4) })
+            document.querySelector(".btn-work5").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 5) })
+            document.querySelector(".btn-work6").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 6) })
+            document.querySelector(".btn-work7").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 7) })
+            document.querySelector(".btn-work8").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 8) })
+            document.querySelector(".btn-work9").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 9) })
+            document.querySelector(".btn-work10").addEventListener('click', () =>{workHandlerUILastChild("box-Work", "workAchiev", 10, "msgError") })
+
+        }
+    });
+    
+    document.querySelector('#nonItWork').addEventListener('change',function(e){
+        if(this.checked){
+            hideInput()
+            clearFormWork()            
+            document.querySelector(".box-Work1").style.display = "block"  
+            document.querySelector("#workAchiev4").readOnly = false;          
+            
+            document.querySelector(".btn-work1").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 1) })
+            document.querySelector(".btn-work2").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 2) })
+            document.querySelector(".btn-work3").addEventListener('click', () =>{
+                workHandlerUI("box-Work", "workAchiev", 3)
+                // ddocument.querySelector(".box-Work3").style.display = "block"
+                document.querySelector(".box-Work4").style.display = "none"
+                document.querySelector(".box-Work3").style.display = "block"
+                document.querySelector("#workAchiev4").value = "";
+                document.querySelector("#msgError").innerHTML = 'Oops! you reach the max alloqed. Please press button above'
+                setTimeout(() => {document.querySelector("#msgError").style.display = "none" }, 6000)
+                // document.querySelector("#workAchiev4").readOnly = false;    
+             })
+            // document.querySelector(".btn-work4").addEventListener('click', () =>{ 
+            //     // document.querySelector("#workAchiev4").readOnly = true
+            //     // document.querySelector("#msgError").innerHTML = 'Oops! you reach the max alloqed. Please press button above'
+            //     // document.querySelector("#workAchiev4").value = "";
+            //     // setTimeout(() => {document.querySelector("#msgError").style.display = "none" }, 6000)
+            //     document.querySelector("#workAchiev4").readOnly = false;     
+            
+            // })
+            
+        }else{
+            document.querySelector("#workAchiev4").readOnly = false
+        }
+    });
+
+
+
 
     //  market skills
     document.querySelector(".btn-market1").addEventListener('click', () =>{workHandlerUI("box-Market", "market", 1) })
@@ -907,3 +1004,54 @@ hideInput()
     // console.log('i click')
 // }) 
 
+
+
+//  ================ form validation==============================
+
+document.querySelector('#eduOther').addEventListener('change',function(e){
+    if(this.checked){
+        document.querySelector(".box-Edu1").style.visibility = "hidden";
+    }
+});
+
+
+document.querySelector('#eduIt').addEventListener('change',function(e){
+    if(this.checked){
+        document.querySelector(".box-Edu1").style.visibility = "visible";
+    }
+});
+
+
+document.getElementById('projectCompleted').addEventListener('change', function() {
+    
+    if(this.value ==='Yes'){
+        document.querySelector('#projectNonthEnd').readOnly = false
+        document.querySelector('#projectYearEnd').readOnly = false
+    }else{
+        document.querySelector('#projectNonthEnd').readOnly = true
+        document.querySelector('#projectYearEnd').readOnly = true
+    }
+  });
+
+
+  
+document.querySelector('#yes').addEventListener('change', function(e){
+    if(this.checked){
+        document.querySelector("#companyEndMonth").readOnly = true;
+        document.querySelector("#companyEndYear").readOnly = true;
+    }
+});
+
+
+document.querySelector('#no').addEventListener('change', function(e){
+    if(this.checked){
+        document.querySelector("#companyEndMonth").readOnly = false;
+        document.querySelector("#companyEndYear").readOnly = false;
+        
+    }
+});
+
+document.querySelector("#submit_work").addEventListener('click', (e) =>{
+
+    document.querySelector("#workAchiev4").readOnly = false;    
+})

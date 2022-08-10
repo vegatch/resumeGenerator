@@ -29,8 +29,6 @@
         <div class="container">
             <!-- Start --> 
             
-                
-            
                 <div class="formContainer">
                     <form  method="POST" id="personForm" >
                         
@@ -270,9 +268,9 @@
                             </div>
                             <div>
                                 <label for="eduFieldStudy">Field of Study :</label>
-                                <input type="radio" name="eduFieldStudy" id="it" value="IT">
+                                <input type="radio" name="eduFieldStudy" id="eduIt" value="IT">
                                 <label for="IT">Information technology</label>
-                                <input type="radio" name="eduFieldStudy" id="other" value="Other">
+                                <input type="radio" name="eduFieldStudy" id="eduOther" value="Other">
                                 <label for="other">Other</label>
                             </div>
                             <div>
@@ -571,6 +569,13 @@
                                 <input type="text" name="projectYearStart" id="projectYearStart" placeholder="Please starting year of the project"> 
                             </div>
                             <div>
+                                <select name="projectCompleted" id="projectCompleted">
+                                    <option value="Not Applicable">Is this project completed?</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>                                    
+                                  </select>
+                            </div>
+                            <div>
                                 <input type="text" name="projectNonthEnd" id="projectNonthEnd" placeholder="Please ending month of the project"> 
                             </div>
                             <div>
@@ -746,30 +751,9 @@
     </div>
 
     
- 
 
-    
-        
-   
-    
-
-    
-
-   
-
-   
-
- 
-    <div>
-        <button type="button" id="GenerateReusme">Generate Resume</button>
-
-    </div> 
-    
     </form> 
-    <div class="container">
-        <H1>Hello</H1>
-
-    </div>
+    
    
 </body>
 </html>

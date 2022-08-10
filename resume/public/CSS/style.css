@@ -58,7 +58,7 @@ input[type = 'tel'],
 input[type = 'integer'], 
 input[type = 'url'],
 textarea,
-.select
+select
 {
     width: 96%;
     height: 1.2rem;
@@ -69,7 +69,7 @@ textarea,
     opacity: .8;
 }
 
-.select{
+select{
     width: 100%;
     height: 1.9rem;
 }
