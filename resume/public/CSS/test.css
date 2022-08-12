@@ -1,0 +1,35 @@
+.container{
+    width: 100%;
+    background-color: navy;
+    color: white;
+    display: block;
+    position: relative;
+}
+
+.banner{
+    background-color: black;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    /* position: sticky; */
+    
+}
+
+.banner p {
+    margin-top: auto;
+}
+
+.wrapper-flex{
+    height: 20vh;
+    background-color: black;
+    display: flex;  
+    
+}
+.left-container{
+    display: block;
+    width: 20%;
+    background-color: red;
+    height: auto;
+}
