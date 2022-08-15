@@ -12,23 +12,21 @@ body{
 .banner{
     background-color: black;
     height: 15vh;    
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
     font-size: 4rem;    
-    /* position: -webkit-sticky;
-    position: sticky;
-    top: 0; */
-    position: relative;
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:100;
     
     
 }
 
 .banner.h1 {
     margin-top: auto;    
-    position: sticky;
-    top: 0;
-    width: 100%;
+   
 }
 
 .wrapper-flex{
@@ -45,29 +43,32 @@ body{
     height: auto;
     position: fixed;
     
-}
-.control-container{
-    /* width: inherit; */
-    text-align: right;
-    /* padding: 10 rem;   */
-    /* position: sticky; */
     
 }
+.control-container{
+    text-align: right;    
+}
 .control-container p{
-    padding-bottom: 1rem;
-    font-size: 1.1rem;
+    padding-bottom: 1.2rem;
+    font-size: 1.2rem;
     flex: 1;
+}
+.control-container p:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    color: navy;
 }
 
 .left-container, 
 .right-container{
     padding: 1rem;
+    top: 16vh;
     
 }
 
 .right-container{
     position: absolute;
-    left: 22%;
-    width: 76%;
+    left: 23%;
+    width: 70%;
     background-color: blue;
 }
