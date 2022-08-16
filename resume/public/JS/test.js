@@ -12,3 +12,27 @@ let hideForm = () =>{
     document.querySelector("#workForm").style.display = "none"
 }
 hideForm()
+
+let displayForm =(myform) =>{
+    document.getElementById(myform).style.display = "block"
+}
+
+let addEventOnForm = (myform) =>{
+
+    document.querySelector(`.${myform}`).addEventListener('click', () =>{
+        hideForm()
+        displayForm(`${myform}`)
+    })
+
+}
+
+addEventOnForm("personForm")
+addEventOnForm("titleForm")
+addEventOnForm("contactForm")
+addEventOnForm("socioForm")
+addEventOnForm("resObjective")
+addEventOnForm("educationForm")
+addEventOnForm("techSkillsForm")
+addEventOnForm("marketSkillsForm")
+addEventOnForm("projectsForm")
+addEventOnForm("workForm")
