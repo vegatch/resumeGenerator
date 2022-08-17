@@ -36,3 +36,24 @@ addEventOnForm("techSkillsForm")
 addEventOnForm("marketSkillsForm")
 addEventOnForm("projectsForm")
 addEventOnForm("workForm")
+
+let selectYear = () =>{
+    let year = new Date().getFullYear()
+    const yearArray =[]
+    let endyear = 1950
+    const select = document.getElementById("completion_date_year")
+
+    for (year; year >= endyear; year -= 1){
+        yearArray.push(year)
+        console.log(yearArray)  
+    }
+
+    for (let i = 0; i < yearArray.length; i += 1){
+        const option = document.createElement("option");
+        option.classList.add("option")    
+        option.value = yearArray[i];
+        option.text = yearArray[i];
+        select.appendChild(option);
+    }
+}
+selectYear();

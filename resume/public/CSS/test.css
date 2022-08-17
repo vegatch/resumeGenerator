@@ -60,19 +60,34 @@ body{
     color: navy;
 }
 
-input[type="text"]{
-    width: 60%;
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select{
+    /* width: 60%; */
     height: 2.2rem;
-    padding: 0 .5rem;    
+    /* padding: 0 .5rem;     */
     border-top: none;
     border-right: none;
     border-left: none;
     background-color: inherit;
     border-bottom: .1rem solid white;
     color: white;
-    margin: 1rem 0;
+    /* margin: 1rem 0; */
+    /* margin-bottom: 2rem; */
 }
 
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+.radioGroup{
+    margin-bottom: 2rem;    
+}
+.radioGroup{
+    margin-top: .6rem;    
+}
 input[type="submit"]{
     text-align: center;
     height: 2.2rem;
@@ -84,10 +99,39 @@ input[type="submit"]{
     width: max-content;
     border-radius: 2rem;
     width: 15vw;
-    margin: 1rem 0;
+    margin: 1rem .4rem;
+}
+
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select{
+    width: 60%;
+    padding: 0 .5rem;  
+}
+
+textarea{    
+    min-height: 6rem;
+    height: 10rem;
+    background-color: inherit;
+    color: white;
+}
+select {
+    background-color: inherit;
+    width: 62%;
 }
 
 
+
+.option{
+    background-color:  #181a1e;    
+}
+
+select > option{
+    background-color: inherit;
+    width: 100%;
+}
 .left-container, 
 .middle-container,
 .right-container{
@@ -114,4 +158,19 @@ input[type="submit"]{
 form, fieldset{
     padding: 1rem;  
     
+}
+/* fieldset > legend{
+    text-align: center;
+    text-transform: uppercase;
+} */
+.monthYear{
+    display: flex;
+    
+}
+.monthYear select{
+    width: 8rem;
+}
+
+.monthYear select:first-child{
+    margin-right: 1rem;
 }

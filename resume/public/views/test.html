@@ -7,9 +7,9 @@
     <meta name="author" content="Stravinsky Benedict Anglade">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/test.css">
-    <link rel="stylesheet" href="./css/reset.css">
-    <script type="module" src="./JS/test.js"></script>
+    <link rel="stylesheet" href="../CSS/test.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <script type="module" src="../JS/test.js"></script>
     <title>Resume Generator</title>
 </head>
 <body>
@@ -86,6 +86,7 @@
                                                 <input type="hidden" name="cUser" id="createUser" placeholder="enter user" >
                                             </div>
                                             <div class="container">
+                                                <input type="submit" value="Save" id="savePerson">
                                                 <input type="submit" value="Save & continue" id="submitPerson">
                                                 <!-- <button type="button"submitPerson">Add name</button> -->
                                                 <!-- <p class="message">Data has been successfully submitted</p> -->
@@ -101,7 +102,7 @@
                             <div class="formContainer">
                                 <form method ="post" id="titleForm">   
                                     <fieldset>
-                                        <legend>List your professional title</legend>
+                                        <!-- <legend>List your professional title</legend> -->
                                         <div>
                                             <ul class="error">
             
@@ -116,23 +117,25 @@
                                             </div>
                                             
                                         </div>  
+                                        <label for="title1">Insert the position:</label>
                                         <div class=" box-Title1">
                                             <div class="flex-container">
-                                                <button class="btn-title1" type="button">Add more</button>
+                                                <!-- <button class="btn-title1" type="button">Add more</button> -->
                                                 <input type="text" name="title1" id="title1" placeholder="Please enter your job tiltle">                                 
                                             </div>
                                         </div>
-            
+                                        <label for="title2">Insert the second position:</label>
                                         <div class=" box-Title2">
                                             <div class="flex-container">
-                                                <button class="btn-title2" type="button">Add more</button>
+                                                <!-- <button class="btn-title2" type="button">Add more</button> -->
                                                 <input type="text" name="title2" id="title2" placeholder="Please enter a second job tiltle">                                 
                                             </div>
                                         </div>
                                         
                                         
                                         <div class="container">
-                                            <input type="submit" value="Add title" id="titleSubmit">
+                                            <input type="submit" value="Save" id="saveTitle">
+                                            <input type="submit" value="Save & continue" id="titleSubmit">
                                         </div>
                                         <div>
                                             <label for="title" id ="titleError"></label>
@@ -151,7 +154,7 @@
                             <div class="formContainer">
                                 <form method="post" id="contactForm">
                                     <fieldset>
-                                        <legend>Contact details</legend>
+                                        <!-- <legend>Contact details</legend> -->
                                         <div class="flexHead">
                                             <div>
                                                 <input type="text" name="contactId" id="contactId" > 
@@ -162,33 +165,41 @@
                                                 
                                             </div>
                                         </div>
-                                        
+                                        <label for="city">Insert your city of residence:</label>
                                         <div>
                                             <input type="text" name="city" id="city" placeholder="city"> 
-                                            <input type="text" name="state" id="state" placeholder="state"> 
+                                        </div>
+                                        <label for="state">Insert your state of residence:</label>
+                                        <div>
+                                            <input type="text" name="state" id="state" placeholder="state">                                             
+                                        </div>
+                                        <label for="zcode">Insert your Zip Code:</label>
+                                        <div>
                                             <input type="text" name="zcode" id="zcode" placeholder="zip code"> 
                                         </div>
+                                        <label for="remote">Are you open to remote job?</label>
                                         <div>
                                             <!-- <label for="remote">Remote</label> -->
                                             <select name="remote" id="remote" class="select">
-                                                <option value="n/a">Are you open to remote? </option>
-                                                <option value="1">Yes</option>
-                                                <option value="0">No</option>                    
+                                                <option class="option" value="Not Applicable">Please select an answer? </option>
+                                                <option class="option" value="1">Yes</option>
+                                                <option class="option" value="0">No</option>                    
                                             </select>
                                         </div>
+                                        <label for="relocalization">Are you open to relocalization?</label>
                                         <div>
                                             <!-- <label for="relocalization">Relocalization</label> -->
                                             <select name="relocalization" id="relocalization" class="select"> 
-                                                <option value="n/a">Are you open to relocalization? </option>
-                                                <option value="1">Yes</option>
-                                                <option value="0">No</option>                    
+                                                <option class="option" value="Not Applicable">Please select an answer </option>
+                                                <option class="option" value="1">Yes</option>
+                                                <option class="option" value="0">No</option>                    
                                             </select>
                                         </div>
-                                        
+                                        <label for="email">Insert your email:</label>
                                         <div>                                
                                             <input type="email" name="email" id="email" placeholder="Please enter your email"> 
-                                            
-                                            
+                                        </div>      
+                                        <label for="phoneNumber">Insert your phone number:</label>
                                         <div>
                                             <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="(123) 435-6278" >    
                                         </div>
@@ -198,7 +209,8 @@
                                             <!-- <small>Format: 123-758-6278</small> -->
                                         </div>
                                         <div class="flex-container">
-                                            <input type="submit" value="Add contact">
+                                            <input type="submit" value="Save" id="saveContact">
+                                            <input type="submit" value="Save & continue" id="submit-contact">
                                         </div>
                                     </fieldset>
                                     
@@ -212,7 +224,7 @@
                                 <form action="/personalLink" method="post" id="socioForm">
             
                                     <fieldset >
-                                        <legend>Professional links (LinkedIn, GitHub etc.)</legend>
+                                        <!-- <legend>Professional links (LinkedIn, GitHub etc.)</legend> -->
                                         <div class="flexHead">
                                             <div>
                                                 <input type="text" name="pidSocio" id="pidSocio">
@@ -222,21 +234,22 @@
                                             </div>                               
                                         </div>
                                         
+                                        <label for="linkedIn">Insert your LinkedIn url</label>
                                         <div>
-                                            <label for="linkedIn">LinkedIn url</label>
                                             <input type="text" name="linkedIn" id="linkedIn" placeholder="Please enter your linkedIn url">
                                         </div>
+                                        <label for="gitHub">Insert your GitHub url</label>
                                         <div>
-                                            <label for="gitHub">GitHub url</label>
                                             <input type="text" name="gitHub" id="gitHub" placeholder="Please enter your GitHub url">
                                         </div>
+                                        <label for="portfolio">Insert your Portfolio url</label>
                                         <div>
-                                            <label for="portfolio">Portfolio url</label>
                                             <input type="text" name="portfolio" id="portfolio" placeholder="Please enter your Portfolio url">
                                         </div>
                                         
                                         <div class="flex-container">
-                                            <input type="submit" value="Add link" id="submit_link">
+                                            <input type="submit" value="Save" id="saveLink">
+                                            <input type="submit" value="Save & continue" id="submit_link">
                                         </div>
                                     </fieldset>
                             
@@ -254,7 +267,7 @@
                                 <form action="/resObjective" method="post" id="resObjective">
             
                                     <fieldset>
-                                        <legend>Resume objective</legend>
+                                        <!-- <legend>Resume objective</legend> -->
                                         <div class="flexHead">
                                             <div>
                                                 <input type="text" name="objective_id" id="objective_id">
@@ -263,12 +276,13 @@
                                                 <input type="text" name="pidObjective" id="pidObjective">
                                             </div>
                                         </div>
-                                        
+                                        <label for="objective">Insert your professional resume summary</label>
                                         <div>
                                             <textarea name="objective" id="objective" cols="30" rows="10" placeholder="please enter your objective here"></textarea>
                                         </div>
                                         <div class="flex-container">
-                                            <input type="submit" value="Add objective" id="btn-objective">
+                                            <input type="submit" value="Save" id="btnSaveObjective">
+                                            <input type="submit" value="Save & continue" id="btn-objective">
                                         </div>
                                     </fieldset>
             
@@ -284,7 +298,7 @@
                                 <form method="post" id="educationForm">
             
                                     <fieldset>
-                                        <legend>Education</legend>
+                                        <!-- <legend>Education</legend> -->
                                         <div class="flexHead">
                                             <div>
                                                 <input type="text" name="education_id" id="education_id">
@@ -297,61 +311,89 @@
                                         <div>
                                             <input type="text" name="education_number" id="education_number">
                                         </div>
-                                        <div>
-                                            <label for="eduFieldStudy">Field of Study :</label>
+                                        <label for="eduFieldStudy">Select a field of Study :</label>
+                                        <div class="radioGroup">
                                             <input type="radio" name="eduFieldStudy" id="eduIt" value="IT">
-                                            <label for="IT">Information technology</label>
+                                            <label for="IT">Information Technology</label>
                                             <input type="radio" name="eduFieldStudy" id="eduOther" value="Other">
                                             <label for="other">Other</label>
                                         </div>
+                                        <label for="school_name">Insert your school name:</label>
                                         <div>
                                             <input type="text" name="school_name" id="school_name" placeholder="Please enter your school name">
                                         </div>
-                                        
+                                        <label for="school_city">Insert the city of your school</label>
                                         <div>
                                             <input type="text" name="school_city" id="school_city" placeholder="city of the school">
                                         </div>
+                                        <label for="school_state">Insert the state of your school:</label>
                                         <div>
                                             <input type="text" name="school_state" id="school_state" placeholder="State of the school">
                                         </div>
-                                        <div>
-                                            <label for="school_attendance_method"> School attendance method:</label>
+                                        <label for="school_attendance_method">Select how you have attended this school:</label>
+                                        <div class="radioGroup">
                                             <input type="radio" id="remote" name="school_attendance_method" value="(remote)">
                                             <label for="remote">remote</label>
                                             <input type="radio" id="in_person" name="school_attendance_method" value="(in-person)">
                                             <label for="in_person">in-person</label>
                                         </div>
+                                        <label for="certificate_title">Insert the title of the certificate obtained</label>
                                         <div>
                                             <input type="text" name="certificate_title" id="certificate_title" placeholder="certificate name received">
                                         </div>
-                                        <div>
-                                            <input type="text" name="completion_date_month" id="completion_date_month" placeholder="month of completion">
+                                        <label for="completion_date_month">Insert your graduation month and year</label>
+                                        <div class="monthYear">
+                                            <!-- <input type="text" name="completion_date_month" id="completion_date_month" placeholder="month of completion"> -->
+                                            <select name="completion_date_month" id="completion_date_month">
+                                                <option class="option" value="Not Applicable">Select month</option>
+                                                <option class="option" value="Not Applicable"></option>
+                                                <option class="option" value="Jan">January</option>
+                                                <option class="option" value="Feb">February</option>
+                                                <option class="option" value="Mar">March</option>
+                                                <option class="option" value="Apr">April</option>
+                                                <option class="option" value="May">May</option>
+                                                <option class="option" value="Jun">June</option>
+                                                <option class="option" value="Jul">July</option>
+                                                <option class="option" value="Aug">August</option>
+                                                <option class="option" value="Sep">September</option>
+                                                <option class="option" value="Oct">October</option>
+                                                <option class="option" value="Nov">November</option>
+                                                <option class="option" value="Dec">December</option>
+                                            </select>
+                                            <select name="completion_date_year" id="completion_date_year">
+                                                <option class="option" value="Not Applicable">Select year </option>
+                                                <option class="option" id="SelectOption"></option>                                                
+                                            </select>
                                         </div>
-                                        <div>
+                                        <!-- <div>
                                             <input type="text" name="completion_date_year" id="completion_date_year" placeholder="completion year">
-                                        </div>
+                                        </div> -->
                                         
                                         <div class=" box-Edu1">
+                                            <label for="eduAchievement1">Please list your achievement #1:</label>
                                             <div class="flex-container">
-                                                <button class="btn-edu1" type="button">Add more</button>
+                                                <!-- <button class="btn-edu1" type="button">Add more</button> -->
                                                 <input type="text" name="eduAchievement1" id="eduAchievement1" placeholder="Please enter your achievement">                                 
                                             </div>
                                         </div>
                                         <div class=" box-Edu2">
+                                            <label for="eduAchievement2">Please list your achievement #2:</label>
                                             <div class="flex-container">
-                                                <button class="btn-edu2" type="button">Add more</button>
+                                                <!-- <button class="btn-edu2" type="button">Add more</button> -->
                                                 <input type="text" name="eduAchievement2" id="eduAchievement2" placeholder="Please enter your achievement">                                 
                                             </div>
                                         </div>
                                         <div class=" box-Edu3">
+                                            <label for="eduAchievement3">Please list your achievement #3:</label>
                                             <div class="flex-container">
-                                                <button class="btn-edu3" type="button">Add more</button>
+                                                <!-- <button class="btn-edu3" type="button">Add more</button> -->
                                                 <input type="text" name="eduAchievement3" id="eduAchievement3" placeholder="Please enter your achievement">                                 
                                             </div>
                                         </div>
             
-                                        <div class="flex-container">                                
-                                            <input type="submit" value="Add education" id="submit_education">
+                                        <div class="flex-container">  
+                                            <input type="submit" value="Save" id="saveEducation">                              
+                                            <input type="submit" value="Save & continue" id="submit_education">
                                         </div>
                                         <div>
                                             <label for="edu" id ="eduError"></label>

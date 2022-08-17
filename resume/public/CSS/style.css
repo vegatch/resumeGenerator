@@ -67,6 +67,7 @@ select
     border: none;
     border-bottom: .1rem solid black;
     opacity: .8;
+    
 }
 
 select{
@@ -99,6 +100,7 @@ input[type = 'submit']{
 
 .flex-container input[type = "text"]{
     width: 80%;
+    
 }
 
 #educationForm fieldset,
