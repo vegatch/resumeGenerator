@@ -37,11 +37,11 @@ addEventOnForm("marketSkillsForm")
 addEventOnForm("projectsForm")
 addEventOnForm("workForm")
 
-let selectYear = () =>{
+let selectYear = (myselect) =>{
     let year = new Date().getFullYear()
     const yearArray =[]
     let endyear = 1950
-    const select = document.getElementById("completion_date_year")
+    const select = document.getElementById(myselect)
 
     for (year; year >= endyear; year -= 1){
         yearArray.push(year)
@@ -56,4 +56,69 @@ let selectYear = () =>{
         select.appendChild(option);
     }
 }
-selectYear();
+selectYear("completion_date_year");
+selectYear("projectYearStart");
+// selectYear("projectYearEnd");
+
+let selectMonth = (myselect) =>{    
+    let monthArray = [
+        ['January', 'Jan'],
+        ['February', 'Feb'],
+        ['March', 'Mar'],
+        ['April', 'Apr'],
+        ['May', 'May'],
+        ['June', 'Jun'],
+        ['July', 'Jul'],
+        ['August', 'Aug'],
+        ['September', 'Sep'],
+        ['October', 'Oct'],
+        ['November', 'Nov'],
+        ['December', 'Dec'],
+    ];
+    const selectMonth = document.getElementById(myselect);
+
+    monthArray.forEach((monthFull) => {
+        const option = document.createElement("option");
+            option.classList.add("option")        
+        monthFull.forEach((monthAbr) => {
+            option.value = monthAbr;
+        });
+        
+        option.text = monthFull[0];
+        selectMonth.appendChild(option);
+    });
+}
+
+
+
+selectMonth("completion_date_month")
+selectMonth("projectNonthStart")
+// selectMonth("projectNonthEnd")
+
+document.getElementById('projectNonthStart').addEventListener('change', function() {
+    console.log('You selected: ', this.value);
+  });
+
+  document.getElementById("projectCompleted").addEventListener('change', e => {
+
+    if(e.target.checked){
+        selectMonth("projectNonthEnd");
+        selectYear("projectYearEnd");
+        
+      
+    }
+    if(!e.target.checked){        
+        // document.querySelector("#projectNonthEnd").replaceChildren(document.querySelector(".option"));
+        // document.querySelector("#projectNonthEnd").value = "Not Applicable"
+        // document.querySelector("#projectYearEnd").replaceChildren(document.querySelector("#SelectOption"));
+        // document.querySelector("#projectYearEnd").value = "Not Applicable"
+
+        document.querySelector("#projectNonthEnd").replaceChildren(document.querySelector(".option3"))
+        document.querySelector("#projectYearEnd").replaceChildren(document.querySelector(".option2"))
+
+
+    }
+
+});
+
+//   document.getElementById("projectCompleted").checked = false;

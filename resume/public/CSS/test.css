@@ -60,7 +60,7 @@ body{
     color: navy;
 }
 
-
+input[type="url"],
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -78,6 +78,8 @@ select{
     /* margin-bottom: 2rem; */
 }
 
+input[type="checkbox"],
+input[type="url"],
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -87,6 +89,9 @@ select,
 }
 .radioGroup{
     margin-top: .6rem;    
+}
+input[type="checkbox"]{
+    margin-left: 1rem;
 }
 input[type="submit"]{
     text-align: center;
@@ -102,6 +107,7 @@ input[type="submit"]{
     margin: 1rem .4rem;
 }
 
+input[type="url"],
 textarea,
 input[type="text"],
 input[type="email"],
