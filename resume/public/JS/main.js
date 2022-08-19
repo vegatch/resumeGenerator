@@ -24,10 +24,11 @@ const formWork = document.querySelector('#workForm')
 //==========================================================================
 
 
-
 // ============================DEFAULT SHORTID VALUE TO PRIMARY KEY
+const primaryId = shortid.generate();
 let personId = document.querySelector('#pId')
-personId.defaultValue = shortid.generate();
+personId.defaultValue = primaryId
+document.querySelector("#pIdTitle").defaultValue = primaryId
 personId.readOnly = true;
 let titleId = document.querySelector('#title_id')
 titleId.defaultValue = shortid.generate();;
@@ -330,9 +331,13 @@ form.addEventListener('submit', (e) =>{
           console.log(data.errors)
           
           renderError(data);
+          return false
           
       })   
-    .catch(error => console.log(error))
+    .catch(error => {
+        console.log(error)
+        return false
+    })
     // document.querySelector('#titleForm').refresh()    
         
     document.querySelector("#fname").value = "";
@@ -340,7 +345,7 @@ form.addEventListener('submit', (e) =>{
     document.querySelector("#lastname").value = "";
     // document.querySelector("#createUser").value ="";
     // cUser.defaultValue='SBA'
-      return false;
+      
 })
 
 
@@ -809,7 +814,7 @@ document.querySelector(".box-Work9").style.display = "none";
 document.querySelector(".box-Work10").style.display = "none";
 
 }
-hideInput()
+// hideInput()
 
 
     // document.querySelector(".btn-title1").addEventListener('click', () =>{

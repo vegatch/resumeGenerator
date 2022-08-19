@@ -58,7 +58,8 @@ let selectYear = (myselect) =>{
 }
 selectYear("completion_date_year");
 selectYear("projectYearStart");
-// selectYear("projectYearEnd");
+selectYear("companyStartYear");
+selectYear("companyEndYear")
 
 let selectMonth = (myselect) =>{    
     let monthArray = [
@@ -88,37 +89,120 @@ let selectMonth = (myselect) =>{
         selectMonth.appendChild(option);
     });
 }
-
-
-
 selectMonth("completion_date_month")
 selectMonth("projectNonthStart")
-// selectMonth("projectNonthEnd")
+selectMonth("companyStartMonth")
+selectMonth("companyEndMonth")
 
 document.getElementById('projectNonthStart').addEventListener('change', function() {
     console.log('You selected: ', this.value);
   });
 
-  document.getElementById("projectCompleted").addEventListener('change', e => {
+  let handleMonthYearEndForProject = () =>{
+    document.getElementById("projectCompleted").addEventListener('change', e => {
+        if(e.target.checked){
+            selectMonth("projectNonthEnd");
+            selectYear("projectYearEnd");      
+        }
+        if(!e.target.checked){  
+            document.querySelector("#projectNonthEnd").replaceChildren(document.querySelector(".option3"))
+            document.querySelector("#projectYearEnd").replaceChildren(document.querySelector(".option2"))
+        }
 
-    if(e.target.checked){
-        selectMonth("projectNonthEnd");
-        selectYear("projectYearEnd");
+    });
+}
+handleMonthYearEndForProject();
+
+let handleMonthYearEndForWork = () =>{
+    document.getElementById("stillWorkHere").addEventListener('change', e => {
         
-      
-    }
-    if(!e.target.checked){        
-        // document.querySelector("#projectNonthEnd").replaceChildren(document.querySelector(".option"));
-        // document.querySelector("#projectNonthEnd").value = "Not Applicable"
-        // document.querySelector("#projectYearEnd").replaceChildren(document.querySelector("#SelectOption"));
-        // document.querySelector("#projectYearEnd").value = "Not Applicable"
+        if(e.target.checked){
+            document.querySelector("#companyEndMonth").replaceChildren(document.querySelector(".monthOption"))
+            document.querySelector("#companyEndYear").replaceChildren(document.querySelector(".yearOption")) 
+        }
+        if(!e.target.checked){  
+            
+            selectMonth("companyEndMonth");
+            selectYear("companyEndYear"); 
+        }
+    
+    });    
 
-        document.querySelector("#projectNonthEnd").replaceChildren(document.querySelector(".option3"))
-        document.querySelector("#projectYearEnd").replaceChildren(document.querySelector(".option2"))
+}
+handleMonthYearEndForWork();
 
+let hideEduAccomplishment = () =>{
+    document.querySelector(".box-Edu1").style.display = "none"
+    document.querySelector(".box-Edu2").style.display = "none"
+    document.querySelector(".box-Edu3").style.display = "none"        
+}
+hideEduAccomplishment()
 
-    }
+let displayEduAccomplishment = () =>{
+    document.querySelector(".box-Edu1").style.display = "block"
+    document.querySelector(".box-Edu2").style.display = "block"
+    document.querySelector(".box-Edu3").style.display = "block"   
+    
+}
+// displayEduAccomplishment()
+let hideWorkAccomplishment = () =>{
+    document.querySelector(".box-Work1").style.display = "none"
+    document.querySelector(".box-Work2").style.display = "none"
+    document.querySelector(".box-Work3").style.display = "none"  
+    document.querySelector(".box-Work4").style.display = "none"
+    document.querySelector(".box-Work5").style.display = "none"
+    document.querySelector(".box-Work6").style.display = "none"
+    document.querySelector(".box-Work7").style.display = "none"
+    document.querySelector(".box-Work8").style.display = "none"
+    document.querySelector(".box-Work9").style.display = "none"
+    document.querySelector(".box-Work10").style.display = "none"      
+}
+hideWorkAccomplishment()
 
-});
+let displayWorkAccomplishment = () =>{
+    document.querySelector(".box-Work1").style.display = "block"
+    document.querySelector(".box-Work2").style.display = "block"
+    document.querySelector(".box-Work3").style.display = "block"  
+    document.querySelector(".box-Work4").style.display = "block"
+    document.querySelector(".box-Work5").style.display = "block"
+    document.querySelector(".box-Work6").style.display = "block"
+    document.querySelector(".box-Work7").style.display = "block"
+    document.querySelector(".box-Work8").style.display = "block"
+    document.querySelector(".box-Work9").style.display = "block"
+    document.querySelector(".box-Work10").style.display = "block"      
+}
+// displayWorkAccomplishment()
+
+let handleRadioEventForForm = (radioElement1, radioElement2) =>{
+    document.getElementById(radioElement1).addEventListener('change',function(e){
+        if(this.checked){
+            if(radioElement1 === "eduIt"){
+                displayEduAccomplishment()
+            }
+            if(radioElement1 === "itWork"){
+                displayWorkAccomplishment()
+            }
+        }        
+    });
+    document.getElementById(radioElement2).addEventListener('change',function(e){
+        if(this.checked){
+            if(radioElement2 === "eduOther"){
+                hideEduAccomplishment()
+            }
+            if(radioElement2 === "nonItWork"){
+                hideWorkAccomplishment()
+            }
+            
+        }        
+    });
+    
+}
+handleRadioEventForForm("eduIt", "eduOther")
+handleRadioEventForForm("itWork", "nonItWork")
 
 //   document.getElementById("projectCompleted").checked = false;
+
+let createPerform =() =>{
+    const formPerson = document.createElement("form")
+    formPerson.id = "personForm"
+}

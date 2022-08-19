@@ -347,18 +347,6 @@
                                             <select name="completion_date_month" id="completion_date_month">
                                                 <option class="option" value="Not Applicable">Select month</option>
                                                 <option class="option" value="Not Applicable"></option>
-                                                <!-- <option class="option" value="Jan">January</option>
-                                                <option class="option" value="Feb">February</option>
-                                                <option class="option" value="Mar">March</option>
-                                                <option class="option" value="Apr">April</option>
-                                                <option class="option" value="May">May</option>
-                                                <option class="option" value="Jun">June</option>
-                                                <option class="option" value="Jul">July</option>
-                                                <option class="option" value="Aug">August</option>
-                                                <option class="option" value="Sep">September</option>
-                                                <option class="option" value="Oct">October</option>
-                                                <option class="option" value="Nov">November</option>
-                                                <option class="option" value="Dec">December</option> -->
                                             </select>
                                             <select name="completion_date_year" id="completion_date_year">
                                                 <option class="option" value="Not Applicable">Select year </option>
@@ -373,21 +361,24 @@
                                             <label for="eduAchievement1">Please list your achievement #1:</label>
                                             <div class="flex-container">
                                                 <!-- <button class="btn-edu1" type="button">Add more</button> -->
-                                                <input type="text" name="eduAchievement1" id="eduAchievement1" placeholder="Please enter your achievement">                                 
+                                                <!-- <input type="text" name="eduAchievement1" id="eduAchievement1" placeholder="Please enter your achievement">                                  -->
+                                                <textarea name="eduAchievement1" id="eduAchievement1" cols="30" rows="10" placeholder="Please enter your achievement 1"></textarea>
                                             </div>
                                         </div>
                                         <div class=" box-Edu2">
                                             <label for="eduAchievement2">Please list your achievement #2:</label>
                                             <div class="flex-container">
                                                 <!-- <button class="btn-edu2" type="button">Add more</button> -->
-                                                <input type="text" name="eduAchievement2" id="eduAchievement2" placeholder="Please enter your achievement">                                 
+                                                <!-- <input type="text" name="eduAchievement2" id="eduAchievement2" placeholder="Please enter your achievement"> -->
+                                                <textarea name="eduAchievement2" id="eduAchievement2" cols="30" rows="10" placeholder="Please enter your achievement 2"></textarea>                                 
                                             </div>
                                         </div>
                                         <div class=" box-Edu3">
                                             <label for="eduAchievement3">Please list your achievement #3:</label>
                                             <div class="flex-container">
                                                 <!-- <button class="btn-edu3" type="button">Add more</button> -->
-                                                <input type="text" name="eduAchievement3" id="eduAchievement3" placeholder="Please enter your achievement">                                 
+                                                <!-- <input type="text" name="eduAchievement3" id="eduAchievement3" placeholder="Please enter your achievement">                                  -->
+                                                <textarea name="eduAchievement3" id="eduAchievement3" cols="30" rows="10" placeholder="Please enter your achievement 3"></textarea>
                                             </div>
                                         </div>
             
@@ -732,7 +723,7 @@
                             <div class="formContainer">
                                 <form action="/work" method="post" id="workForm">
                                     <fieldset>
-                                        <legend>Work Experience</legend>
+                                        <!-- <legend>Work Experience</legend> -->
                                         <div class="flexHead">
                                             <div>
                                                 <input type="text" name="work_id" id="work_id">
@@ -744,120 +735,156 @@
                                         <div>
                                             <input type="integer" name="work_num" id="work_num" >
                                         </div>
-                                        <div>
-                                            <label for="workType">In what field is this position?</label><br>
+                                        <label for="workType">In what industry is that position?</label><br>
+                                        <div class="radioGroup">
                                             <input type="radio" id="itWork" name="workType" value="IT">
-                                            <label for="itWork">IT</label>
+                                            <label for="itWork">Computer and technology</label>
                                             <input type="radio" id="nonItWork" name="workType" value="Other">
                                             <label for="nonItWork">Other</label>
             
                                         </div>
+                                        <label for="companyName">Insert name of your company?</label>
                                         <div>
                                             <input type="text" name="companyName" id="companyName" placeholder="Please enter your company"> 
                                         </div>
-                                        <div>
-                                            <input type="text" name="companyCity" id="companyCity" placeholder="Please enter city of your company"> 
+                                        <label for="companyCity">Insert city and state of the company</label>
+                                        <div class="CitySate">
+                                            <div>
+                                                <input type="text" name="companyCity" id="companyCity" placeholder="Insert company city"> 
+                                            </div>
+                                            <div>
+                                                <input type="text" name="companyState" id="companyState" placeholder="Insert company state"> 
+                                            </div>
                                         </div>
-                                        <div>
-                                            <input type="text" name="companyState" id="companyState" placeholder="Please enter state of your company "> 
-                                        </div>
+                                        
+                                        <label for="positionInCompany">Insert your job title at the company</label>
                                         <div>
                                             <input type="text" name="positionInCompany" id="positionInCompany" placeholder="Please enter your position"> 
                                         </div>
-                                        <div>
-                                            <input type="text" name="companyStartMonth" id="companyStartMonth" placeholder="Please start Month">
+                                        <label for="companyStartMonth">Insert starting date in the company month and year:</label>
+                                        <div class="monthYear">
+                                            <!-- <input type="text" name="companyStartMonth" id="companyStartMonth" placeholder="Please start Month"> -->
+                                            <select name="companyStartMonth" id="companyStartMonth">
+                                                <option class="option" value="Not Applicable">Select month</option>
+                                                 <option class="option" value="Not Applicable"></option>
+                                            </select>
+                                            <select name="companyStartYear" id="companyStartYear">
+                                                <option class="option" value="Not Applicable">Select year </option>
+                                                <option class="option" id="SelectOption"></option>                                                
+                                            </select>
                                         </div> 
-                                        <div>
+                                        <!-- <div>
                                             <input type="text" name="companyStartYear" id="companyStartYear" placeholder="Please start year"> 
-                                        </div>
+                                        </div> -->
                                         <div>
-                                            <label for="stillWorkHere">Are you still working here?</label><br>
+                                            <label for="stillWorkHere">Check checkbox if you are still working for the company</label>
+                                            <input type="checkbox" id="stillWorkHere" name="stillWorkHere" value="current job">
+                                            <!-- <label for="stillWorkHere">Are you still working here?</label><br>
                                             <input type="radio" id="yes" name="stillWorkHere" value="1">
                                             <label for="yes">Yes</label>
                                             <input type="radio" id="no" name="stillWorkHere" value="0">
-                                            <label for="no">No</label>
-            
+                                            <label for="no">No</label> -->            
                                         </div>
-                                        <div>
-                                            <input type="text" name="companyEndMonth" id="companyEndMonth" placeholder="Please end month">
+                                        <label for="companyEndMonth">Insert your ending date in the company month and year:</label>
+                                        <div class="monthYear">
+                                            <!-- <input type="text" name="companyEndMonth" id="companyEndMonth" placeholder="Please end month"> -->
+                                            <select name="companyEndMonth" id="companyEndMonth">
+                                                <option class="option, monthOption" value="Not Applicable">Select month</option>
+                                                 <option class="option, option1" value="Not Applicable"></option>
+                                            </select>
+                                            <select name="companyEndYear" id="companyEndYear">
+                                                <option class="option, yearOption" value="Not Applicable">Select year </option>
+                                                <option class="option, option1" id="SelectOption"></option>                                                
+                                            </select>
                                         </div> 
-                                        <div>
+                                        <!-- <div>
                                             <input type="text" name="companyEndYear" id="companyEndYear" placeholder="Please end year"> 
-                                        </div>
+                                        </div> -->
             
                                         <div class=" box-Work1">
+                                            <label for="workAchiev1">Insert accomplishment in the company #1</label>
                                             <div class="flex-container">
-                                                <button class="btn-work1" id="btnWork"    type="button">Add more</button>
+                                                <!-- <button class="btn-work1" id="btnWork"    type="button">Add more</button> -->
                                                 <input type="text" name="workAchiev1" id="workAchiev1" placeholder="Please enter an achievement at this work">                                 
                                             </div>
                                         </div>
             
                                         <div class=" box-Work2">
+                                            <label for="workAchiev2">Insert accomplishment in the company #2</label>
                                             <div class="flex-container">
-                                                <button class="btn-work2" id="btnWork" type="button">Add more</button>
+                                                <!-- <button class="btn-work2" id="btnWork" type="button">Add more</button> -->
                                                 <input type="text" name="workAchiev2" id="workAchiev2" placeholder="Please enter an achievement at this work">                                    
                                             </div>
                                         </div>
             
                                         <div class=" box-Work3">
+                                            <label for="workAchiev3">Insert accomplishment in the company #3</label>
                                             <div class="flex-container">
-                                                <button class="btn-work3" id="btnWork" type="button">Add more</button>
+                                                <!-- <button class="btn-work3" id="btnWork" type="button">Add more</button> -->
                                                 <input type="text" name="workAchiev3" id="workAchiev3" placeholder="Please enter an achievement at this work">                                 
                                             </div>
                                         </div>
             
                                         <div class=" box-Work4">
+                                            <label for="workAchiev4">Insert accomplishment in the company #4</label>
                                             <div class="flex-container">
-                                                <button class="btn-work4" type="button">Add more</button>
+                                                <!-- <button class="btn-work4" type="button">Add more</button> -->
                                                 <input type="text" name="workAchiev4" id="workAchiev4" placeholder="Please enter an achievement at this work">                                
                                             </div>
                                         </div>
             
                                         <div class=" box-Work5">
+                                            <label for="workAchiev5">Insert accomplishment in the company #5</label>
                                             <div class="flex-container">
-                                                <button class="btn-work5" type="button">Add more</button>
+                                                <!-- <button class="btn-work5" type="button">Add more</button> -->
                                                 <input type="text" name="workAchiev5" id="workAchiev5" placeholder="Please enter an achievement at this work">                                
                                             </div>
                                         </div>
             
                                         <div class=" box-Work6">
+                                            <label for="workAchiev6">Insert accomplishment in the company #6</label>
                                             <div class="flex-container">
-                                                <button class="btn-work6" type="button">Add more</button>
+                                                <!-- <button class="btn-work6" type="button">Add more</button> -->
                                                 <input type="text" name="workAchiev6" id="workAchiev6" placeholder="Please enter an achievement at this work">                                 
                                             </div>
                                         </div>
             
                                         <div class=" box-Work7">
+                                            <label for="workAchiev7">Insert accomplishment in the company #7</label>
                                             <div class="flex-container">
-                                                <button class="btn-work7" type="button">Add more</button>
+                                                <!-- <button class="btn-work7" type="button">Add more</button> -->
                                                 <input type="text" name="workAchiev7" id="workAchiev7" placeholder="Please enter an achievement at this work">                          
                                             </div>
                                         </div>
             
                                         <div class=" box-Work8">
+                                            <label for="workAchiev8">Insert accomplishment in the company #8</label>
                                             <div class="flex-container">
-                                                <button class="btn-work8" type="button">Add more</button>
+                                                <!-- <button class="btn-work8" type="button">Add more</button> -->
                                                 <input type="text" name="workAchiev8" id="workAchiev8" placeholder="Please enter an achievement at this work">                          
                                             </div>
                                         </div>
             
                                         <div class=" box-Work9">
+                                            <label for="workAchiev9">Insert accomplishment in the company #9</label>
                                             <div class="flex-container">
-                                                <button class="btn-work9" type="button">Add more</button>
+                                                <!-- <button class="btn-work9" type="button">Add more</button> -->
                                                 <input type="text" name="workAchiev9" id="workAchiev9" placeholder="Please enter an achievement at this work">                               
                                             </div>
                                         </div>
             
                                         <div class=" box-Work10">
+                                            <label for="workAchiev10">Insert accomplishment in the company #10</label>
                                             <div class="flex-container">
-                                                <button class="btn-work10" type="button">Add more</button>
+                                                <!-- <button class="btn-work10" type="button">Add more</button> -->
                                                 <input type="text" name="workAchiev10" id="workAchiev10" placeholder="Please enter an achievement at this work">                            
                                             </div>
                                         </div>
             
                                         
                                         <div class="flex-container"> 
-                                            <input type="submit" value="Add work" id="submit_work">
+                                            <input type="submit" value="Save" id="SaveWork">
+                                            <input type="submit" value="Save & continue" id="submit_work">
                                         </div>
                                         <div>
                                             <label for="work" id ="msgError"></label>
