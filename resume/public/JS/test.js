@@ -206,3 +206,28 @@ let createPerform =() =>{
     const formPerson = document.createElement("form")
     formPerson.id = "personForm"
 }
+
+
+let handleDuplicateEntry = (myEntry1, myEntry2 ) =>{
+    let validationArray = [];
+    let msgError = document.querySelector(".error") 
+    document.getElementById(myEntry1).addEventListener('change', () =>{
+        const string1 = (document.getElementById(myEntry1).value).toLowerCase();
+        validationArray.push(string1)
+        console.log('1', validationArray)        
+        document.getElementById(myEntry2).addEventListener('change', () =>{
+            const string2 = (document.getElementById(myEntry2).value).toLowerCase();
+                if(validationArray.includes(string2)){
+                    msgError.textContent = `"${string2}" has been already added`
+                    document.getElementById(myEntry2).focus()
+                }else{
+                    validationArray.push(string2)
+                    msgError.textContent = '';
+                    console.log('2', validationArray)
+                }
+        })
+
+    })
+}
+
+handleDuplicateEntry("title1", "title2")
