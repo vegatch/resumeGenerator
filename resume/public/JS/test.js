@@ -207,27 +207,175 @@ let createPerform =() =>{
     formPerson.id = "personForm"
 }
 
+let setInputReadOnly = () =>{
+    document.getElementById("tech2").readOnly = true;
+    document.getElementById("tech3").readOnly = true;
+    document.getElementById("tech4").readOnly = true;
+    document.getElementById("tech5").readOnly = true;
+    document.getElementById("tech6").readOnly = true;
+    document.getElementById("tech7").readOnly = true;
+    document.getElementById("tech8").readOnly = true;
+    document.getElementById("tech9").readOnly = true;
+    document.getElementById("tech10").readOnly = true;
 
-let handleDuplicateEntry = (myEntry1, myEntry2 ) =>{
+    document.getElementById("market2").readOnly = true;
+    document.getElementById("market3").readOnly = true;
+    document.getElementById("market4").readOnly = true;
+    document.getElementById("market5").readOnly = true;
+    document.getElementById("market6").readOnly = true;
+    document.getElementById("market7").readOnly = true;
+    document.getElementById("market8").readOnly = true;
+    document.getElementById("market9").readOnly = true;
+    document.getElementById("market10").readOnly = true;    
+} 
+setInputReadOnly()
+
+let handleDuplicateEntry = (myform, myEntry1, myEntry2, myEntry3, myEntry4, myEntry5, myEntry6, myEntry7, myEntry8, myEntry9, myEntry10 ) =>{
     let validationArray = [];
-    let msgError = document.querySelector(".error") 
-    document.getElementById(myEntry1).addEventListener('change', () =>{
-        const string1 = (document.getElementById(myEntry1).value).toLowerCase();
-        validationArray.push(string1)
-        console.log('1', validationArray)        
-        document.getElementById(myEntry2).addEventListener('change', () =>{
-            const string2 = (document.getElementById(myEntry2).value).toLowerCase();
-                if(validationArray.includes(string2)){
-                    msgError.textContent = `"${string2}" has been already added`
-                    document.getElementById(myEntry2).focus()
-                }else{
-                    validationArray.push(string2)
-                    msgError.textContent = '';
-                    console.log('2', validationArray)
-                }
-        })
+    let msgError = document.querySelector(".error")
+    
+    if(myform === "titleForm"){        
+            document.getElementById(myEntry1).addEventListener('change', () =>{
+                const string1 = (document.getElementById(myEntry1).value).toLowerCase();
+                validationArray.push(string1)
+                console.log('1', validationArray)        
+                document.getElementById(myEntry2).addEventListener('change', () =>{
+                    const string2 = (document.getElementById(myEntry2).value).toLowerCase();
+                        if(validationArray.includes(string2)){
+                            msgError.textContent = `"${string2}" has been already added`
+                            document.getElementById(myEntry2).focus()
+                        }else{
+                            validationArray.push(string2)
+                            msgError.textContent = '';
+                            console.log('2', validationArray)
+                            
+                        }
+                })
 
-    })
+            })
+    } 
+    if(myform === "techSkillsForm" || myform === "marketSkillsForm"){
+        document.getElementById(myEntry1).addEventListener('change', () =>{
+            const string1 = (document.getElementById(myEntry1).value).toLowerCase();
+            validationArray.push(string1)
+            console.log('1', validationArray)   
+            document.getElementById(myEntry2).readOnly = false;     
+            document.getElementById(myEntry2).addEventListener('change', () =>{
+                const string2 = (document.getElementById(myEntry2).value).toLowerCase();
+                    if(validationArray.includes(string2)){
+                        msgError.textContent = `"${string2}" has been already added`
+                        document.getElementById(myEntry2).focus()
+                    }else{
+                        validationArray.push(string2)
+                        msgError.textContent = '';
+                        console.log('2', validationArray)
+                        document.getElementById(myEntry3).readOnly = false;
+                        document.getElementById(myEntry3).addEventListener('change', () =>{
+                            const string3 = (document.getElementById(myEntry3).value).toLowerCase();
+                                if(validationArray.includes(string3)){
+                                    msgError.textContent = `"${string3}" has been already added`
+                                    document.getElementById(myEntry3).focus()
+                                }else{
+                                    validationArray.push(string3)
+                                    msgError.textContent = '';
+                                    console.log('3', validationArray)
+                                    document.getElementById(myEntry4).readOnly = false;
+                                    document.getElementById(myEntry4).addEventListener('change', () =>{
+                                        const string4 = (document.getElementById(myEntry4).value).toLowerCase();
+                                            if(validationArray.includes(string4)){
+                                                msgError.textContent = `"${string4}" has been already added`
+                                                document.getElementById(myEntry4).focus()
+                                            }else{
+                                                validationArray.push(string4)
+                                                msgError.textContent = '';
+                                                console.log('4', validationArray)
+                                                document.getElementById(myEntry5).readOnly = false;
+                                                document.getElementById(myEntry5).addEventListener('change', () =>{
+                                                    const string5 = (document.getElementById(myEntry5).value).toLowerCase();
+                                                        if(validationArray.includes(string5)){
+                                                            msgError.textContent = `"${string5}" has been already added`
+                                                            document.getElementById(myEntry5).focus()
+                                                        }else{
+                                                            validationArray.push(string5)
+                                                            msgError.textContent = '';
+                                                            console.log('5', validationArray)
+                                                            document.getElementById(myEntry6).readOnly = false;
+                                                            document.getElementById(myEntry6).addEventListener('change', () =>{
+                                                                const string6 = (document.getElementById(myEntry6).value).toLowerCase();
+                                                                    if(validationArray.includes(string6)){
+                                                                        msgError.textContent = `"${string6}" has been already added`
+                                                                        document.getElementById(myEntry6).focus()
+                                                                    }else{
+                                                                        validationArray.push(string6)
+                                                                        msgError.textContent = '';
+                                                                        console.log('6', validationArray)
+                                                                        document.getElementById(myEntry7).readOnly = false;
+                                                                        document.getElementById(myEntry7).addEventListener('change', () =>{
+                                                                            const string7 = (document.getElementById(myEntry7).value).toLowerCase();
+                                                                                if(validationArray.includes(string7)){
+                                                                                    msgError.textContent = `"${string7}" has been already added`
+                                                                                    document.getElementById(myEntry7).focus()
+                                                                                }else{
+                                                                                    validationArray.push(string7)
+                                                                                    msgError.textContent = '';
+                                                                                    console.log('7', validationArray)
+                                                                                    document.getElementById(myEntry8).readOnly = false;
+                                                                                    document.getElementById(myEntry8).addEventListener('change', () =>{
+                                                                                        const string8 = (document.getElementById(myEntry8).value).toLowerCase();
+                                                                                            if(validationArray.includes(string8)){
+                                                                                                msgError.textContent = `"${string8}" has been already added`
+                                                                                                document.getElementById(myEntry8).focus()
+                                                                                            }else{
+                                                                                                validationArray.push(string8)
+                                                                                                msgError.textContent = '';
+                                                                                                console.log('8', validationArray)
+                                                                                                document.getElementById(myEntry9).readOnly = false;
+                                                                                                document.getElementById(myEntry9).addEventListener('change', () =>{
+                                                                                                    const string9 = (document.getElementById(myEntry9).value).toLowerCase();
+                                                                                                        if(validationArray.includes(string9)){
+                                                                                                            msgError.textContent = `"${string9}" has been already added`
+                                                                                                            document.getElementById(myEntry9).focus()
+                                                                                                        }else{
+                                                                                                            validationArray.push(string9)
+                                                                                                            msgError.textContent = '';
+                                                                                                            console.log('9', validationArray)
+                                                                                                            document.getElementById(myEntry10).readOnly = false;
+                                                                                                            document.getElementById(myEntry10).addEventListener('change', () =>{
+                                                                                                                const string10 = (document.getElementById(myEntry10).value).toLowerCase();
+                                                                                                                    if(validationArray.includes(string10)){
+                                                                                                                        msgError.textContent = `"${string10}" has been already added`
+                                                                                                                        document.getElementById(myEntry10).focus()
+                                                                                                                    }else{
+                                                                                                                        validationArray.push(string10)
+                                                                                                                        msgError.textContent = '';
+                                                                                                                        console.log('10', validationArray)                                                                                                                        
+                                                                                                                    }
+                                                                                                            })
+                                                                                                        }
+                                                                                                })
+                                                                                            }
+                                                                                    })
+                                                                                }
+                                                                        })
+                                                                    }
+                                                            })
+                                                        }
+                                                })
+                                            }
+                                    })
+                                }
+                        })
+                    }
+            })
+    
+        })
+    }
+    
 }
 
-handleDuplicateEntry("title1", "title2")
+handleDuplicateEntry("titleForm", "title1", "title2")
+handleDuplicateEntry("techSkillsForm", "tech1", "tech2", "tech3", "tech4", "tech5", "tech6", "tech7", "tech8", "tech9", "tech10")
+handleDuplicateEntry("marketSkillsForm", "market1", "market2", "market3", "market4", "market5", "market6", "market7", "market8", "market9", "market10")
+
+
+

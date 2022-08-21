@@ -20,9 +20,7 @@ body{
     position:fixed;
     top:0;
     width:100%;
-    z-index:100;
-    
-    
+    z-index:100;    
 }
 
 .banner.h1 {
@@ -45,6 +43,30 @@ body{
     height: auto;
     position: fixed;   
 }
+
+.middle-container{
+    position: absolute;
+    left: 23%;
+    width: 54%;
+    /* background-color: rgb(0, 255, 17); */
+}
+
+.right-container{
+    left: 80%;
+    width: 20%;   
+    
+}
+.image-container{
+    width: 89%;
+}
+
+.image-container img{
+    width: 100%;
+    /* height: 100%; */
+    border-radius: 50%;
+    background-color: black;
+}
+
 
 .control-container{
     text-align: right;    
@@ -160,19 +182,7 @@ select > option{
     
 }
 
-.middle-container{
-    position: absolute;
-    left: 23%;
-    width: 55%;
-    /* background-color: rgb(0, 255, 17); */
-}
 
-.right-container{
-    position: absolute;
-    left: 81%;
-    width: 16%;
-    background-color: blue;
-}
 
 form, fieldset{
     padding: 1rem;  
