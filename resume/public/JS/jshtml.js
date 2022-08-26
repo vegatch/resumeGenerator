@@ -14,13 +14,34 @@ let loadHtmlForm = () =>{
     mainContainer.append(sectionContainer)
 
     const leftSectionContainer = document.createElement('div')
-    sectionContainer.classList.add("left-container")
+    leftSectionContainer.classList.add("left-container")
     const leftSectionContainerElement = document.createElement('div')
     leftSectionContainerElement.classList.add("control-container")
     const leftPara1 =  document.createElement('p')
     leftPara1.textContent = 'Personal Information'
-    // remaining p element to add here
-    leftSectionContainerElement.append(leftPara1)
+    const leftPara2 =  document.createElement('p')
+    leftPara2.textContent = 'Professional Title'
+    const leftPara3 =  document.createElement('p')
+    leftPara3.textContent = 'Contact Information'
+    const leftPara4 =  document.createElement('p')
+    leftPara4.textContent = 'Professional Social media link'
+    const leftPara5 =  document.createElement('p')
+    leftPara5.textContent = 'Professional Summary'
+    const leftPara6 =  document.createElement('p')
+    leftPara6.textContent = 'Education Information'
+    const leftPara7 =  document.createElement('p')
+    leftPara7.textContent = 'Technical Skills'
+    const leftPara8 =  document.createElement('p')
+    leftPara8.textContent = 'Marketable Skills'
+    const leftPara9 =  document.createElement('p')
+    leftPara9.textContent = 'Projects Realized'
+    const leftPara10 =  document.createElement('p')
+    leftPara10.textContent = 'Work Experience'
+    const leftPara11 =  document.createElement('p')
+    leftPara11.textContent = 'Edit Indormation'
+    const leftPara12 =  document.createElement('p')
+    leftPara12.textContent = 'View Resume'    
+    leftSectionContainerElement.append(leftPara1, leftPara2, leftPara3, leftPara4, leftPara5, leftPara6, leftPara7, leftPara8, leftPara9, leftPara10, leftPara11, leftPara12)
     leftSectionContainer.append(leftSectionContainerElement)
     sectionContainer.append(leftSectionContainer)
 
@@ -405,6 +426,18 @@ let loadHtmlForm = () =>{
     // END OF SUMMARY FORM
     
 
+
+
+    //RIGHT CONTAINER START HERE
+    const rightSectionContainer = document.createElement('div')
+    rightSectionContainer.classList.add("right-container")
+    const rightSectionContainerElement = document.createElement('div')
+    rightSectionContainerElement.classList.add("control-container")
+    const rightPara1 =  document.createElement('p')
+    rightPara1.textContent = 'Right Section goes here'
+    rightSectionContainerElement.append(rightPara1)
+    rightSectionContainer.append(rightSectionContainerElement)
+    sectionContainer.append(rightSectionContainer)
 
     console.log(personForm)
 
