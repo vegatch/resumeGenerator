@@ -2,7 +2,7 @@ let hideForm = () =>{
     document.querySelector("#personForm").style.display = "none"
     document.querySelector("#titleForm").style.display = "none"
     document.querySelector("#contactForm").style.display = "none"
-    document.querySelector("#socioForm").style.display = "none"
+    document.querySelector("#socialForm").style.display = "none"
     document.querySelector("#resObjective").style.display = "none"
 
     document.querySelector("#educationForm").style.display = "none"

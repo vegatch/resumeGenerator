@@ -109,12 +109,12 @@ let loadHtmlForm = () =>{
     personInputDiv4.append(personInputLable4, personIdInput4)
 
     const personInputDiv5 = document.createElement("div")    
-    const personBtn1 = document.createElement("button")
+    const personBtn1 = document.createElement("input")
     personBtn1.setAttribute("type", "submit")
     personBtn1.setAttribute("id", "SavePerson")
     personBtn1.setAttribute("value", "Save")
     personBtn1.innerHTML = "Save"
-    const personBtn2 = document.createElement("button")
+    const personBtn2 = document.createElement("input")
     personBtn2.setAttribute("type", "submit")
     personBtn2.setAttribute("id", "submit_Person")
     personBtn2.setAttribute("value", "Save & continue")
@@ -171,12 +171,12 @@ let loadHtmlForm = () =>{
 
     const titleInputDiv5 = document.createElement("div")  
     titleInputDiv5.classList.add("container")  
-    const titleBtn1 = document.createElement("button")
+    const titleBtn1 = document.createElement("input")
     titleBtn1.setAttribute("type", "submit")
     titleBtn1.setAttribute("id", "SaveTitle")
     titleBtn1.setAttribute("value", "Save")
     titleBtn1.innerHTML = "Save"
-    const titleBtn2 = document.createElement("button")
+    const titleBtn2 = document.createElement("input")
     titleBtn2.setAttribute("type", "submit")
     titleBtn2.setAttribute("id", "submit_title")
     titleBtn2.setAttribute("value", "Save & continue")
@@ -285,12 +285,12 @@ let loadHtmlForm = () =>{
 
     const contactInputDiv10 = document.createElement("div")  
     contactInputDiv10.classList.add("container")  
-    const contactBtn1 = document.createElement("button")
+    const contactBtn1 = document.createElement("input")
     contactBtn1.setAttribute("type", "submit")
     contactBtn1.setAttribute("id", "SaveContact")
     contactBtn1.setAttribute("value", "Save")
     contactBtn1.innerHTML = "Save"
-    const contactBtn2 = document.createElement("button")
+    const contactBtn2 = document.createElement("input")
     contactBtn2.setAttribute("type", "submit")
     contactBtn2.setAttribute("id", "submit_contact")
     contactBtn2.setAttribute("value", "Save & continue")
@@ -357,12 +357,12 @@ let loadHtmlForm = () =>{
 
     const socialInputDiv6 = document.createElement("div")  
     socialInputDiv6.classList.add("container")  
-    const socialBtn1 = document.createElement("button")
+    const socialBtn1 = document.createElement("input")
     socialBtn1.setAttribute("type", "submit")
     socialBtn1.setAttribute("id", "SaveLink")
     socialBtn1.setAttribute("value", "Save")
     socialBtn1.innerHTML = "Save"
-    const socialBtn2 = document.createElement("button")
+    const socialBtn2 = document.createElement("input")
     socialBtn2.setAttribute("type", "submit")
     socialBtn2.setAttribute("id", "submit_link")
     socialBtn2.setAttribute("value", "Save & continue")
@@ -408,12 +408,12 @@ let loadHtmlForm = () =>{
         
     const summaryInputDiv4 = document.createElement("div")  
     summaryInputDiv4.classList.add("container")  
-    const summaryBtn1 = document.createElement("button")
+    const summaryBtn1 = document.createElement("input")
     summaryBtn1.setAttribute("type", "submit")
     summaryBtn1.setAttribute("id", "SaveObjective")
     summaryBtn1.setAttribute("value", "Save")
     summaryBtn1.innerHTML = "Save"
-    const summaryBtn2 = document.createElement("button")
+    const summaryBtn2 = document.createElement("input")
     summaryBtn2.setAttribute("type", "submit")
     summaryBtn2.setAttribute("id", "submit_link")
     summaryBtn2.setAttribute("value", "Save & continue")
@@ -424,6 +424,348 @@ let loadHtmlForm = () =>{
     summaryForm.append(summaryFormFieldset)
     formWrapper.append(summaryForm)
     // END OF SUMMARY FORM
+    // START OF EDUCATION FORM
+    const educationForm = document.createElement('form')
+    educationForm.setAttribute("method", "POST")
+    educationForm.setAttribute("id", "educationForm")
+    const educationFormFieldset = document.createElement('fieldset')
+    const educationFormLegend = document.createElement('legend')
+    educationFormLegend.textContent = 'Education Information'    
+   
+    const educationInputDiv1 = document.createElement("div")   
+    const educationInput1 = document.createElement("input")
+    educationInput1.setAttribute("type", "text")
+    educationInput1.setAttribute("id", "educationId")
+    educationInput1.setAttribute("name", "educationId")
+    educationInput1.placeholder = 'educationID will be displayed here'
+    educationInputDiv1.append(educationInput1)    
+
+    const educationInputDiv2 = document.createElement("div")   
+    const educationInput2 = document.createElement("input")
+    educationInput2.setAttribute("type", "text")
+    educationInput2.setAttribute("id", "pIdEducation")
+    educationInput2.setAttribute("name", "pIdEducation")
+    educationInput2.placeholder = 'personID will be displayed here'
+    educationInputDiv2.append(educationInput2)   
+    
+    const educationInputDiv3 = document.createElement("div")   
+    const educationInput3 = document.createElement("input")
+    educationInput3.setAttribute("type", "text")
+    educationInput3.setAttribute("id", "education_number")
+    educationInput3.setAttribute("name", "education_number")
+    educationInput3.placeholder = 'education # will be displayed here'
+    educationInputDiv3.append(educationInput3)   
+
+    const educationInputDiv4 = document.createElement("div")
+    const educationInputLabel4 = document.createElement("label")
+    educationInputLabel4.setAttribute("for", "eduFieldStudy")
+    educationInputLabel4.textContent = 'Select your field of study below:'
+    const radioContainerDiv4 = document.createElement("div")
+    radioContainerDiv4.classList.add("radioGroup")
+    const eduInputRadio1 = document.createElement("input")
+    eduInputRadio1.setAttribute("type", "radio")
+    eduInputRadio1.setAttribute("id", "eduIt")
+    eduInputRadio1.setAttribute("name", "eduFieldStudy")
+    eduInputRadio1.setAttribute("value", "IT")
+    const eduInputRadioLabel1 = document.createElement("label")
+    eduInputRadioLabel1.setAttribute("for", "IT")
+    eduInputRadioLabel1.textContent = 'Information Technology'
+    const eduInputRadio2 = document.createElement("input")
+    eduInputRadio2.setAttribute("type", "radio")
+    eduInputRadio2.setAttribute("id", "eduOther")
+    eduInputRadio2.setAttribute("name", "eduFieldStudy")
+    eduInputRadio2.setAttribute("value", "Other")
+    const eduInputRadioLabel2 = document.createElement("label")
+    eduInputRadioLabel2.setAttribute("for", "Other")
+    eduInputRadioLabel2.textContent = 'Other'
+    radioContainerDiv4.append(eduInputRadio1, eduInputRadioLabel1, eduInputRadio2, eduInputRadioLabel2)
+    educationInputDiv4.append(educationInputLabel4, radioContainerDiv4)
+        
+    const educationInputDiv5 = document.createElement("div")   
+    const educationInputLabel5 = document.createElement("label")
+    educationInputLabel5.setAttribute("for", "school_name")
+    educationInputLabel5.textContent = 'Insert your school name:'
+    const educationInput5 = document.createElement("input")
+    educationInput5.setAttribute("type", "text")
+    educationInput5.setAttribute("id", "school_name")
+    educationInput5.setAttribute("name", "school_name")
+    educationInputDiv5.append(educationInputLabel5, educationInput5)  
+
+    const educationInputDiv6 = document.createElement("div")   
+    const educationInputLabel6 = document.createElement("label")
+    educationInputLabel6.setAttribute("for", "school_city")
+    educationInputLabel6.textContent = 'Insert the city of your school:'
+    const educationInput6 = document.createElement("input")
+    educationInput6.setAttribute("type", "text")
+    educationInput6.setAttribute("id", "school_city")
+    educationInput6.setAttribute("name", "school_city")
+    educationInputDiv6.append(educationInputLabel6, educationInput6)  
+
+    const educationInputDiv7 = document.createElement("div")   
+    const educationInputLabel7 = document.createElement("label")
+    educationInputLabel7.setAttribute("for", "school_state")
+    educationInputLabel7.textContent = 'Insert the state of your school:'
+    const educationInput7 = document.createElement("input")
+    educationInput7.setAttribute("type", "text")
+    educationInput7.setAttribute("id", "school_state")
+    educationInput7.setAttribute("name", "school_state")
+    educationInputDiv7.append(educationInputLabel7, educationInput7)  
+
+    
+    const educationInputDiv8 = document.createElement("div")
+    const educationInputLabel8 = document.createElement("label")
+    educationInputLabel8.setAttribute("for", "school_attendance_method")
+    educationInputLabel8.textContent = 'Select attendance method below:'
+    const radioContainerDiv8 = document.createElement("div")
+    radioContainerDiv8.classList.add("radioGroup")
+    const attendanceInputRadio1 = document.createElement("input")
+    attendanceInputRadio1.setAttribute("type", "radio")
+    attendanceInputRadio1.setAttribute("id", "remote")
+    attendanceInputRadio1.setAttribute("name", "school_attendance_method")
+    attendanceInputRadio1.setAttribute("value", "remote")
+    const attendanceInputRadioLabel1 = document.createElement("label")
+    attendanceInputRadioLabel1.setAttribute("for", "remote")
+    attendanceInputRadioLabel1.textContent = 'Remote'
+    const attendanceInputRadio2 = document.createElement("input")
+    attendanceInputRadio2.setAttribute("type", "radio")
+    attendanceInputRadio2.setAttribute("id", "InPerson")
+    attendanceInputRadio2.setAttribute("name", "school_attendance_method")
+    attendanceInputRadio2.setAttribute("value", "in person")
+    const attendanceInputRadioLabel2 = document.createElement("label")
+    attendanceInputRadioLabel2.setAttribute("for", "inPerson")
+    attendanceInputRadioLabel2.textContent = 'In person'
+    radioContainerDiv8.append(attendanceInputRadio1, attendanceInputRadioLabel1, attendanceInputRadio2, attendanceInputRadioLabel2)
+    educationInputDiv8.append(educationInputLabel8, radioContainerDiv8)
+
+    const educationInputDiv9 = document.createElement("div")   
+    const educationInputLabel9 = document.createElement("label")
+    educationInputLabel9.setAttribute("for", "certificate_title")
+    educationInputLabel9.textContent = 'Insert the title of the certificate obtained:'
+    const educationInput9 = document.createElement("input")
+    educationInput9.setAttribute("type", "text")
+    educationInput9.setAttribute("id", "certificate_title")
+    educationInput9.setAttribute("name", "certificate_title")
+    educationInputDiv9.append(educationInputLabel9, educationInput9) 
+
+    const educationInputDiv10 = document.createElement("div")   
+    const educationInputLabel10 = document.createElement("label")
+    educationInputLabel10.setAttribute("for", "graduationDate")
+    educationInputLabel10.textContent = 'Insert your graduation date (month and year):'
+    const eduGraduationDateDiv10 = document.createElement("div")
+    eduGraduationDateDiv10.classList.add("monthYear")
+    eduGraduationDateDiv10.setAttribute("name", "graduationDate")
+    const graduationMonth10 = document.createElement("select")    
+    graduationMonth10.setAttribute("id", "completion_date_month")
+    graduationMonth10.setAttribute("name", "completion_date_month")
+    const graduationMonthOption10 = document.createElement("option") 
+    graduationMonthOption10.classList.add("option")
+    graduationMonthOption10.setAttribute("value", " ")
+    graduationMonthOption10.text = 'Select month'
+    graduationMonth10.append(graduationMonthOption10)
+    const graduationYear10 = document.createElement("select")    
+    graduationYear10.setAttribute("id", "completion_date_year")
+    graduationYear10.setAttribute("name", "completion_date_year")
+    const graduationYearOption10 = document.createElement("option") 
+    graduationYearOption10.classList.add("option")
+    graduationYearOption10.setAttribute("value", " ")
+    graduationYearOption10.setAttribute("id", "selectOption ")
+    graduationYearOption10.text= 'Select year'
+    graduationYear10.append(graduationYearOption10)
+    eduGraduationDateDiv10.append(graduationMonth10, graduationYear10)
+    educationInputDiv10.append(educationInputLabel10, eduGraduationDateDiv10) 
+    
+    const educationInputDiv11 = document.createElement("div")   
+    const educationInputLabel11 = document.createElement("label")
+    educationInputLabel11.setAttribute("for", "eduAchievement1")
+    educationInputLabel11.textContent = 'Insert accomplishment #1:'
+    const educationInput11 = document.createElement("textarea")
+    educationInput11.setAttribute("type", "text")
+    educationInput11.setAttribute("id", "eduAchievement1")
+    educationInput11.setAttribute("name", "eduAchievement1")
+    educationInputDiv11.append(educationInputLabel11, educationInput11)
+    
+    const educationInputDiv12 = document.createElement("div")   
+    const educationInputLabel12 = document.createElement("label")
+    educationInputLabel12.setAttribute("for", "eduAchievement2")
+    educationInputLabel12.textContent = 'Insert accomplishment #2:'
+    const educationInput12 = document.createElement("textarea")
+    educationInput12.setAttribute("type", "text")
+    educationInput12.setAttribute("id", "eduAchievement2")
+    educationInput12.setAttribute("name", "eduAchievement2")
+    educationInputDiv12.append(educationInputLabel12, educationInput12) 
+
+    const educationInputDiv13 = document.createElement("div")   
+    const educationInputLabel13 = document.createElement("label")
+    educationInputLabel13.setAttribute("for", "eduAchievement3")
+    educationInputLabel13.textContent = 'Insert accomplishment #3:'
+    const educationInput13 = document.createElement("textarea")
+    educationInput13.setAttribute("type", "text")
+    educationInput13.setAttribute("id", "eduAchievement3")
+    educationInput13.setAttribute("name", "eduAchievement3")
+    educationInputDiv13.append(educationInputLabel13, educationInput13) 
+
+    const educationInputDiv14 = document.createElement("div")  
+    educationInputDiv14.classList.add("container")  
+    const educationBtn1 = document.createElement("input")
+    educationBtn1.setAttribute("type", "submit")
+    educationBtn1.setAttribute("id", "SaveObjective")
+    educationBtn1.setAttribute("value", "Save")
+    educationBtn1.innerHTML = "Save"
+    const educationBtn2 = document.createElement("input")
+    educationBtn2.setAttribute("type", "submit")
+    educationBtn2.setAttribute("id", "submit_link")
+    educationBtn2.setAttribute("value", "Save & continue")
+    educationBtn2.innerHTML = "Save & continue"
+    educationInputDiv14.append(educationBtn1, educationBtn2)
+
+    educationFormFieldset.append(educationFormLegend, educationInputDiv1, educationInputDiv2, educationInputDiv3, educationInputDiv4, educationInputDiv5, educationInputDiv6, educationInputDiv7, educationInputDiv8, educationInputDiv9, educationInputDiv10, educationInputDiv11, educationInputDiv12, educationInputDiv13, educationInputDiv14)
+    educationForm.append(educationFormFieldset)
+    formWrapper.append(educationForm)
+    // END OF EDUCATION FORM
+    // START OF TECH SKILLS FORM
+    const techSkillsForm = document.createElement('form')
+    techSkillsForm.setAttribute("method", "POST")
+    techSkillsForm.setAttribute("id", "techSkillsForm")
+    const techSkillsFormFieldset = document.createElement('fieldset')
+    const techSkillsFormLegend = document.createElement('legend')
+    techSkillsFormLegend.textContent = 'Technical Skills'    
+   
+    const techSkillsInputDiv1 = document.createElement("div")   
+    const techSkillsInput1 = document.createElement("input")
+    techSkillsInput1.setAttribute("type", "text")
+    techSkillsInput1.setAttribute("id", "techId")
+    techSkillsInput1.setAttribute("name", "techId")
+    techSkillsInput1.placeholder = 'techID will be displayed here'
+    techSkillsInputDiv1.append(techSkillsInput1)    
+
+    const techSkillsInputDiv2 = document.createElement("div")   
+    const techSkillsInput2 = document.createElement("input")
+    techSkillsInput2.setAttribute("type", "text")
+    techSkillsInput2.setAttribute("id", "pidTech")
+    techSkillsInput2.setAttribute("name", "pidTech")
+    techSkillsInput2.placeholder = 'personID will be displayed here'
+    techSkillsInputDiv2.append(techSkillsInput2)  
+
+    const techSkillsInputDiv3 = document.createElement("div")
+    const techSkillsInputLabel3 = document.createElement("label")
+    techSkillsInputLabel3.setAttribute("for", "tech1")
+    techSkillsInputLabel3.textContent = 'Insert your technical skill #1:'
+    const techSkillsInput3 = document.createElement("input")
+    techSkillsInput3.setAttribute("type", "text")
+    techSkillsInput3.setAttribute("id", "tech1")
+    techSkillsInput3.setAttribute("name", "tech1")
+    techSkillsInputDiv3.append(techSkillsInputLabel3, techSkillsInput3)
+
+    const techSkillsInputDiv4 = document.createElement("div")
+    const techSkillsInputLabel4 = document.createElement("label")
+    techSkillsInputLabel4.setAttribute("for", "tech2")
+    techSkillsInputLabel4.textContent = 'Insert your technical skill #2:'
+    const techSkillsInput4 = document.createElement("input")
+    techSkillsInput4.setAttribute("type", "text")
+    techSkillsInput4.setAttribute("id", "tech2")
+    techSkillsInput4.setAttribute("name", "tech2")
+    techSkillsInputDiv4.append(techSkillsInputLabel4, techSkillsInput4)
+
+    const techSkillsInputDiv5 = document.createElement("div")
+    const techSkillsInputLabel5 = document.createElement("label")
+    techSkillsInputLabel5.setAttribute("for", "tech3")
+    techSkillsInputLabel5.textContent = 'Insert your technical skill #3:'
+    const techSkillsInput5 = document.createElement("input")
+    techSkillsInput5.setAttribute("type", "text")
+    techSkillsInput5.setAttribute("id", "tech3")
+    techSkillsInput5.setAttribute("name", "tech3")
+    techSkillsInputDiv5.append(techSkillsInputLabel5, techSkillsInput5)
+    
+    const techSkillsInputDiv6 = document.createElement("div")
+    const techSkillsInputLabel6 = document.createElement("label")
+    techSkillsInputLabel6.setAttribute("for", "tech4")
+    techSkillsInputLabel6.textContent = 'Insert your technical skill #4:'
+    const techSkillsInput6 = document.createElement("input")
+    techSkillsInput6.setAttribute("type", "text")
+    techSkillsInput6.setAttribute("id", "tech4")
+    techSkillsInput6.setAttribute("name", "tech4")
+    techSkillsInputDiv6.append(techSkillsInputLabel6, techSkillsInput6)
+
+    const techSkillsInputDiv7 = document.createElement("div")
+    const techSkillsInputLabel7 = document.createElement("label")
+    techSkillsInputLabel7.setAttribute("for", "tech5")
+    techSkillsInputLabel7.textContent = 'Insert your technical skill #5:'
+    const techSkillsInput7 = document.createElement("input")
+    techSkillsInput7.setAttribute("type", "text")
+    techSkillsInput7.setAttribute("id", "tech5")
+    techSkillsInput7.setAttribute("name", "tech5")
+    techSkillsInputDiv7.append(techSkillsInputLabel7, techSkillsInput7)        
+
+    const techSkillsInputDiv8 = document.createElement("div")
+    const techSkillsInputLabel8 = document.createElement("label")
+    techSkillsInputLabel8.setAttribute("for", "tech6")
+    techSkillsInputLabel8.textContent = 'Insert your technical skill #6:'
+    const techSkillsInput8 = document.createElement("input")
+    techSkillsInput8.setAttribute("type", "text")
+    techSkillsInput8.setAttribute("id", "tech6")
+    techSkillsInput8.setAttribute("name", "tech6")
+    techSkillsInputDiv8.append(techSkillsInputLabel8, techSkillsInput8)
+
+    const techSkillsInputDiv9 = document.createElement("div")
+    const techSkillsInputLabel9 = document.createElement("label")
+    techSkillsInputLabel9.setAttribute("for", "tech7")
+    techSkillsInputLabel9.textContent = 'Insert your technical skill #7:'
+    const techSkillsInput9 = document.createElement("input")
+    techSkillsInput9.setAttribute("type", "text")
+    techSkillsInput9.setAttribute("id", "tech7")
+    techSkillsInput9.setAttribute("name", "tech7")
+    techSkillsInputDiv9.append(techSkillsInputLabel9, techSkillsInput9)
+
+    const techSkillsInputDiv10 = document.createElement("div")
+    const techSkillsInputLabel10 = document.createElement("label")
+    techSkillsInputLabel10.setAttribute("for", "tech8")
+    techSkillsInputLabel10.textContent = 'Insert your technical skill #8:'
+    const techSkillsInput10 = document.createElement("input")
+    techSkillsInput10.setAttribute("type", "text")
+    techSkillsInput10.setAttribute("id", "tech8")
+    techSkillsInput10.setAttribute("name", "tech8")
+    techSkillsInputDiv10.append(techSkillsInputLabel10, techSkillsInput10)
+
+    const techSkillsInputDiv11 = document.createElement("div")
+    const techSkillsInputLabel11 = document.createElement("label")
+    techSkillsInputLabel11.setAttribute("for", "tech9")
+    techSkillsInputLabel11.textContent = 'Insert your technical skill #9:'
+    const techSkillsInput11 = document.createElement("input")
+    techSkillsInput11.setAttribute("type", "text")
+    techSkillsInput11.setAttribute("id", "tech9")
+    techSkillsInput11.setAttribute("name", "tech9")
+    techSkillsInputDiv11.append(techSkillsInputLabel11, techSkillsInput11)
+
+    
+    const techSkillsInputDiv12 = document.createElement("div")
+    const techSkillsInputLabel12 = document.createElement("label")
+    techSkillsInputLabel12.setAttribute("for", "tech10")
+    techSkillsInputLabel12.textContent = 'Insert your technical skill #9:'
+    const techSkillsInput12 = document.createElement("input")
+    techSkillsInput12.setAttribute("type", "text")
+    techSkillsInput12.setAttribute("id", "tech10")
+    techSkillsInput12.setAttribute("name", "tech10")
+    techSkillsInputDiv12.append(techSkillsInputLabel12, techSkillsInput12)
+
+    const techSkillsInputDiv13 = document.createElement("div")  
+    techSkillsInputDiv13.classList.add("container")  
+    const techBtn1 = document.createElement("input")
+    techBtn1.setAttribute("type", "submit")
+    techBtn1.setAttribute("id", "SaveObjective")
+    techBtn1.setAttribute("value", "Save")
+    techBtn1.innerHTML = "Save"
+    const techBtn2 = document.createElement("input")
+    techBtn2.setAttribute("type", "submit")
+    techBtn2.setAttribute("id", "submit_link")
+    techBtn2.setAttribute("value", "Save & continue")
+    techBtn2.innerHTML = "Save & continue"
+    techSkillsInputDiv13.append(techBtn1, techBtn2)
+
+    techSkillsFormFieldset.append(techSkillsFormLegend, techSkillsInputDiv3, techSkillsInputDiv4, techSkillsInputDiv5, techSkillsInputDiv6, techSkillsInputDiv7, techSkillsInputDiv8, techSkillsInputDiv9, techSkillsInputDiv10, techSkillsInputDiv11, techSkillsInputDiv12)
+    techSkillsForm.append(techSkillsFormFieldset)
+    formWrapper.append(techSkillsForm)
+    
+    // END OF TECH SKILLS FORM
     
 
 
