@@ -761,12 +761,352 @@ let loadHtmlForm = () =>{
     techBtn2.innerHTML = "Save & continue"
     techSkillsInputDiv13.append(techBtn1, techBtn2)
 
-    techSkillsFormFieldset.append(techSkillsFormLegend, techSkillsInputDiv3, techSkillsInputDiv4, techSkillsInputDiv5, techSkillsInputDiv6, techSkillsInputDiv7, techSkillsInputDiv8, techSkillsInputDiv9, techSkillsInputDiv10, techSkillsInputDiv11, techSkillsInputDiv12)
+    techSkillsFormFieldset.append(techSkillsFormLegend, techSkillsInputDiv3, techSkillsInputDiv4, techSkillsInputDiv5, techSkillsInputDiv6, techSkillsInputDiv7, techSkillsInputDiv8, techSkillsInputDiv9, techSkillsInputDiv10, techSkillsInputDiv11, techSkillsInputDiv12, techSkillsInputDiv13)
     techSkillsForm.append(techSkillsFormFieldset)
-    formWrapper.append(techSkillsForm)
-    
+    formWrapper.append(techSkillsForm)    
     // END OF TECH SKILLS FORM
+    // START OF MARKET SKILLS FORM
+    const marketSkillsForm = document.createElement('form')
+    marketSkillsForm.setAttribute("method", "POST")
+    marketSkillsForm.setAttribute("id", "marketSkillsForm")
+    const marketSkillsFormFieldset = document.createElement('fieldset')
+    const marketSkillsFormLegend = document.createElement('legend')
+    marketSkillsFormLegend.textContent = 'Marketable Skills'    
+   
+    const marketSkillsInputDiv1 = document.createElement("div")   
+    const marketSkillsInput1 = document.createElement("input")
+    marketSkillsInput1.setAttribute("type", "text")
+    marketSkillsInput1.setAttribute("id", "marketId")
+    marketSkillsInput1.setAttribute("name", "marketId")
+    marketSkillsInput1.placeholder = 'marketID will be displayed here'
+    marketSkillsInputDiv1.append(marketSkillsInput1)    
+
+    const marketSkillsInputDiv2 = document.createElement("div")   
+    const marketSkillsInput2 = document.createElement("input")
+    marketSkillsInput2.setAttribute("type", "text")
+    marketSkillsInput2.setAttribute("id", "pidMarket")
+    marketSkillsInput2.setAttribute("name", "pidMarket")
+    marketSkillsInput2.placeholder = 'personID will be displayed here'
+    marketSkillsInputDiv2.append(marketSkillsInput2) 
+
+    const marketSkillsInputDiv3 = document.createElement("div")
+    const marketSkillsInputLabel3 = document.createElement("label")
+    marketSkillsInputLabel3.setAttribute("for", "market1")
+    marketSkillsInputLabel3.textContent = 'Insert your marketable skill #1:'
+    const marketSkillsInput3 = document.createElement("input")
+    marketSkillsInput3.setAttribute("type", "text")
+    marketSkillsInput3.setAttribute("id", "market1")
+    marketSkillsInput3.setAttribute("name", "market1")
+    marketSkillsInputDiv3.append(marketSkillsInputLabel3, marketSkillsInput3)
+
+    const marketSkillsInputDiv4 = document.createElement("div")
+    const marketSkillsInputLabel4 = document.createElement("label")
+    marketSkillsInputLabel4.setAttribute("for", "market2")
+    marketSkillsInputLabel4.textContent = 'Insert your marketable skill #2:'
+    const marketSkillsInput4 = document.createElement("input")
+    marketSkillsInput4.setAttribute("type", "text")
+    marketSkillsInput4.setAttribute("id", "market2")
+    marketSkillsInput4.setAttribute("name", "market2")
+    marketSkillsInputDiv4.append(marketSkillsInputLabel4, marketSkillsInput4)
+
+    const marketSkillsInputDiv5 = document.createElement("div")
+    const marketSkillsInputLabel5 = document.createElement("label")
+    marketSkillsInputLabel5.setAttribute("for", "market3")
+    marketSkillsInputLabel5.textContent = 'Insert your marketable skill #3:'
+    const marketSkillsInput5 = document.createElement("input")
+    marketSkillsInput5.setAttribute("type", "text")
+    marketSkillsInput5.setAttribute("id", "market3")
+    marketSkillsInput5.setAttribute("name", "market3")
+    marketSkillsInputDiv5.append(marketSkillsInputLabel5, marketSkillsInput5)
     
+    const marketSkillsInputDiv6 = document.createElement("div")
+    const marketSkillsInputLabel6 = document.createElement("label")
+    marketSkillsInputLabel6.setAttribute("for", "market4")
+    marketSkillsInputLabel6.textContent = 'Insert your marketable skill #4:'
+    const marketSkillsInput6 = document.createElement("input")
+    marketSkillsInput6.setAttribute("type", "text")
+    marketSkillsInput6.setAttribute("id", "market4")
+    marketSkillsInput6.setAttribute("name", "market4")
+    marketSkillsInputDiv6.append(marketSkillsInputLabel6, marketSkillsInput6)
+
+    const marketSkillsInputDiv7 = document.createElement("div")
+    const marketSkillsInputLabel7 = document.createElement("label")
+    marketSkillsInputLabel7.setAttribute("for", "market5")
+    marketSkillsInputLabel7.textContent = 'Insert your marketable skill #5:'
+    const marketSkillsInput7 = document.createElement("input")
+    marketSkillsInput7.setAttribute("type", "text")
+    marketSkillsInput7.setAttribute("id", "market5")
+    marketSkillsInput7.setAttribute("name", "market5")
+    marketSkillsInputDiv7.append(marketSkillsInputLabel7, marketSkillsInput7)      
+
+    const marketSkillsInputDiv8 = document.createElement("div")
+    const marketSkillsInputLabel8 = document.createElement("label")
+    marketSkillsInputLabel8.setAttribute("for", "market6")
+    marketSkillsInputLabel8.textContent = 'Insert your marketable skill #6:'
+    const marketSkillsInput8 = document.createElement("input")
+    marketSkillsInput8.setAttribute("type", "text")
+    marketSkillsInput8.setAttribute("id", "market6")
+    marketSkillsInput8.setAttribute("name", "market6")
+    marketSkillsInputDiv8.append(marketSkillsInputLabel8, marketSkillsInput8)
+
+    const marketSkillsInputDiv9 = document.createElement("div")
+    const marketSkillsInputLabel9 = document.createElement("label")
+    marketSkillsInputLabel9.setAttribute("for", "market7")
+    marketSkillsInputLabel9.textContent = 'Insert your marketable skill #7:'
+    const marketSkillsInput9 = document.createElement("input")
+    marketSkillsInput9.setAttribute("type", "text")
+    marketSkillsInput9.setAttribute("id", "market7")
+    marketSkillsInput9.setAttribute("name", "market7")
+    marketSkillsInputDiv9.append(marketSkillsInputLabel9, marketSkillsInput9)
+
+    const marketSkillsInputDiv10 = document.createElement("div")
+    const marketSkillsInputLabel10 = document.createElement("label")
+    marketSkillsInputLabel10.setAttribute("for", "market8")
+    marketSkillsInputLabel10.textContent = 'Insert your marketable skill #8:'
+    const marketSkillsInput10 = document.createElement("input")
+    marketSkillsInput10.setAttribute("type", "text")
+    marketSkillsInput10.setAttribute("id", "market8")
+    marketSkillsInput10.setAttribute("name", "market8")
+    marketSkillsInputDiv10.append(marketSkillsInputLabel10, marketSkillsInput10)
+
+    const marketSkillsInputDiv11 = document.createElement("div")
+    const marketSkillsInputLabel11 = document.createElement("label")
+    marketSkillsInputLabel11.setAttribute("for", "market9")
+    marketSkillsInputLabel11.textContent = 'Insert your marketable skill #9:'
+    const marketSkillsInput11 = document.createElement("input")
+    marketSkillsInput11.setAttribute("type", "text")
+    marketSkillsInput11.setAttribute("id", "market9")
+    marketSkillsInput11.setAttribute("name", "market9")
+    marketSkillsInputDiv11.append(marketSkillsInputLabel11, marketSkillsInput11)
+
+    
+    const marketSkillsInputDiv12 = document.createElement("div")
+    const marketSkillsInputLabel12 = document.createElement("label")
+    marketSkillsInputLabel12.setAttribute("for", "market10")
+    marketSkillsInputLabel12.textContent = 'Insert your marketable skill #10:'
+    const marketSkillsInput12 = document.createElement("input")
+    marketSkillsInput12.setAttribute("type", "text")
+    marketSkillsInput12.setAttribute("id", "market10")
+    marketSkillsInput12.setAttribute("name", "market10")
+    marketSkillsInput12.value = 'I am here to see'
+    marketSkillsInputDiv12.append(marketSkillsInputLabel12, marketSkillsInput12)
+
+    const marketSkillsInputDiv13 = document.createElement("div")  
+    marketSkillsInputDiv13.classList.add("container")  
+    const marketBtn1 = document.createElement("input")
+    marketBtn1.setAttribute("type", "submit")
+    marketBtn1.setAttribute("id", "SaveObjective")
+    marketBtn1.setAttribute("value", "Save")
+    marketBtn1.innerHTML = "Save"
+    const marketBtn2 = document.createElement("input")
+    marketBtn2.setAttribute("type", "submit")
+    marketBtn2.setAttribute("id", "submit_link")
+    marketBtn2.setAttribute("value", "Save & continue")
+    marketBtn2.innerHTML = "Save & continue"
+    marketSkillsInputDiv13.append(marketBtn1, marketBtn2)
+
+    marketSkillsFormFieldset.append(marketSkillsFormLegend, marketSkillsInputDiv3, marketSkillsInputDiv4, marketSkillsInputDiv5, marketSkillsInputDiv6, marketSkillsInputDiv7, marketSkillsInputDiv8, marketSkillsInputDiv9, marketSkillsInputDiv10, marketSkillsInputDiv11, marketSkillsInputDiv12, marketSkillsInputDiv13)
+    marketSkillsForm.append(marketSkillsFormFieldset)
+    formWrapper.append(marketSkillsForm)
+    // END OF MARKET SKILLS FORM
+    // START OF REALIZED PROJECTS FORM
+    const projectsForm = document.createElement('form')
+    projectsForm.setAttribute("method", "POST")
+    projectsForm.setAttribute("id", "projectsForm")
+    const projectsFormFieldset = document.createElement('fieldset')
+    const projectsFormLegend = document.createElement('legend')
+    projectsFormLegend.textContent = 'Technical Projects realized'    
+   
+    const projectsInputDiv1 = document.createElement("div")   
+    const projectsInput1 = document.createElement("input")
+    projectsInput1.setAttribute("type", "text")
+    projectsInput1.setAttribute("id", "projectId")
+    projectsInput1.setAttribute("name", "projectId")
+    projectsInput1.placeholder = 'projectID will be displayed here'
+    projectsInputDiv1.append(projectsInput1)    
+
+    const projectsInputDiv2 = document.createElement("div")   
+    const projectsInput2 = document.createElement("input")
+    projectsInput2.setAttribute("type", "text")
+    projectsInput2.setAttribute("id", "pidProject")
+    projectsInput2.setAttribute("name", "pidProject")
+    projectsInput2.placeholder = 'personID will be displayed here'
+    projectsInputDiv2.append(projectsInput2)
+    
+    const projectsInputDiv3 = document.createElement("div")   
+    const projectsInput3 = document.createElement("input")
+    projectsInput3.setAttribute("type", "text")
+    projectsInput3.setAttribute("id", "pidProject")
+    projectsInput3.setAttribute("name", "pidProject")
+    projectsInput3.placeholder = 'personID will be displayed here'
+    projectsInputDiv3.append(projectsInput3)
+
+    const educationInputDiv4 = document.createElement("div")
+    const educationInputLabel4 = document.createElement("label")
+    educationInputLabel4.setAttribute("for", "eduFieldStudy")
+    educationInputLabel4.textContent = 'Select your field of study below:'
+    const radioContainerDiv4 = document.createElement("div")
+    radioContainerDiv4.classList.add("radioGroup")
+    const eduInputRadio1 = document.createElement("input")
+    eduInputRadio1.setAttribute("type", "radio")
+    eduInputRadio1.setAttribute("id", "eduIt")
+    eduInputRadio1.setAttribute("name", "eduFieldStudy")
+    eduInputRadio1.setAttribute("value", "IT")
+    const eduInputRadioLabel1 = document.createElement("label")
+    eduInputRadioLabel1.setAttribute("for", "IT")
+    eduInputRadioLabel1.textContent = 'Information Technology'
+    const eduInputRadio2 = document.createElement("input")
+    eduInputRadio2.setAttribute("type", "radio")
+    eduInputRadio2.setAttribute("id", "eduOther")
+    eduInputRadio2.setAttribute("name", "eduFieldStudy")
+    eduInputRadio2.setAttribute("value", "Other")
+    const eduInputRadioLabel2 = document.createElement("label")
+    eduInputRadioLabel2.setAttribute("for", "Other")
+    eduInputRadioLabel2.textContent = 'Other'
+    radioContainerDiv4.append(eduInputRadio1, eduInputRadioLabel1, eduInputRadio2, eduInputRadioLabel2)
+    educationInputDiv4.append(educationInputLabel4, radioContainerDiv4)
+        
+    const educationInputDiv5 = document.createElement("div")   
+    const educationInputLabel5 = document.createElement("label")
+    educationInputLabel5.setAttribute("for", "school_name")
+    educationInputLabel5.textContent = 'Insert your school name:'
+    const educationInput5 = document.createElement("input")
+    educationInput5.setAttribute("type", "text")
+    educationInput5.setAttribute("id", "school_name")
+    educationInput5.setAttribute("name", "school_name")
+    educationInputDiv5.append(educationInputLabel5, educationInput5)  
+
+    const educationInputDiv6 = document.createElement("div")   
+    const educationInputLabel6 = document.createElement("label")
+    educationInputLabel6.setAttribute("for", "school_city")
+    educationInputLabel6.textContent = 'Insert the city of your school:'
+    const educationInput6 = document.createElement("input")
+    educationInput6.setAttribute("type", "text")
+    educationInput6.setAttribute("id", "school_city")
+    educationInput6.setAttribute("name", "school_city")
+    educationInputDiv6.append(educationInputLabel6, educationInput6)  
+
+    const educationInputDiv7 = document.createElement("div")   
+    const educationInputLabel7 = document.createElement("label")
+    educationInputLabel7.setAttribute("for", "school_state")
+    educationInputLabel7.textContent = 'Insert the state of your school:'
+    const educationInput7 = document.createElement("input")
+    educationInput7.setAttribute("type", "text")
+    educationInput7.setAttribute("id", "school_state")
+    educationInput7.setAttribute("name", "school_state")
+    educationInputDiv7.append(educationInputLabel7, educationInput7)  
+
+    
+    const educationInputDiv8 = document.createElement("div")
+    const educationInputLabel8 = document.createElement("label")
+    educationInputLabel8.setAttribute("for", "school_attendance_method")
+    educationInputLabel8.textContent = 'Select attendance method below:'
+    const radioContainerDiv8 = document.createElement("div")
+    radioContainerDiv8.classList.add("radioGroup")
+    const attendanceInputRadio1 = document.createElement("input")
+    attendanceInputRadio1.setAttribute("type", "radio")
+    attendanceInputRadio1.setAttribute("id", "remote")
+    attendanceInputRadio1.setAttribute("name", "school_attendance_method")
+    attendanceInputRadio1.setAttribute("value", "remote")
+    const attendanceInputRadioLabel1 = document.createElement("label")
+    attendanceInputRadioLabel1.setAttribute("for", "remote")
+    attendanceInputRadioLabel1.textContent = 'Remote'
+    const attendanceInputRadio2 = document.createElement("input")
+    attendanceInputRadio2.setAttribute("type", "radio")
+    attendanceInputRadio2.setAttribute("id", "InPerson")
+    attendanceInputRadio2.setAttribute("name", "school_attendance_method")
+    attendanceInputRadio2.setAttribute("value", "in person")
+    const attendanceInputRadioLabel2 = document.createElement("label")
+    attendanceInputRadioLabel2.setAttribute("for", "inPerson")
+    attendanceInputRadioLabel2.textContent = 'In person'
+    radioContainerDiv8.append(attendanceInputRadio1, attendanceInputRadioLabel1, attendanceInputRadio2, attendanceInputRadioLabel2)
+    educationInputDiv8.append(educationInputLabel8, radioContainerDiv8)
+
+    const educationInputDiv9 = document.createElement("div")   
+    const educationInputLabel9 = document.createElement("label")
+    educationInputLabel9.setAttribute("for", "certificate_title")
+    educationInputLabel9.textContent = 'Insert the title of the certificate obtained:'
+    const educationInput9 = document.createElement("input")
+    educationInput9.setAttribute("type", "text")
+    educationInput9.setAttribute("id", "certificate_title")
+    educationInput9.setAttribute("name", "certificate_title")
+    educationInputDiv9.append(educationInputLabel9, educationInput9) 
+
+    const educationInputDiv10 = document.createElement("div")   
+    const educationInputLabel10 = document.createElement("label")
+    educationInputLabel10.setAttribute("for", "graduationDate")
+    educationInputLabel10.textContent = 'Insert your graduation date (month and year):'
+    const eduGraduationDateDiv10 = document.createElement("div")
+    eduGraduationDateDiv10.classList.add("monthYear")
+    eduGraduationDateDiv10.setAttribute("name", "graduationDate")
+    const graduationMonth10 = document.createElement("select")    
+    graduationMonth10.setAttribute("id", "completion_date_month")
+    graduationMonth10.setAttribute("name", "completion_date_month")
+    const graduationMonthOption10 = document.createElement("option") 
+    graduationMonthOption10.classList.add("option")
+    graduationMonthOption10.setAttribute("value", " ")
+    graduationMonthOption10.text = 'Select month'
+    graduationMonth10.append(graduationMonthOption10)
+    const graduationYear10 = document.createElement("select")    
+    graduationYear10.setAttribute("id", "completion_date_year")
+    graduationYear10.setAttribute("name", "completion_date_year")
+    const graduationYearOption10 = document.createElement("option") 
+    graduationYearOption10.classList.add("option")
+    graduationYearOption10.setAttribute("value", " ")
+    graduationYearOption10.setAttribute("id", "selectOption ")
+    graduationYearOption10.text= 'Select year'
+    graduationYear10.append(graduationYearOption10)
+    eduGraduationDateDiv10.append(graduationMonth10, graduationYear10)
+    educationInputDiv10.append(educationInputLabel10, eduGraduationDateDiv10) 
+    
+    const educationInputDiv11 = document.createElement("div")   
+    const educationInputLabel11 = document.createElement("label")
+    educationInputLabel11.setAttribute("for", "eduAchievement1")
+    educationInputLabel11.textContent = 'Insert accomplishment #1:'
+    const educationInput11 = document.createElement("textarea")
+    educationInput11.setAttribute("type", "text")
+    educationInput11.setAttribute("id", "eduAchievement1")
+    educationInput11.setAttribute("name", "eduAchievement1")
+    educationInputDiv11.append(educationInputLabel11, educationInput11)
+    
+    const educationInputDiv12 = document.createElement("div")   
+    const educationInputLabel12 = document.createElement("label")
+    educationInputLabel12.setAttribute("for", "eduAchievement2")
+    educationInputLabel12.textContent = 'Insert accomplishment #2:'
+    const educationInput12 = document.createElement("textarea")
+    educationInput12.setAttribute("type", "text")
+    educationInput12.setAttribute("id", "eduAchievement2")
+    educationInput12.setAttribute("name", "eduAchievement2")
+    educationInputDiv12.append(educationInputLabel12, educationInput12) 
+
+    const educationInputDiv13 = document.createElement("div")   
+    const educationInputLabel13 = document.createElement("label")
+    educationInputLabel13.setAttribute("for", "eduAchievement3")
+    educationInputLabel13.textContent = 'Insert accomplishment #3:'
+    const educationInput13 = document.createElement("textarea")
+    educationInput13.setAttribute("type", "text")
+    educationInput13.setAttribute("id", "eduAchievement3")
+    educationInput13.setAttribute("name", "eduAchievement3")
+    educationInputDiv13.append(educationInputLabel13, educationInput13) 
+
+    const educationInputDiv14 = document.createElement("div")  
+    educationInputDiv14.classList.add("container")  
+    const educationBtn1 = document.createElement("input")
+    educationBtn1.setAttribute("type", "submit")
+    educationBtn1.setAttribute("id", "SaveObjective")
+    educationBtn1.setAttribute("value", "Save")
+    educationBtn1.innerHTML = "Save"
+    const educationBtn2 = document.createElement("input")
+    educationBtn2.setAttribute("type", "submit")
+    educationBtn2.setAttribute("id", "submit_link")
+    educationBtn2.setAttribute("value", "Save & continue")
+    educationBtn2.innerHTML = "Save & continue"
+    educationInputDiv14.append(educationBtn1, educationBtn2)
+
+    educationFormFieldset.append(educationFormLegend, educationInputDiv1, educationInputDiv2, educationInputDiv3, educationInputDiv4, educationInputDiv5, educationInputDiv6, educationInputDiv7, educationInputDiv8, educationInputDiv9, educationInputDiv10, educationInputDiv11, educationInputDiv12, educationInputDiv13, educationInputDiv14)
+    educationForm.append(educationFormFieldset)
+    formWrapper.append(educationForm)
+    // END OF REALIZED PROJECTS FORM
 
 
 
