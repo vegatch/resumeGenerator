@@ -1,9 +1,9 @@
-let hideForm = () =>{
+let hideForms = () =>{
     document.querySelector("#personForm").style.display = "none"
     document.querySelector("#titleForm").style.display = "none"
     document.querySelector("#contactForm").style.display = "none"
     document.querySelector("#socialForm").style.display = "none"
-    document.querySelector("#resObjective").style.display = "none"
+    document.querySelector("#resObjectiveForm").style.display = "none"
 
     document.querySelector("#educationForm").style.display = "none"
     document.querySelector("#techSkillsForm").style.display = "none"
@@ -11,7 +11,7 @@ let hideForm = () =>{
     document.querySelector("#projectsForm").style.display = "none"
     document.querySelector("#workForm").style.display = "none"
 }
-hideForm()
+hideForms()
 
 let displayForm =(myform) =>{
     document.getElementById(myform).style.display = "block"
@@ -20,7 +20,7 @@ let displayForm =(myform) =>{
 let addEventOnForm = (myform) =>{
 
     document.querySelector(`.${myform}`).addEventListener('click', () =>{
-        hideForm()
+        hideForms()
         displayForm(`${myform}`)
     })
 
@@ -29,8 +29,8 @@ let addEventOnForm = (myform) =>{
 addEventOnForm("personForm")
 addEventOnForm("titleForm")
 addEventOnForm("contactForm")
-addEventOnForm("socioForm")
-addEventOnForm("resObjective")
+addEventOnForm("socialForm")
+addEventOnForm("resObjectiveForm")
 addEventOnForm("educationForm")
 addEventOnForm("techSkillsForm")
 addEventOnForm("marketSkillsForm")
@@ -58,11 +58,12 @@ let selectYear = (myselect) =>{
 }
 selectYear("completion_date_year");
 selectYear("projectYearStart");
+selectYear("projectYearEnd");
 selectYear("companyStartYear");
 selectYear("companyEndYear")
 
 let selectMonth = (myselect) =>{    
-    let monthArray = [
+    let monthArray = [        
         ['January', 'Jan'],
         ['February', 'Feb'],
         ['March', 'Mar'],
@@ -90,22 +91,23 @@ let selectMonth = (myselect) =>{
     });
 }
 selectMonth("completion_date_month")
-selectMonth("projectNonthStart")
+selectMonth("projectMonthStart")
+selectMonth("projectMonthEnd")
 selectMonth("companyStartMonth")
 selectMonth("companyEndMonth")
 
-document.getElementById('projectNonthStart').addEventListener('change', function() {
+document.getElementById('projectMonthStart').addEventListener('change', function() {
     console.log('You selected: ', this.value);
   });
 
   let handleMonthYearEndForProject = () =>{
     document.getElementById("projectCompleted").addEventListener('change', e => {
         if(e.target.checked){
-            selectMonth("projectNonthEnd");
+            selectMonth("projectMonthEnd");
             selectYear("projectYearEnd");      
         }
         if(!e.target.checked){  
-            document.querySelector("#projectNonthEnd").replaceChildren(document.querySelector(".option3"))
+            document.querySelector("#projectMonthEnd").replaceChildren(document.querySelector(".option3"))
             document.querySelector("#projectYearEnd").replaceChildren(document.querySelector(".option2"))
         }
 
@@ -132,44 +134,70 @@ let handleMonthYearEndForWork = () =>{
 handleMonthYearEndForWork();
 
 let hideEduAccomplishment = () =>{
-    document.querySelector(".box-Edu1").style.display = "none"
-    document.querySelector(".box-Edu2").style.display = "none"
-    document.querySelector(".box-Edu3").style.display = "none"        
+    document.querySelector(".eduAchievementLabel1").style.display = "none"
+    document.querySelector(".eduAchievementLabel2").style.display = "none"
+    document.querySelector(".eduAchievementLabel3").style.display = "none"
+    document.querySelector("#eduAchievement1").style.display = "none"
+    document.querySelector("#eduAchievement2").style.display = "none"
+    document.querySelector("#eduAchievement3").style.display = "none"        
 }
 hideEduAccomplishment()
 
 let displayEduAccomplishment = () =>{
-    document.querySelector(".box-Edu1").style.display = "block"
-    document.querySelector(".box-Edu2").style.display = "block"
-    document.querySelector(".box-Edu3").style.display = "block"   
+    document.querySelector(".eduAchievementLabel1").style.display = "block"
+    document.querySelector(".eduAchievementLabel2").style.display = "block"
+    document.querySelector(".eduAchievementLabel3").style.display = "block"
+    document.querySelector("#eduAchievement1").style.display = "block"
+    document.querySelector("#eduAchievement2").style.display = "block"
+    document.querySelector("#eduAchievement3").style.display = "block"   
     
 }
 // displayEduAccomplishment()
 let hideWorkAccomplishment = () =>{
-    document.querySelector(".box-Work1").style.display = "none"
-    document.querySelector(".box-Work2").style.display = "none"
-    document.querySelector(".box-Work3").style.display = "none"  
-    document.querySelector(".box-Work4").style.display = "none"
-    document.querySelector(".box-Work5").style.display = "none"
-    document.querySelector(".box-Work6").style.display = "none"
-    document.querySelector(".box-Work7").style.display = "none"
-    document.querySelector(".box-Work8").style.display = "none"
-    document.querySelector(".box-Work9").style.display = "none"
-    document.querySelector(".box-Work10").style.display = "none"      
+    document.querySelector(".workAchievLabel1").style.display = "none"
+    document.querySelector(".workAchievLabel2").style.display = "none"
+    document.querySelector(".workAchievLabel3").style.display = "none"
+    document.querySelector(".workAchievLabel4").style.display = "none"
+    document.querySelector(".workAchievLabel5").style.display = "none"
+    document.querySelector(".workAchievLabel6").style.display = "none"
+    document.querySelector(".workAchievLabel7").style.display = "none"
+    document.querySelector(".workAchievLabel8").style.display = "none"
+    document.querySelector(".workAchievLabel9").style.display = "none"
+    document.querySelector(".workAchievLabel10").style.display = "none"
+    document.querySelector("#workAchiev1").style.display = "none"
+    document.querySelector("#workAchiev2").style.display = "none"
+    document.querySelector("#workAchiev3").style.display = "none"  
+    document.querySelector("#workAchiev4").style.display = "none"
+    document.querySelector("#workAchiev5").style.display = "none"
+    document.querySelector("#workAchiev6").style.display = "none"
+    document.querySelector("#workAchiev7").style.display = "none"
+    document.querySelector("#workAchiev8").style.display = "none"
+    document.querySelector("#workAchiev9").style.display = "none"
+    document.querySelector("#workAchiev10").style.display = "none"      
 }
 hideWorkAccomplishment()
 
 let displayWorkAccomplishment = () =>{
-    document.querySelector(".box-Work1").style.display = "block"
-    document.querySelector(".box-Work2").style.display = "block"
-    document.querySelector(".box-Work3").style.display = "block"  
-    document.querySelector(".box-Work4").style.display = "block"
-    document.querySelector(".box-Work5").style.display = "block"
-    document.querySelector(".box-Work6").style.display = "block"
-    document.querySelector(".box-Work7").style.display = "block"
-    document.querySelector(".box-Work8").style.display = "block"
-    document.querySelector(".box-Work9").style.display = "block"
-    document.querySelector(".box-Work10").style.display = "block"      
+    document.querySelector(".workAchievLabel1").style.display = "block"
+    document.querySelector(".workAchievLabel2").style.display = "block"
+    document.querySelector(".workAchievLabel3").style.display = "block"
+    document.querySelector(".workAchievLabel4").style.display = "block"
+    document.querySelector(".workAchievLabel5").style.display = "block"
+    document.querySelector(".workAchievLabel6").style.display = "block"
+    document.querySelector(".workAchievLabel7").style.display = "block"
+    document.querySelector(".workAchievLabel8").style.display = "block"
+    document.querySelector(".workAchievLabel9").style.display = "block"
+    document.querySelector(".workAchievLabel10").style.display = "block"
+    document.querySelector("#workAchiev1").style.display = "block"
+    document.querySelector("#workAchiev2").style.display = "block"
+    document.querySelector("#workAchiev3").style.display = "block" 
+    document.querySelector("#workAchiev4").style.display = "block"
+    document.querySelector("#workAchiev5").style.display = "block"
+    document.querySelector("#workAchiev6").style.display = "block"
+    document.querySelector("#workAchiev7").style.display = "block"
+    document.querySelector("#workAchiev8").style.display = "block"
+    document.querySelector("#workAchiev9").style.display = "block"
+    document.querySelector("#workAchiev10").style.display = "block"    
 }
 // displayWorkAccomplishment()
 

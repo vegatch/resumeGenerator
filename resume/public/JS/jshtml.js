@@ -6,7 +6,21 @@ let loadHtmlForm = () =>{
     bannerDiv.classList.add('banner')
     const bannerHeader = document.createElement('h1')
     bannerHeader.textContent ='Resume Generator'
-    bannerDiv.append(bannerHeader)
+    const searchContainerDiv = document.createElement('div')
+    searchContainerDiv.classList.add('flex-component')
+    const searchInputDiv = document.createElement('div')
+    const searchInput = document.createElement('input')
+    searchInput.setAttribute('id', "searchInput")
+    searchInput.setAttribute('name', "searchInput")
+    searchInputDiv.append(searchInput)
+    searchInput.placeholder = 'Insert your resumeID here'
+    const searchParaDiv = document.createElement('div')
+    const searchPara = document.createElement('p')
+    searchPara.classList.add('searchPara')
+    searchPara.textContent = 'Search'
+    searchParaDiv.append(searchPara)
+    searchContainerDiv.append(searchInputDiv, searchParaDiv)
+    bannerDiv.append(bannerHeader, searchContainerDiv)
     mainContainer.append(bannerDiv)
 
     const sectionContainer = document.createElement('div')
@@ -18,24 +32,34 @@ let loadHtmlForm = () =>{
     const leftSectionContainerElement = document.createElement('div')
     leftSectionContainerElement.classList.add("control-container")
     const leftPara1 =  document.createElement('p')
+    leftPara1.classList.add('personForm')
     leftPara1.textContent = 'Personal Information'
     const leftPara2 =  document.createElement('p')
+    leftPara2.classList.add('titleForm')
     leftPara2.textContent = 'Professional Title'
     const leftPara3 =  document.createElement('p')
+    leftPara3.classList.add('contactForm')
     leftPara3.textContent = 'Contact Information'
     const leftPara4 =  document.createElement('p')
+    leftPara4.classList.add('socialForm')
     leftPara4.textContent = 'Professional Social media link'
     const leftPara5 =  document.createElement('p')
+    leftPara5.classList.add('resObjectiveForm')
     leftPara5.textContent = 'Professional Summary'
     const leftPara6 =  document.createElement('p')
+    leftPara6.classList.add('educationForm')
     leftPara6.textContent = 'Education Information'
     const leftPara7 =  document.createElement('p')
+    leftPara7.classList.add('techSkillsForm')
     leftPara7.textContent = 'Technical Skills'
     const leftPara8 =  document.createElement('p')
+    leftPara8.classList.add('marketSkillsForm')
     leftPara8.textContent = 'Marketable Skills'
     const leftPara9 =  document.createElement('p')
+    leftPara9.classList.add('projectsForm')
     leftPara9.textContent = 'Projects Realized'
     const leftPara10 =  document.createElement('p')
+    leftPara10.classList.add('workForm')
     leftPara10.textContent = 'Work Experience'
     const leftPara11 =  document.createElement('p')
     leftPara11.textContent = 'Edit Indormation'
@@ -54,7 +78,7 @@ let loadHtmlForm = () =>{
 
     const errorDiv = document.createElement('div')
     const errorUl = document.createElement('ul')
-    errorUl.classList.add('errot')
+    errorUl.classList.add('error')
     errorUl.textContent = 'Error will be displayed here'
     errorDiv.append(errorUl)
     middleMainContainer.append(errorDiv)
@@ -376,7 +400,7 @@ let loadHtmlForm = () =>{
     // START OF SUMMARY FORM
     const summaryForm = document.createElement('form')
     summaryForm.setAttribute("method", "POST")
-    summaryForm.setAttribute("id", "resObjective")
+    summaryForm.setAttribute("id", "resObjectiveForm")
     const summaryFormFieldset = document.createElement('fieldset')
     const summaryFormLegend = document.createElement('legend')
     summaryFormLegend.textContent = 'Professional summary'    
@@ -510,7 +534,6 @@ let loadHtmlForm = () =>{
     educationInput7.setAttribute("id", "school_state")
     educationInput7.setAttribute("name", "school_state")
     educationInputDiv7.append(educationInputLabel7, educationInput7)  
-
     
     const educationInputDiv8 = document.createElement("div")
     const educationInputLabel8 = document.createElement("label")
@@ -576,6 +599,7 @@ let loadHtmlForm = () =>{
     
     const educationInputDiv11 = document.createElement("div")   
     const educationInputLabel11 = document.createElement("label")
+    educationInputLabel11.classList.add('eduAchievementLabel1')
     educationInputLabel11.setAttribute("for", "eduAchievement1")
     educationInputLabel11.textContent = 'Insert accomplishment #1:'
     const educationInput11 = document.createElement("textarea")
@@ -586,6 +610,7 @@ let loadHtmlForm = () =>{
     
     const educationInputDiv12 = document.createElement("div")   
     const educationInputLabel12 = document.createElement("label")
+    educationInputLabel12.classList.add('eduAchievementLabel2')
     educationInputLabel12.setAttribute("for", "eduAchievement2")
     educationInputLabel12.textContent = 'Insert accomplishment #2:'
     const educationInput12 = document.createElement("textarea")
@@ -596,6 +621,7 @@ let loadHtmlForm = () =>{
 
     const educationInputDiv13 = document.createElement("div")   
     const educationInputLabel13 = document.createElement("label")
+    educationInputLabel13.classList.add('eduAchievementLabel3')
     educationInputLabel13.setAttribute("for", "eduAchievement3")
     educationInputLabel13.textContent = 'Insert accomplishment #3:'
     const educationInput13 = document.createElement("textarea")
@@ -735,7 +761,6 @@ let loadHtmlForm = () =>{
     techSkillsInput11.setAttribute("id", "tech9")
     techSkillsInput11.setAttribute("name", "tech9")
     techSkillsInputDiv11.append(techSkillsInputLabel11, techSkillsInput11)
-
     
     const techSkillsInputDiv12 = document.createElement("div")
     const techSkillsInputLabel12 = document.createElement("label")
@@ -933,180 +958,432 @@ let loadHtmlForm = () =>{
     projectsInput2.placeholder = 'personID will be displayed here'
     projectsInputDiv2.append(projectsInput2)
     
-    const projectsInputDiv3 = document.createElement("div")   
+    const projectsInputDiv3 = document.createElement("div")
+    const projectsInputLabel3 = document.createElement("label")
+    projectsInputLabel3.setAttribute("for", "projectRole")
+    projectsInputLabel3.textContent = 'Insert your role in the project:'
     const projectsInput3 = document.createElement("input")
     projectsInput3.setAttribute("type", "text")
-    projectsInput3.setAttribute("id", "pidProject")
-    projectsInput3.setAttribute("name", "pidProject")
-    projectsInput3.placeholder = 'personID will be displayed here'
-    projectsInputDiv3.append(projectsInput3)
-
-    const educationInputDiv4 = document.createElement("div")
-    const educationInputLabel4 = document.createElement("label")
-    educationInputLabel4.setAttribute("for", "eduFieldStudy")
-    educationInputLabel4.textContent = 'Select your field of study below:'
-    const radioContainerDiv4 = document.createElement("div")
-    radioContainerDiv4.classList.add("radioGroup")
-    const eduInputRadio1 = document.createElement("input")
-    eduInputRadio1.setAttribute("type", "radio")
-    eduInputRadio1.setAttribute("id", "eduIt")
-    eduInputRadio1.setAttribute("name", "eduFieldStudy")
-    eduInputRadio1.setAttribute("value", "IT")
-    const eduInputRadioLabel1 = document.createElement("label")
-    eduInputRadioLabel1.setAttribute("for", "IT")
-    eduInputRadioLabel1.textContent = 'Information Technology'
-    const eduInputRadio2 = document.createElement("input")
-    eduInputRadio2.setAttribute("type", "radio")
-    eduInputRadio2.setAttribute("id", "eduOther")
-    eduInputRadio2.setAttribute("name", "eduFieldStudy")
-    eduInputRadio2.setAttribute("value", "Other")
-    const eduInputRadioLabel2 = document.createElement("label")
-    eduInputRadioLabel2.setAttribute("for", "Other")
-    eduInputRadioLabel2.textContent = 'Other'
-    radioContainerDiv4.append(eduInputRadio1, eduInputRadioLabel1, eduInputRadio2, eduInputRadioLabel2)
-    educationInputDiv4.append(educationInputLabel4, radioContainerDiv4)
+    projectsInput3.setAttribute("id", "projectRole")
+    projectsInput3.setAttribute("name", "projectRole")    
+    projectsInputDiv3.append(projectsInputLabel3, projectsInput3)
         
-    const educationInputDiv5 = document.createElement("div")   
-    const educationInputLabel5 = document.createElement("label")
-    educationInputLabel5.setAttribute("for", "school_name")
-    educationInputLabel5.textContent = 'Insert your school name:'
-    const educationInput5 = document.createElement("input")
-    educationInput5.setAttribute("type", "text")
-    educationInput5.setAttribute("id", "school_name")
-    educationInput5.setAttribute("name", "school_name")
-    educationInputDiv5.append(educationInputLabel5, educationInput5)  
+    const projectsInputDiv4 = document.createElement("div")
+    const projectsInputLabel4 = document.createElement("label")
+    projectsInputLabel4.setAttribute("for", "projectName")
+    projectsInputLabel4.textContent = 'Insert name of the project:'
+    const projectsInput4 = document.createElement("input")
+    projectsInput4.setAttribute("type", "text")
+    projectsInput4.setAttribute("id", "projectName")
+    projectsInput4.setAttribute("name", "projectName")    
+    projectsInputDiv4.append(projectsInputLabel4, projectsInput4) 
 
-    const educationInputDiv6 = document.createElement("div")   
-    const educationInputLabel6 = document.createElement("label")
-    educationInputLabel6.setAttribute("for", "school_city")
-    educationInputLabel6.textContent = 'Insert the city of your school:'
-    const educationInput6 = document.createElement("input")
-    educationInput6.setAttribute("type", "text")
-    educationInput6.setAttribute("id", "school_city")
-    educationInput6.setAttribute("name", "school_city")
-    educationInputDiv6.append(educationInputLabel6, educationInput6)  
+    const projectsInputDiv5 = document.createElement("div")
+    const projectsInputLabel5 = document.createElement("label")
+    projectsInputLabel5.setAttribute("for", "projectLanguage")
+    projectsInputLabel5.textContent = 'Insert language used to create the project:'
+    const projectsInput5 = document.createElement("input")
+    projectsInput5.setAttribute("type", "text")
+    projectsInput5.setAttribute("id", "projectLanguage")
+    projectsInput5.setAttribute("name", "projectLanguage")    
+    projectsInputDiv5.append(projectsInputLabel5, projectsInput5) 
 
-    const educationInputDiv7 = document.createElement("div")   
-    const educationInputLabel7 = document.createElement("label")
-    educationInputLabel7.setAttribute("for", "school_state")
-    educationInputLabel7.textContent = 'Insert the state of your school:'
-    const educationInput7 = document.createElement("input")
-    educationInput7.setAttribute("type", "text")
-    educationInput7.setAttribute("id", "school_state")
-    educationInput7.setAttribute("name", "school_state")
-    educationInputDiv7.append(educationInputLabel7, educationInput7)  
+    const projectsInputDiv6 = document.createElement("div")   
+    const projectsInputLabel6 = document.createElement("label")
+    projectsInputLabel6.setAttribute("for", "projectStartingDate")
+    projectsInputLabel6.textContent = 'Insert project\'s starting date (month, year):'
+    const projectStartDateDiv6 = document.createElement("div")
+    projectStartDateDiv6.classList.add("monthYear")
+    projectStartDateDiv6.setAttribute("name", "graduationDate")
+    const projectStartMonth6 = document.createElement("select")    
+    projectStartMonth6.setAttribute("id", "projectMonthStart")
+    projectStartMonth6.setAttribute("name", "projectMonthStart")
+    const projectStartMonthOption6 = document.createElement("option") 
+    projectStartMonthOption6.classList.add("option")
+    projectStartMonthOption6.setAttribute("value", " ")
+    projectStartMonthOption6.text = 'Select month'
+    projectStartMonth6.append(projectStartMonthOption6)
+    const projectStartYear6 = document.createElement("select")    
+    projectStartYear6.setAttribute("id", "projectYearStart")
+    projectStartYear6.setAttribute("name", "projectYearStart")
+    const projectStartYearOption6 = document.createElement("option") 
+    projectStartYearOption6.classList.add("option")
+    projectStartYearOption6.setAttribute("value", " ")
+    projectStartYearOption6.setAttribute("id", "selectOption ")
+    projectStartYearOption6.text= 'Select year'
+    projectStartYear6.append(projectStartYearOption6)
+    projectStartDateDiv6.append(projectStartMonth6, projectStartYear6)
+    projectsInputDiv6.append(projectsInputLabel6, projectStartDateDiv6) 
 
+    const projectsInputDiv7 = document.createElement("div")
+    const projectsInputLabel7 = document.createElement("label")
+    projectsInputLabel7.setAttribute("for", "projectCompleted")
+    projectsInputLabel7.textContent = 'Check box if project is completed:'
+    const projectsInput7 = document.createElement("input")
+    projectsInput7.setAttribute("type", "checkbox")
+    projectsInput7.setAttribute("id", "projectCompleted")
+    projectsInput7.setAttribute("name", "projectCompleted")   
+    projectsInput7.setAttribute("value", "yes") 
+    projectsInputDiv7.append(projectsInputLabel7, projectsInput7) 
+
+    const projectsInputDiv8 = document.createElement("div")   
+    const projectsInputLabel8 = document.createElement("label")
+    projectsInputLabel8.setAttribute("for", "projectEndingDate")
+    projectsInputLabel8.textContent = 'Insert project\'s ending date (month, year):'
+    const projectEndDateDiv8 = document.createElement("div")
+    projectEndDateDiv8.classList.add("monthYear")
+    projectEndDateDiv8.setAttribute("name", "projectEndDate")
+    const projectEndtMonth8 = document.createElement("select")    
+    projectEndtMonth8.setAttribute("id", "projectMonthEnd")
+    projectEndtMonth8.setAttribute("name", "projectMonthEnd")
+    const projectEndMonthOption8 = document.createElement("option") 
+    projectEndMonthOption8.classList.add("option", "option3")
+    projectEndMonthOption8.setAttribute("value", " ")
+    projectEndMonthOption8.text = 'Select month'
+    projectEndtMonth8.append(projectEndMonthOption8)
+    const projectEndYear8 = document.createElement("select")    
+    projectEndYear8.setAttribute("id", "projectYearEnd")
+    projectEndYear8.setAttribute("name", "projectYearEnd")
+    const projectEndYearOption8 = document.createElement("option") 
+    projectEndYearOption8.classList.add("option", "option2")
+    projectEndYearOption8.setAttribute("value", " ")
+    projectEndYearOption8.setAttribute("id", "selectOption ")
+    projectEndYearOption8.text= 'Select year'
+    projectEndYear8.append(projectEndYearOption8)
+    projectEndDateDiv8.append(projectEndtMonth8, projectEndYear8)
+    projectsInputDiv8.append(projectsInputLabel8, projectEndDateDiv8) 
+
+    const projectsInputDiv9 = document.createElement("div")
+    const projectsInputLabel9 = document.createElement("label")
+    projectsInputLabel9.setAttribute("for", "projectUrl")
+    projectsInputLabel9.textContent = 'Insert the url of the project:'
+    const projectsInput9 = document.createElement("input")
+    projectsInput9.setAttribute("type", "url")
+    projectsInput9.setAttribute("id", "projectUrl")
+    projectsInput9.setAttribute("name", "projectUrl") 
+    projectsInputDiv9.append(projectsInputLabel9, projectsInput9) 
+       
+    const projectsInputDiv10 = document.createElement("div")
+    const projectsInputLabel10 = document.createElement("label")
+    projectsInputLabel10.setAttribute("for", "projectAchievementOne")
+    projectsInputLabel10.textContent = 'Insert project\'s achievement #1:'
+    const projectsInput10 = document.createElement("textarea")
+    projectsInput10.setAttribute("id", "projectAchievementOne")
+    projectsInput10.setAttribute("name", "projectAchievementOne") 
+    projectsInputDiv10.append(projectsInputLabel10, projectsInput10) 
+
+    const projectsInputDiv11 = document.createElement("div")
+    const projectsInputLabel11 = document.createElement("label")
+    projectsInputLabel11.setAttribute("for", "projectAchievementTwo")
+    projectsInputLabel11.textContent = 'Insert project\'s achievement #2:'
+    const projectsInput11 = document.createElement("textarea")
+    projectsInput11.setAttribute("id", "projectAchievementTwo")
+    projectsInput11.setAttribute("name", "projectAchievementTwo") 
+    projectsInputDiv11.append(projectsInputLabel11, projectsInput11) 
     
-    const educationInputDiv8 = document.createElement("div")
-    const educationInputLabel8 = document.createElement("label")
-    educationInputLabel8.setAttribute("for", "school_attendance_method")
-    educationInputLabel8.textContent = 'Select attendance method below:'
-    const radioContainerDiv8 = document.createElement("div")
-    radioContainerDiv8.classList.add("radioGroup")
-    const attendanceInputRadio1 = document.createElement("input")
-    attendanceInputRadio1.setAttribute("type", "radio")
-    attendanceInputRadio1.setAttribute("id", "remote")
-    attendanceInputRadio1.setAttribute("name", "school_attendance_method")
-    attendanceInputRadio1.setAttribute("value", "remote")
-    const attendanceInputRadioLabel1 = document.createElement("label")
-    attendanceInputRadioLabel1.setAttribute("for", "remote")
-    attendanceInputRadioLabel1.textContent = 'Remote'
-    const attendanceInputRadio2 = document.createElement("input")
-    attendanceInputRadio2.setAttribute("type", "radio")
-    attendanceInputRadio2.setAttribute("id", "InPerson")
-    attendanceInputRadio2.setAttribute("name", "school_attendance_method")
-    attendanceInputRadio2.setAttribute("value", "in person")
-    const attendanceInputRadioLabel2 = document.createElement("label")
-    attendanceInputRadioLabel2.setAttribute("for", "inPerson")
-    attendanceInputRadioLabel2.textContent = 'In person'
-    radioContainerDiv8.append(attendanceInputRadio1, attendanceInputRadioLabel1, attendanceInputRadio2, attendanceInputRadioLabel2)
-    educationInputDiv8.append(educationInputLabel8, radioContainerDiv8)
+    const projectsInputDiv12 = document.createElement("div")
+    const projectsInputLabel12 = document.createElement("label")
+    projectsInputLabel12.setAttribute("for", "projectAchievementThree")
+    projectsInputLabel12.textContent = 'Insert project\'s achievement #3:'
+    const projectsInput12 = document.createElement("textarea")
+    projectsInput12.setAttribute("id", "projectAchievementThree")
+    projectsInput12.setAttribute("name", "projectAchievementThree") 
+    projectsInputDiv12.append(projectsInputLabel12, projectsInput12) 
 
-    const educationInputDiv9 = document.createElement("div")   
-    const educationInputLabel9 = document.createElement("label")
-    educationInputLabel9.setAttribute("for", "certificate_title")
-    educationInputLabel9.textContent = 'Insert the title of the certificate obtained:'
-    const educationInput9 = document.createElement("input")
-    educationInput9.setAttribute("type", "text")
-    educationInput9.setAttribute("id", "certificate_title")
-    educationInput9.setAttribute("name", "certificate_title")
-    educationInputDiv9.append(educationInputLabel9, educationInput9) 
+    const projectsInputDiv13 = document.createElement("div")  
+    projectsInputDiv13.classList.add("container")  
+    const projectBtn1 = document.createElement("input")
+    projectBtn1.setAttribute("type", "submit")
+    projectBtn1.setAttribute("id", "SaveProject")
+    projectBtn1.setAttribute("value", "Save")
+    projectBtn1.innerHTML = "Save"
+    const projectBtn2 = document.createElement("input")
+    projectBtn2.setAttribute("type", "submit")
+    projectBtn2.setAttribute("id", "submit_project")
+    projectBtn2.setAttribute("value", "Save & continue")
+    projectBtn2.innerHTML = "Save & continue"
+    projectsInputDiv13.append(projectBtn1, projectBtn2)
 
-    const educationInputDiv10 = document.createElement("div")   
-    const educationInputLabel10 = document.createElement("label")
-    educationInputLabel10.setAttribute("for", "graduationDate")
-    educationInputLabel10.textContent = 'Insert your graduation date (month and year):'
-    const eduGraduationDateDiv10 = document.createElement("div")
-    eduGraduationDateDiv10.classList.add("monthYear")
-    eduGraduationDateDiv10.setAttribute("name", "graduationDate")
-    const graduationMonth10 = document.createElement("select")    
-    graduationMonth10.setAttribute("id", "completion_date_month")
-    graduationMonth10.setAttribute("name", "completion_date_month")
-    const graduationMonthOption10 = document.createElement("option") 
-    graduationMonthOption10.classList.add("option")
-    graduationMonthOption10.setAttribute("value", " ")
-    graduationMonthOption10.text = 'Select month'
-    graduationMonth10.append(graduationMonthOption10)
-    const graduationYear10 = document.createElement("select")    
-    graduationYear10.setAttribute("id", "completion_date_year")
-    graduationYear10.setAttribute("name", "completion_date_year")
-    const graduationYearOption10 = document.createElement("option") 
-    graduationYearOption10.classList.add("option")
-    graduationYearOption10.setAttribute("value", " ")
-    graduationYearOption10.setAttribute("id", "selectOption ")
-    graduationYearOption10.text= 'Select year'
-    graduationYear10.append(graduationYearOption10)
-    eduGraduationDateDiv10.append(graduationMonth10, graduationYear10)
-    educationInputDiv10.append(educationInputLabel10, eduGraduationDateDiv10) 
-    
-    const educationInputDiv11 = document.createElement("div")   
-    const educationInputLabel11 = document.createElement("label")
-    educationInputLabel11.setAttribute("for", "eduAchievement1")
-    educationInputLabel11.textContent = 'Insert accomplishment #1:'
-    const educationInput11 = document.createElement("textarea")
-    educationInput11.setAttribute("type", "text")
-    educationInput11.setAttribute("id", "eduAchievement1")
-    educationInput11.setAttribute("name", "eduAchievement1")
-    educationInputDiv11.append(educationInputLabel11, educationInput11)
-    
-    const educationInputDiv12 = document.createElement("div")   
-    const educationInputLabel12 = document.createElement("label")
-    educationInputLabel12.setAttribute("for", "eduAchievement2")
-    educationInputLabel12.textContent = 'Insert accomplishment #2:'
-    const educationInput12 = document.createElement("textarea")
-    educationInput12.setAttribute("type", "text")
-    educationInput12.setAttribute("id", "eduAchievement2")
-    educationInput12.setAttribute("name", "eduAchievement2")
-    educationInputDiv12.append(educationInputLabel12, educationInput12) 
-
-    const educationInputDiv13 = document.createElement("div")   
-    const educationInputLabel13 = document.createElement("label")
-    educationInputLabel13.setAttribute("for", "eduAchievement3")
-    educationInputLabel13.textContent = 'Insert accomplishment #3:'
-    const educationInput13 = document.createElement("textarea")
-    educationInput13.setAttribute("type", "text")
-    educationInput13.setAttribute("id", "eduAchievement3")
-    educationInput13.setAttribute("name", "eduAchievement3")
-    educationInputDiv13.append(educationInputLabel13, educationInput13) 
-
-    const educationInputDiv14 = document.createElement("div")  
-    educationInputDiv14.classList.add("container")  
-    const educationBtn1 = document.createElement("input")
-    educationBtn1.setAttribute("type", "submit")
-    educationBtn1.setAttribute("id", "SaveObjective")
-    educationBtn1.setAttribute("value", "Save")
-    educationBtn1.innerHTML = "Save"
-    const educationBtn2 = document.createElement("input")
-    educationBtn2.setAttribute("type", "submit")
-    educationBtn2.setAttribute("id", "submit_link")
-    educationBtn2.setAttribute("value", "Save & continue")
-    educationBtn2.innerHTML = "Save & continue"
-    educationInputDiv14.append(educationBtn1, educationBtn2)
-
-    educationFormFieldset.append(educationFormLegend, educationInputDiv1, educationInputDiv2, educationInputDiv3, educationInputDiv4, educationInputDiv5, educationInputDiv6, educationInputDiv7, educationInputDiv8, educationInputDiv9, educationInputDiv10, educationInputDiv11, educationInputDiv12, educationInputDiv13, educationInputDiv14)
-    educationForm.append(educationFormFieldset)
-    formWrapper.append(educationForm)
+    projectsFormFieldset.append(projectsFormLegend, projectsInputDiv1, projectsInputDiv2, projectsInputDiv3, projectsInputDiv4, projectsInputDiv5, projectsInputDiv6, projectsInputDiv7, projectsInputDiv8, projectsInputDiv9, projectsInputDiv10, projectsInputDiv11, projectsInputDiv12, projectsInputDiv13)
+    projectsForm.append(projectsFormFieldset)
+    formWrapper.append(projectsForm)
     // END OF REALIZED PROJECTS FORM
+    // START OF WORK EXPERIENCE FORM
+    const workForm = document.createElement('form')
+    workForm.setAttribute("method", "POST")
+    workForm.setAttribute("id", "workForm")
+    const workFormFieldset = document.createElement('fieldset')
+    const workFormLegend = document.createElement('legend')
+    workFormLegend.textContent = 'Work Experience'    
+   
+    const workInputDiv1 = document.createElement("div")   
+    const workInput1 = document.createElement("input")
+    workInput1.setAttribute("type", "text")
+    workInput1.setAttribute("id", "workId")
+    workInput1.setAttribute("name", "workId")
+    workInput1.placeholder = 'workID will be displayed here'
+    workInputDiv1.append(workInput1)    
+
+    const workInputDiv2 = document.createElement("div")   
+    const workInput2 = document.createElement("input")
+    workInput2.setAttribute("type", "text")
+    workInput2.setAttribute("id", "pidWork")
+    workInput2.setAttribute("name", "pidWork")
+    workInput2.placeholder = 'personID will be displayed here'
+    workInputDiv2.append(workInput2)
+
+    const workInputDiv3 = document.createElement("div")
+    const workInputLabel3 = document.createElement("label")
+    workInputLabel3.setAttribute("for", "projectStartingDate")
+    workInputLabel3.textContent = 'Select the industry of the company:'
+    const workRadioContainerDiv3 = document.createElement("div")
+    workRadioContainerDiv3.classList.add("radioGroup")
+    const industryInputRadio1 = document.createElement("input")
+    industryInputRadio1.setAttribute("type", "radio")
+    industryInputRadio1.setAttribute("id", "itWork")
+    industryInputRadio1.setAttribute("name", "workType")
+    industryInputRadio1.setAttribute("value", "IT")
+    const industryInputRadioLabel1 = document.createElement("label")
+    industryInputRadioLabel1.setAttribute("for", "workType")
+    industryInputRadioLabel1.textContent = 'Computer and Technology'
+    const industryInputRadio2 = document.createElement("input")
+    industryInputRadio2.setAttribute("type", "radio")
+    industryInputRadio2.setAttribute("id", "nonItWork")
+    industryInputRadio2.setAttribute("name", "workType")
+    industryInputRadio2.setAttribute("value", "Other")
+    const industryInputRadioLabel2 = document.createElement("label")
+    industryInputRadioLabel2.setAttribute("for", "inPerson")
+    industryInputRadioLabel2.textContent = 'Other'
+    workRadioContainerDiv3.append(industryInputRadio1, industryInputRadioLabel1, industryInputRadio2, industryInputRadioLabel2)
+    workInputDiv3.append(workInputLabel3, workRadioContainerDiv3)
+    
+    const workInputDiv4 = document.createElement("div")
+    const workInputLabel4 = document.createElement("label")
+    workInputLabel4.setAttribute("for", "companyName")
+    workInputLabel4.textContent = 'Insert the name of the company:'
+    const workInput4 = document.createElement("input")
+    workInput4.setAttribute("type", "text")
+    workInput4.setAttribute("id", "companyName")
+    workInput4.setAttribute("name", "companyName")    
+    workInputDiv4.append(workInputLabel4, workInput4)
+        
+    const workInputDiv5 = document.createElement("div")
+    const workInputLabel5 = document.createElement("label")
+    workInputLabel5.setAttribute("for", "citySate")
+    workInputLabel5.textContent = 'Insert company\'s location:'
+    const workLocationContainerDiv5 = document.createElement("div")
+    workLocationContainerDiv5.classList.add('cityState')
+    workLocationContainerDiv5.setAttribute("name", "cityState")  
+    const workCityDiv5 = document.createElement("div")
+    const workInputCity5 = document.createElement("input")
+    workInputCity5.setAttribute("type", "text")
+    workInputCity5.setAttribute("id", "companyCity")
+    workInputCity5.setAttribute("name", "companyCity")    
+    workInputCity5.placeholder = 'Insert company\'s city'
+    workCityDiv5.append(workInputCity5)
+    const workStateDiv5 = document.createElement("div")
+    const workInputState5 = document.createElement("input")
+    workInputState5.setAttribute("type", "text")
+    workInputState5.setAttribute("id", "companyState")
+    workInputState5.setAttribute("name", "companyState")   
+    workInputState5.placeholder = 'Insert company\'s state' 
+    workStateDiv5.append(workInputState5)
+    workLocationContainerDiv5.append(workCityDiv5, workStateDiv5)
+    workInputDiv5.append(workInputLabel5, workLocationContainerDiv5)
+
+    const workInputDiv6 = document.createElement("div")
+    const workInputLabel6 = document.createElement("label")
+    workInputLabel6.setAttribute("for", "positionInCompany")
+    workInputLabel6.textContent = 'Insert your job title in the company:'
+    const workInput6 = document.createElement("input")
+    workInput6.setAttribute("type", "text")
+    workInput6.setAttribute("id", "positionInCompany")
+    workInput6.setAttribute("name", "positionInCompany")    
+    workInputDiv6.append(workInputLabel6, workInput6) 
+
+    const workInputDiv7 = document.createElement("div")   
+    const workInputLabel7 = document.createElement("label")
+    workInputLabel7.setAttribute("for", "workStartingDate")
+    workInputLabel7.textContent = 'Insert starting date (month, year) in company:'
+    const workStartDateDiv7 = document.createElement("div")
+    workStartDateDiv7.classList.add("monthYear")
+    workStartDateDiv7.setAttribute("name", "workStartingDate")
+    const workStartMonth7 = document.createElement("select")    
+    workStartMonth7.setAttribute("id", "companyStartMonth")
+    workStartMonth7.setAttribute("name", "companyStartMonth")
+    const workStartMonthOption7 = document.createElement("option") 
+    workStartMonthOption7.classList.add("option")
+    workStartMonthOption7.setAttribute("value", " ")
+    workStartMonthOption7.text = 'Select month'
+    workStartMonth7.append(workStartMonthOption7)
+    const workStartYear7 = document.createElement("select")    
+    workStartYear7.setAttribute("id", "companyStartYear")
+    workStartYear7.setAttribute("name", "companyStartYear")
+    const workStartYearOption7 = document.createElement("option") 
+    workStartYearOption7.classList.add("option")
+    workStartYearOption7.setAttribute("value", " ")
+    workStartYearOption7.setAttribute("id", "selectOption ")
+    workStartYearOption7.text= 'Select year'
+    workStartYear7.append(workStartYearOption7)
+    workStartDateDiv7.append(workStartMonth7, workStartYear7)
+    workInputDiv7.append(workInputLabel7, workStartDateDiv7) 
+
+    const workInputDiv8 = document.createElement("div")
+    const workInputLabel8 = document.createElement("label")
+    workInputLabel8.setAttribute("for", "stillWorkHere")
+    workInputLabel8.textContent = 'Check box if you currently work in the company:'
+    const workInput8 = document.createElement("input")
+    workInput8.setAttribute("type", "checkbox")
+    workInput8.setAttribute("id", "stillWorkHere")
+    workInput8.setAttribute("name", "stillWorkHere")   
+    workInput8.setAttribute("value", "yes") 
+    workInputDiv8.append(workInputLabel8, workInput8) 
+
+    const workInputDiv9 = document.createElement("div")   
+    const workInputLabel9 = document.createElement("label")
+    workInputLabel9.setAttribute("for", "workEndingDate")
+    workInputLabel9.textContent = 'Insert ending date (month, year) with company:'
+    const workSEndDateDiv9 = document.createElement("div")
+    workSEndDateDiv9.classList.add("monthYear")
+    workSEndDateDiv9.setAttribute("name", "workEndingDate")
+    const workSEndMonth9 = document.createElement("select")    
+    workSEndMonth9.setAttribute("id", "companyEndMonth")
+    workSEndMonth9.setAttribute("name", "companyEndMonth")
+    const workEndMonthOption9 = document.createElement("option") 
+    workEndMonthOption9.classList.add("option", "monthOption")
+    workEndMonthOption9.setAttribute("value", " ")
+    workEndMonthOption9.text = 'Select month'
+    workSEndMonth9.append(workEndMonthOption9)
+    const workEndYear9 = document.createElement("select")    
+    workEndYear9.setAttribute("id", "companyEndYear")
+    workEndYear9.setAttribute("name", "companyEndYear")
+    const workEndYearOption9 = document.createElement("option") 
+    workEndYearOption9.classList.add("option", "yearOption")
+    workEndYearOption9.setAttribute("value", " ")
+    workEndYearOption9.setAttribute("id", "selectOption ")
+    workEndYearOption9.text= 'Select year'
+    workEndYear9.append(workEndYearOption9)
+    workSEndDateDiv9.append(workSEndMonth9, workEndYear9)
+    workInputDiv9.append(workInputLabel9, workSEndDateDiv9) 
+
+    const workInputDiv10 = document.createElement("div")
+    const workInputLabel10 = document.createElement("label")
+    workInputLabel10.setAttribute("for", "workAchiev1")
+    workInputLabel10.textContent = 'Insert work\'s accomplishment #1:'
+    workInputLabel10.classList.add('workAchievLabel1')
+    const workInput10 = document.createElement("textarea")
+    workInput10.setAttribute("id", "workAchiev1")
+    workInput10.setAttribute("name", "workAchiev1")    
+    workInputDiv10.append(workInputLabel10, workInput10)  
+
+    const workInputDiv11 = document.createElement("div")
+    const workInputLabel11 = document.createElement("label")
+    workInputLabel11.classList.add('workAchievLabel2')
+    workInputLabel11.setAttribute("for", "workAchiev2")
+    workInputLabel11.textContent = 'Insert work\'s accomplishment #2:'
+    const workInput11 = document.createElement("textarea")
+    workInput11.setAttribute("id", "workAchiev2")
+    workInput11.setAttribute("name", "workAchiev2")    
+    workInputDiv11.append(workInputLabel11, workInput11)
+
+    const workInputDiv12 = document.createElement("div")
+    const workInputLabel12 = document.createElement("label")
+    workInputLabel12.classList.add('workAchievLabel3')
+    workInputLabel12.setAttribute("for", "workAchiev3")
+    workInputLabel12.textContent = 'Insert work\'s accomplishment #3:'
+    const workInput12 = document.createElement("textarea")
+    workInput12.setAttribute("id", "workAchiev3")
+    workInput12.setAttribute("name", "workAchiev3")    
+    workInputDiv12.append(workInputLabel12, workInput12)
+
+    const workInputDiv13 = document.createElement("div")
+    const workInputLabel13 = document.createElement("label")
+    workInputLabel13.classList.add('workAchievLabel4')
+    workInputLabel13.setAttribute("for", "workAchiev4")
+    workInputLabel13.textContent = 'Insert work\'s accomplishment #4:'
+    const workInput13 = document.createElement("textarea")
+    workInput13.setAttribute("id", "workAchiev4")
+    workInput13.setAttribute("name", "workAchiev4")    
+    workInputDiv13.append(workInputLabel13, workInput13)
+   
+    const workInputDiv14 = document.createElement("div")
+    const workInputLabel14 = document.createElement("label")
+    workInputLabel14.classList.add('workAchievLabel5')
+    workInputLabel14.setAttribute("for", "workAchiev5")
+    workInputLabel14.textContent = 'Insert work\'s accomplishment #5:'
+    const workInput14 = document.createElement("textarea")
+    workInput14.setAttribute("id", "workAchiev5")
+    workInput14.setAttribute("name", "workAchiev5")    
+    workInputDiv14.append(workInputLabel14, workInput14)
+    
+    const workInputDiv15 = document.createElement("div")
+    const workInputLabel15 = document.createElement("label")
+    workInputLabel15.classList.add('workAchievLabel6')
+    workInputLabel15.setAttribute("for", "workAchiev6")
+    workInputLabel15.textContent = 'Insert work\'s accomplishment #6:'
+    const workInput15 = document.createElement("textarea")
+    workInput15.setAttribute("id", "workAchiev6")
+    workInput15.setAttribute("name", "workAchiev6")    
+    workInputDiv15.append(workInputLabel15, workInput15)
+
+    const workInputDiv16 = document.createElement("div")
+    const workInputLabel16 = document.createElement("label")
+    workInputLabel16.classList.add('workAchievLabel7')
+    workInputLabel16.setAttribute("for", "workAchiev7")
+    workInputLabel16.textContent = 'Insert work\'s accomplishment #7:'
+    const workInput16 = document.createElement("textarea")
+    workInput16.setAttribute("id", "workAchiev7")
+    workInput16.setAttribute("name", "workAchiev7")    
+    workInputDiv16.append(workInputLabel16, workInput16)
+
+    const workInputDiv17 = document.createElement("div")
+    const workInputLabel17 = document.createElement("label")
+    workInputLabel17.classList.add('workAchievLabel8')
+    workInputLabel17.setAttribute("for", "workAchiev8")
+    workInputLabel17.textContent = 'Insert work\'s accomplishment #8:'
+    const workInput17 = document.createElement("textarea")
+    workInput17.setAttribute("id", "workAchiev8")
+    workInput17.setAttribute("name", "workAchiev8")    
+    workInputDiv17.append(workInputLabel17, workInput17)
+
+    const workInputDiv18 = document.createElement("div")
+    const workInputLabel18 = document.createElement("label")
+    workInputLabel18.classList.add('workAchievLabel9')
+    workInputLabel18.setAttribute("for", "workAchiev9")
+    workInputLabel18.textContent = 'Insert work\'s accomplishment #9:'
+    const workInput18 = document.createElement("textarea")
+    workInput18.setAttribute("id", "workAchiev9")
+    workInput18.setAttribute("name", "workAchiev9")    
+    workInputDiv18.append(workInputLabel18, workInput18)
+
+    const workInputDiv19 = document.createElement("div")
+    const workInputLabel19 = document.createElement("label")
+    workInputLabel19.classList.add('workAchievLabel10')
+    workInputLabel19.setAttribute("for", "workAchiev10")
+    workInputLabel19.textContent = 'Insert work\'s accomplishment #10:'
+    const workInput19 = document.createElement("textarea")
+    workInput19.setAttribute("id", "workAchiev10")
+    workInput19.setAttribute("name", "workAchiev10")    
+    workInputDiv19.append(workInputLabel19, workInput19)
+
+    const workInputDiv20 = document.createElement("div")  
+    workInputDiv20.classList.add("container")  
+    const workBtn1 = document.createElement("input")
+    workBtn1.setAttribute("type", "submit")
+    workBtn1.setAttribute("id", "SaveWork")
+    workBtn1.setAttribute("value", "Save")
+    workBtn1.innerHTML = "Save"
+    const workBtn2 = document.createElement("input")
+    workBtn2.setAttribute("type", "submit")
+    workBtn2.setAttribute("id", "submit_work")
+    workBtn2.setAttribute("value", "Save & continue")
+    workBtn2.innerHTML = "Save & continue"
+    workInputDiv20.append(workBtn1, workBtn2)
+
+    workFormFieldset.append(workFormLegend, workInputDiv1, workInputDiv2, workInputDiv3, workInputDiv4, workInputDiv5, workInputDiv6, workInputDiv7, workInputDiv8, workInputDiv9, workInputDiv10, workInputDiv11, workInputDiv12, workInputDiv13, workInputDiv14, workInputDiv15, workInputDiv16, workInputDiv17, workInputDiv18, workInputDiv19, workInputDiv20)
+    workForm.append(workFormFieldset)
+    formWrapper.append(workForm)
+    // END OF WORK EXPERIENCE FORM
 
 
 

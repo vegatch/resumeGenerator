@@ -13,15 +13,23 @@ body{
 
 .banner{
     background-color: black;
-    height: 15vh;    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 4rem;    
+    height: 13.8vh;    
+    display: block;    
+    font-size: 3rem;    
     position:fixed;
+    text-align: center;
+    padding: .5rem;
     top:0;
     width:100%;
     z-index:100;    
+}
+
+.flex-component{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    margin: .5rem;
 }
 
 .banner.h1 {
@@ -29,7 +37,26 @@ body{
    
 }
 
-.wrapper-flex{
+#searchInput{
+    width: 12rem;
+    height: 1.9rem;
+    border-radius: 2rem;
+    margin-right: 1rem;
+    padding: 0 .5rem;
+}
+
+.searchPara{
+    cursor: pointer;
+}
+
+.searchPara:hover{
+    text-decoration: underline;
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+}
+
+.wrapper-flex{    
     height: auto;
     background-color: black;
     display: flex;  
@@ -44,6 +71,8 @@ body{
     background-color: red;
     height: auto;
     position: fixed;   
+    margin-top: 0.1rem;
+    /* padding-top: 10rem!important; */
 }
 
 .middle-container{
@@ -70,8 +99,10 @@ body{
 }
 
 
+
 .control-container{
-    text-align: right;    
+    text-align: right;   
+    padding: 1rem; 
 }
 .control-container p{
     padding-bottom: 1.2rem;
@@ -84,6 +115,18 @@ body{
     color: navy;
 }
 
+.error{
+    width: 38.4%;
+    background-color: white;
+    height: auto;
+    position: fixed;
+    color: red;
+    font-weight: bold;
+    font-size: 1.3rem;
+    padding: .5rem;
+    z-index: 1;
+    
+}
 
 input[type="integer"],
 input[type="url"],
@@ -119,12 +162,17 @@ select,
     margin-top: .6rem;    
 }
 
+label[for=IT],
+label[for=Other]
+{    
+    margin-left: .4rem;
+}
 
 input[type="checkbox"]{
     margin-left: 1rem;
 }
 
-.CitySate #companyCity,
+.cityState #companyCity,
 .radioGroup label{
     /* background-color: blue; */
     margin-right: 1rem;
@@ -178,7 +226,7 @@ select > option{
 .left-container, 
 .middle-container,
 .right-container{
-    padding: 1rem;
+    padding: 0 1rem;
     top: 16vh;
     font-size: 1.2rem;
     
@@ -194,16 +242,17 @@ form, fieldset{
     text-align: center;
     text-transform: uppercase;
 } */
-.CitySate,
+.flex-component,
+.cityState,
 .monthYear{
     display: flex;    
 }
 
 
-.CitySate #companyCity{
+.cityState #companyCity{
     width: 12rem;
 }
-.CitySate #companyState{
+.cityState #companyState{
     width: 8rem;
 }
 .monthYear select{
