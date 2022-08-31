@@ -13,8 +13,8 @@ const nodemon = require('nodemon');
 const app = express();
 const port = process.env.PORT || 49834
 
-const renderMysql = function(sql){
- return db.query(sql, function(err, result) {
+const renderMysql = function(sql, data){
+ return db.query(sql, [data], function(err, result) {
   
   if (!err) {
     console.log(`Successfully added record of ID: ${personId}`)
@@ -108,11 +108,11 @@ app
     // })
     
     .post('/api/resume',  [
-      check('fName').isAlpha().withMessage('Only letters are allowed ')
+      check('firstName').isAlpha().withMessage('Only letters are allowed ')
                     .escape().not().isEmpty(),
-      check('mName').isAlpha().withMessage('Only letters are allowed for Middle Name')
+      check('middleName').isAlpha().withMessage('Only letters are allowed for Middle Name')
                     .escape(),
-      check('lName').isAlpha().withMessage('Only letters are allowed for Last Name')
+      check('lastName').isAlpha().withMessage('Only letters are allowed for Last Name')
                     .escape().not().isEmpty(),
 
     ], async (req, res) => {       
@@ -120,10 +120,11 @@ app
         console.log(req.body)
 
         personId = req.body.pId, 
-        firstName = req.body.fName, 
-        middleName = req.body.mName, 
-        lastName = req.body.lName,
+        firstName = req.body.firstName, 
+        middleName = req.body.middleName, 
+        lastName = req.body.lastName,
         createUser = 'sba' 
+        const data = [req.body, "SBA"]
         
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -132,10 +133,14 @@ app
         }
         // if(!(errorHandling(req, res)) ===''){errorHandling(req, res)};
         try{
-            const sql = `INSERT INTO resumedb.person( person_id, first_name, middle_name, last_name, create_user) 
-          VALUES ( "${personId}", "${firstName}", "${middleName}", "${lastName}", "${createUser}" ) `;
+          //   const sql = `INSERT INTO resumedb.person( person_id, first_name, middle_name, last_name, create_user) 
+          // VALUES ( "${personId}", "${firstName}", "${middleName}", "${lastName}", "${createUser}" )   ` ;
         
-          await renderMysql(sql);
+          const sql = "INSERT INTO resumedb.person( person_id, first_name, middle_name, last_name, create_user)  VALUES ( ? )"
+          const mydata = [personId, firstName, middleName, lastName, createUser]
+          
+
+          await renderMysql(sql, mydata) ;
           
           response(res); 
         }catch (err){
@@ -146,25 +151,7 @@ app
 
   })
 
-
-    // .post('/api/resume',  async (req, res) => {       
-
-    //     console.log(req.body)
-
-    //     personId = req.body.pId, 
-    //     firstName = req.body.fName, 
-    //     middleName = req.body.mName, 
-    //     lastName = req.body.lName,
-    //     createUser = req.body.cUser    
-        
-    //     var sql = `INSERT INTO resumedb.person( person_id, first_name, middle_name, last_name, create_user) 
-    //     VALUES ("${personId}", "${firstName}", "${middleName}", "${lastName}", "${createUser}")`;
-       
-    //     await renderMysql(sql);
-        
-    //     response(res);
-
-    // })
+  
 
       .post('/api/title',[
         check('title1').custom((value) => {return value.match(/^[A-Za-z ]+$/);}).withMessage('Only letters are allowed').trim()
@@ -175,13 +162,13 @@ app
                        
       ], async (req, res) => {       
 
-        const body = req.body;
-        console.log(req.body)
-        personId = body.pIdTitle, 
+        const body = req.body;        
+        personId = body.pidTitle, 
         createUser = `sba`
-        titleId = body.title_id        
+        titleId = body.titleId        
         title1String = body.title1
         title2String = body.title2
+        console.log(body)
       //  if(req.body.length === 0) throw err;
 
        
@@ -192,10 +179,11 @@ app
 
        try{        
 
-        var sql = `INSERT INTO resumedb.person_title( person_id, title_id ,  title1, title2, create_user) 
-        VALUES ("${personId}", "${titleId}",  "${title1String}", "${title2String}","${createUser}")`;
+        var sql = `INSERT INTO resumedb.person_title( title_id, person_id,  title1, title2, create_user) 
+        VALUES (?)`;
         
-         await renderMysql(sql);      
+        const mydata = [titleId, personId, title1String, title2String, createUser]
+         await renderMysql(sql, mydata);      
          
         response(res);
        }
@@ -205,36 +193,7 @@ app
         
      })
 
-    // ====================================================
-
-  //   .post('/api/title', async (req, res) => {       
-
-  //     const body = req.body;
-  //     console.log(req.body)
-  //     personId = body.pIdTitle, 
-  //     createUser = `sba`
-  //     titleId = body.title_id        
-  //     title1String = body.title1
-  //     title2String = body.title2
-  //    if(req.body.length === 0) throw err;
-
-  //    try{
-      
-      
-
-  //     var sql = `INSERT INTO resumedb.person_title( person_id, title_id ,  title1, title2, create_user) 
-  //     VALUES (?, ?, ?, ?, ?)`;
-  //     const params = [`${personId}, ${titleId},  ${title1String}, ${title2String}, ${createUser}`];
-  //      await renderMysql(sql, params);      
-       
-  //     response(res);
-  //    }
-  //    catch (err){
-  //       console.log(err);
-  //    }
-      
-  //  })
-
+     
     // =======================================================
 
      .post('/api/contact', [
@@ -244,10 +203,13 @@ app
                        .escape().trim(),
         check('state').isAlpha().withMessage('Only letters are allowed')
                        .not().isEmpty().withMessage("State can't be null")
-                       .escape().trim(),
+                       .escape().trim()
+                       .isLength( {min: 2, max:2 } ).withMessage('Two letters nax for state'),
         check('zcode').isInt().withMessage('Only numbers are allowed').escape().trim(),        
-        check('remote').isInt().withMessage('Only numbers are allowed').escape().trim(),
-        check('relocalization').isInt().withMessage('Only numbers are allowed').escape().trim(),
+        check('remote').isAlpha().withMessage('Only letters are allowed')
+                      .escape().trim().optional(),
+        check('relocation').isAlpha().withMessage('Only letters are allowed')
+                  .escape().trim().optional(),
         check('email').isEmail().withMessage('incorrect value from email').escape().trim().normalizeEmail(),
         check('phoneNumber').isMobilePhone().withMessage('incorrect phone number').escape().trim(),
 
@@ -255,14 +217,13 @@ app
 
       const body = req.body;
       console.log(req.body)
-
       contactId = body.contactId,
-      personId = body.pIdContact, 
+      personId = body.pidContact, 
       city_ = body.city,
       state_ = body.state,
       zcode_ = body.zcode,
       remote_ = body.remote,
-      relocalization_ = body.relocalization,
+      relocalization_ = body.relocation,
       email_ = body.email,
       phoneNumber_ = body.phoneNumber
       createUser = `sba`
@@ -275,9 +236,11 @@ app
      if(req.body.length === 0) throw err;
 
       var sql = `INSERT INTO resumedb.person_contact( contact_id, person_id, address_city, address_state, address_zcode, remote, relocalisation, email, phone, create_user) 
-      VALUES ("${contactId}", "${personId}", "${city_}", "${state_}", "${zcode_}", "${remote_}", "${relocalization_}", "${email_}", "${phoneNumber_}",  "${createUser}")`;
+      VALUES (?)`;
       
-      await renderMysql(sql);       
+      const mydata = [contactId, personId, city_, state_, zcode_, remote_, relocalization_, email_, phoneNumber_, createUser]
+
+      await renderMysql(sql, mydata);       
         response(res);
 
    })

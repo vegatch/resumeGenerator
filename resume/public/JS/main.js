@@ -1,14 +1,18 @@
 // import {renderToHtml} from './render.js'
 // import { loadToHtml } from './resume.js'
-
+import { clearPersonForm } from "./clearForm.js";
+import { loadHtmlForm } from "./jshtml.js"
+// import { hideForms} from "./hideForms.js"
+loadHtmlForm()
+// hideForms()
 // import {shortid} from "https://unpkg.com/shortid-dist@1.0.5/dist/shortid-2.2.13.min.js"
 
 //================HTML form access in JS ==================================
 const form = document.querySelector("#personForm")
 const formTitle = document.querySelector('#titleForm')
 const formContact = document.querySelector('#contactForm')
-const formMedia = document.querySelector('#socioForm')
-const formObjective = document.querySelector('#resObjective')
+const formMedia = document.querySelector('#socialForm')
+const formObjective = document.querySelector('#resObjectiveForm')
 const formEducation = document.querySelector('#educationForm')
 const formTech = document.querySelector('#techSkillsForm')
 const formMarket = document.querySelector('#marketSkillsForm')
@@ -28,43 +32,45 @@ const formWork = document.querySelector('#workForm')
 const primaryId = shortid.generate();
 let personId = document.querySelector('#pId')
 personId.defaultValue = primaryId
-document.querySelector("#pIdTitle").defaultValue = primaryId
+// document.querySelector("#pIdTitle").defaultValue = primaryId
 personId.readOnly = true;
-let titleId = document.querySelector('#title_id')
+let titleId = document.querySelector('#titleId')
 titleId.defaultValue = shortid.generate();;
 titleId.readOnly = true;
 let contactId = document.querySelector('#contactId')
 contactId.defaultValue = shortid.generate();;
 contactId.readOnly = true;
 
-let mediaId = document.querySelector('#media_id')
+let mediaId = document.querySelector('#mediaId')
 mediaId.defaultValue = shortid.generate();;
 mediaId.readOnly = true;
 
 
-let objectiveid = document.querySelector('#objective_id')
-objectiveid.defaultValue = shortid.generate();;
+let objectiveid = document.querySelector('#objectiveId')
+objectiveid.defaultValue = shortid.generate();
 objectiveid.readOnly = true;
 
-let techId = document.querySelector('#tech_id')
-techId.defaultValue = shortid.generate();;
+let educationId = document.querySelector('#educationId')
+educationId.defaultValue = shortid.generate();
+educationId.readOnly = true;
+
+let techId = document.querySelector('#techId')
+techId.defaultValue = shortid.generate();
 techId.readOnly = true;
 
-let marketId = document.querySelector('#market_id')
-marketId.defaultValue = shortid.generate();;
+let marketId = document.querySelector('#marketId')
+marketId.defaultValue = shortid.generate();
 marketId.readOnly = true;
 
-let projectId = document.querySelector('#project_id')
-projectId.defaultValue = shortid.generate();;
+let projectId = document.querySelector('#projectId')
+projectId.defaultValue = shortid.generate();
 projectId.readOnly = true;
 
-let workId = document.querySelector('#work_id')
-workId.defaultValue = shortid.generate();;
+let workId = document.querySelector('#workId')
+workId.defaultValue = shortid.generate();
 workId.readOnly = true;
 
-let educationId = document.querySelector('#education_id')
-educationId.defaultValue = shortid.generate();;
-educationId.readOnly = true;
+
 
 
 
@@ -72,16 +78,16 @@ educationId.readOnly = true;
 
 
 // =============== ASSIGNUNG VALUES TO FOREIGN KEYS============
-let personIdTitle = document.querySelector('#pIdTitle')
+let personIdTitle = document.querySelector('#pidTitle')
 personIdTitle.defaultValue = pId.value;
 personIdTitle.readOnly = true;
 
-let personIdContact = document.querySelector('#pIdContact')
+let personIdContact = document.querySelector('#pidContact')
 personIdContact.defaultValue = pId.value;
 personIdContact.readOnly = true;
 
 
-let personIdSocio = document.querySelector('#pidSocio')
+let personIdSocio = document.querySelector('#pidSocial')
 personIdSocio.defaultValue = pId.value;
 personIdSocio.readOnly = true;
 
@@ -89,6 +95,9 @@ let personIdObjective = document.querySelector('#pidObjective')
 personIdObjective.defaultValue = pId.value;
 personIdObjective.readOnly = true;
 
+let personIdEducation = document.querySelector('#pidEducation')
+personIdEducation.defaultValue = pId.value;
+personIdEducation.readOnly = true;
 
 let personIdTech = document.querySelector('#pidTech')
 personIdTech.defaultValue = pId.value;
@@ -104,13 +113,10 @@ personIdProject.defaultValue = pId.value;
 personIdProject.readOnly = true;
 
 
-let personIdWork = document.querySelector('#pIdWork')
+let personIdWork = document.querySelector('#pidWork')
 personIdWork.defaultValue = pId.value;
 personIdWork.readOnly = true;
 
-let personIdEducation = document.querySelector('#pIdEducation')
-personIdEducation.defaultValue = pId.value;
-personIdEducation.readOnly = true;
 
 
 
@@ -143,9 +149,9 @@ let educationNumber = document.querySelector('#education_number');
 // titleNum.readOnly = true;
 // tech_number.readOnly = true;
 // marketNum.readOnly = true;
-project_number.readOnly = true;
-work_number.readOnly = true;
-educationNumber.readOnly = true;
+// project_number.readOnly = true;
+// work_number.readOnly = true;
+// educationNumber.readOnly = true;
 
 
 // titleNum.defaultValue = 0;
@@ -228,9 +234,9 @@ let education_submit = document.querySelector('#submit_education')
 // title_submit.addEventListener('click', () =>{addOne(titleNum)})
 // tech_submit.addEventListener('click', () =>{addOne(tech_number)})
 // market_submit.addEventListener('click', () =>{addOne(marketNum)})
-project_submit.addEventListener('click', () =>{addOne(project_number)})
-work_submit.addEventListener('click', () =>{addOne(work_number)})
-education_submit.addEventListener('click', () =>{addOne(educationNumber)})
+// project_submit.addEventListener('click', () =>{addOne(project_number)})
+// work_submit.addEventListener('click', () =>{addOne(work_number)})
+// education_submit.addEventListener('click', () =>{addOne(educationNumber)})
 
 
 // ============================================================================
@@ -339,10 +345,10 @@ form.addEventListener('submit', (e) =>{
         return false
     })
     // document.querySelector('#titleForm').refresh()    
-        
-    document.querySelector("#fname").value = "";
-    document.querySelector("#middlename").value = "";
-    document.querySelector("#lastname").value = "";
+    clearPersonForm()
+    // document.querySelector("#fname").value = "";
+    // document.querySelector("#middlename").value = "";
+    // document.querySelector("#lastname").value = "";
     // document.querySelector("#createUser").value ="";
     // cUser.defaultValue='SBA'
       
@@ -369,22 +375,17 @@ formTitle.addEventListener('submit', (e) =>{
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data.errors)
-        
-        renderError(data);
-        // if(!(data.errors)===''){
-        //     title1,
-        //     title2
-        // }
+        console.log(data.errors)        
+        renderError(data);        
     })
     .catch(error => console.log(error))
     titleId.defaultValue = shortid.generate();
     document.querySelector('#title1').value = '';
     document.querySelector('#title2').value = '';
 
-    hideInput()
-    document.querySelector(".box-Title2").style.display = "none"
-    document.querySelector(".box-Title1").style.display = "block"
+    // hideInput()
+    // document.querySelector(".box-Title2").style.display = "none"
+    // document.querySelector(".box-Title1").style.display = "block"
     document.querySelector("#title2").readOnly = false;
     
 
@@ -407,17 +408,21 @@ formContact.addEventListener('submit', (e) =>{
     fetch(contactUrl, {
         method: "POST",
         body: searchParams
+        // headers: {'content-type': 'application/json'}
     })
     .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.log(error))
+    .then(data => {
+        console.log(data.errors)        
+        renderError(data);        
+    })
+    .catch(error => console.error(error))
     document.querySelector('#contactId').defaultValue = shortid.generate();
     // titleId.defaultValue = generateString(12);
     document.querySelector("#city").value ='';
     document.querySelector("#state").value ='';
     document.querySelector("#zcode").value ='';
     document.querySelector("#remote").value ='';
-    document.querySelector("#relocalization").value ='';
+    document.querySelector("#relocation").value ='';
     document.querySelector("#email").value ='';
     document.querySelector("#phoneNumber").value ='';
 
@@ -735,11 +740,11 @@ fetch(countriesAPI)
 .catch(err => console.log(err.message))
 
 
-const states = './States.json'
+// const states = './States.json'
 
-fetch(states)
-.then(res => res.json())
-.then(stateslist => console.log(stateslist))
+// fetch(states)
+// .then(res => res.json())
+// .then(stateslist => console.log(stateslist))
 
 // =========================== get data
 
@@ -775,46 +780,46 @@ fetch(states)
 
 
 
-let hideInput =() =>{
+// let hideInput =() =>{
     
-document.querySelector(".box-Title2").style.display = "none";    
+// document.querySelector(".box-Title2").style.display = "none";    
 
-document.querySelector(".box-Edu2").style.display = "none";   
-document.querySelector(".box-Edu3").style.display = "none";   
+// document.querySelector(".box-Edu2").style.display = "none";   
+// document.querySelector(".box-Edu3").style.display = "none";   
 
-document.querySelector(".box-Tech2").style.display = "none";
-document.querySelector(".box-Tech3").style.display = "none";
-document.querySelector(".box-Tech4").style.display = "none";
-document.querySelector(".box-Tech5").style.display = "none";
-document.querySelector(".box-Tech6").style.display = "none";
-document.querySelector(".box-Tech7").style.display = "none";
-document.querySelector(".box-Tech8").style.display = "none";
-document.querySelector(".box-Tech9").style.display = "none";
-document.querySelector(".box-Tech10").style.display = "none";
+// document.querySelector(".box-Tech2").style.display = "none";
+// document.querySelector(".box-Tech3").style.display = "none";
+// document.querySelector(".box-Tech4").style.display = "none";
+// document.querySelector(".box-Tech5").style.display = "none";
+// document.querySelector(".box-Tech6").style.display = "none";
+// document.querySelector(".box-Tech7").style.display = "none";
+// document.querySelector(".box-Tech8").style.display = "none";
+// document.querySelector(".box-Tech9").style.display = "none";
+// document.querySelector(".box-Tech10").style.display = "none";
 
-document.querySelector(".box-Market2").style.display = "none";
-document.querySelector(".box-Market3").style.display = "none";
-document.querySelector(".box-Market4").style.display = "none";
-document.querySelector(".box-Market5").style.display = "none";
-document.querySelector(".box-Market6").style.display = "none";
-document.querySelector(".box-Market7").style.display = "none";
-document.querySelector(".box-Market8").style.display = "none";
-document.querySelector(".box-Market9").style.display = "none";
-document.querySelector(".box-Market10").style.display = "none";
+// document.querySelector(".box-Market2").style.display = "none";
+// document.querySelector(".box-Market3").style.display = "none";
+// document.querySelector(".box-Market4").style.display = "none";
+// document.querySelector(".box-Market5").style.display = "none";
+// document.querySelector(".box-Market6").style.display = "none";
+// document.querySelector(".box-Market7").style.display = "none";
+// document.querySelector(".box-Market8").style.display = "none";
+// document.querySelector(".box-Market9").style.display = "none";
+// document.querySelector(".box-Market10").style.display = "none";
 
 
-document.querySelector(".box-Work2").style.display = "none";
-document.querySelector(".box-Work3").style.display = "none";
-document.querySelector(".box-Work4").style.display = "none";
-document.querySelector(".box-Work5").style.display = "none";
-document.querySelector(".box-Work6").style.display = "none";
-document.querySelector(".box-Work7").style.display = "none";
-document.querySelector(".box-Work8").style.display = "none";
-document.querySelector(".box-Work9").style.display = "none";
-document.querySelector(".box-Work10").style.display = "none";
+// document.querySelector(".box-Work2").style.display = "none";
+// document.querySelector(".box-Work3").style.display = "none";
+// document.querySelector(".box-Work4").style.display = "none";
+// document.querySelector(".box-Work5").style.display = "none";
+// document.querySelector(".box-Work6").style.display = "none";
+// document.querySelector(".box-Work7").style.display = "none";
+// document.querySelector(".box-Work8").style.display = "none";
+// document.querySelector(".box-Work9").style.display = "none";
+// document.querySelector(".box-Work10").style.display = "none";
 
-}
-// hideInput()
+// }
+// // hideInput()
 
 
     // document.querySelector(".btn-title1").addEventListener('click', () =>{
@@ -959,39 +964,39 @@ document.querySelector(".box-Work10").style.display = "none";
 
 
 
-    //  market skills
-    document.querySelector(".btn-market1").addEventListener('click', () =>{workHandlerUI("box-Market", "market", 1) })
-    document.querySelector(".btn-market2").addEventListener('click', () =>{workHandlerUI("box-Market", "market", 2) })
-    document.querySelector(".btn-market3").addEventListener('click', () =>{workHandlerUI("box-Market", "market",  3) })
-    document.querySelector(".btn-market4").addEventListener('click', () =>{workHandlerUI("box-Market", "market",  4) })
-    document.querySelector(".btn-market5").addEventListener('click', () =>{workHandlerUI("box-Market", "market",  5) })
-    document.querySelector(".btn-market6").addEventListener('click', () =>{workHandlerUI("box-Market", "market",  6) })
-    document.querySelector(".btn-market7").addEventListener('click', () =>{workHandlerUI("box-Market", "market",  7) })
-    document.querySelector(".btn-market8").addEventListener('click', () =>{workHandlerUI("box-Market", "market",  8) })
-    document.querySelector(".btn-market9").addEventListener('click', () =>{workHandlerUI("box-Market", "market",  9) })
-    document.querySelector(".btn-market10").addEventListener('click', () =>{workHandlerUILastChild("box-Market", "market",  10, "marketError") })
+    // //  market skills
+    // document.querySelector(".btn-market1").addEventListener('click', () =>{workHandlerUI("box-Market", "market", 1) })
+    // document.querySelector(".btn-market2").addEventListener('click', () =>{workHandlerUI("box-Market", "market", 2) })
+    // document.querySelector(".btn-market3").addEventListener('click', () =>{workHandlerUI("box-Market", "market",  3) })
+    // document.querySelector(".btn-market4").addEventListener('click', () =>{workHandlerUI("box-Market", "market",  4) })
+    // document.querySelector(".btn-market5").addEventListener('click', () =>{workHandlerUI("box-Market", "market",  5) })
+    // document.querySelector(".btn-market6").addEventListener('click', () =>{workHandlerUI("box-Market", "market",  6) })
+    // document.querySelector(".btn-market7").addEventListener('click', () =>{workHandlerUI("box-Market", "market",  7) })
+    // document.querySelector(".btn-market8").addEventListener('click', () =>{workHandlerUI("box-Market", "market",  8) })
+    // document.querySelector(".btn-market9").addEventListener('click', () =>{workHandlerUI("box-Market", "market",  9) })
+    // document.querySelector(".btn-market10").addEventListener('click', () =>{workHandlerUILastChild("box-Market", "market",  10, "marketError") })
 
 
-    //  tech skills
-    document.querySelector(".btn-tech1").addEventListener('click', () =>{workHandlerUI("box-Tech", "tech", 1) })
-    document.querySelector(".btn-tech2").addEventListener('click', () =>{workHandlerUI("box-Tech", "tech", 2) })
-    document.querySelector(".btn-tech3").addEventListener('click', () =>{workHandlerUI("box-Tech", "tech",  3) })
-    document.querySelector(".btn-tech4").addEventListener('click', () =>{workHandlerUI("box-Tech", "tech",  4) })
-    document.querySelector(".btn-tech5").addEventListener('click', () =>{workHandlerUI("box-Tech", "tech",  5) })
-    document.querySelector(".btn-tech6").addEventListener('click', () =>{workHandlerUI("box-Tech", "tech",  6) })
-    document.querySelector(".btn-tech7").addEventListener('click', () =>{workHandlerUI("box-Tech", "tech",  7) })
-    document.querySelector(".btn-tech8").addEventListener('click', () =>{workHandlerUI("box-Tech", "tech",  8) })
-    document.querySelector(".btn-tech9").addEventListener('click', () =>{workHandlerUI("box-Tech", "tech",  9) })
-    document.querySelector(".btn-tech10").addEventListener('click', () =>{workHandlerUILastChild("box-Tech", "tech",  10, "techError") })
+    // //  tech skills
+    // document.querySelector(".btn-tech1").addEventListener('click', () =>{workHandlerUI("box-Tech", "tech", 1) })
+    // document.querySelector(".btn-tech2").addEventListener('click', () =>{workHandlerUI("box-Tech", "tech", 2) })
+    // document.querySelector(".btn-tech3").addEventListener('click', () =>{workHandlerUI("box-Tech", "tech",  3) })
+    // document.querySelector(".btn-tech4").addEventListener('click', () =>{workHandlerUI("box-Tech", "tech",  4) })
+    // document.querySelector(".btn-tech5").addEventListener('click', () =>{workHandlerUI("box-Tech", "tech",  5) })
+    // document.querySelector(".btn-tech6").addEventListener('click', () =>{workHandlerUI("box-Tech", "tech",  6) })
+    // document.querySelector(".btn-tech7").addEventListener('click', () =>{workHandlerUI("box-Tech", "tech",  7) })
+    // document.querySelector(".btn-tech8").addEventListener('click', () =>{workHandlerUI("box-Tech", "tech",  8) })
+    // document.querySelector(".btn-tech9").addEventListener('click', () =>{workHandlerUI("box-Tech", "tech",  9) })
+    // document.querySelector(".btn-tech10").addEventListener('click', () =>{workHandlerUILastChild("box-Tech", "tech",  10, "techError") })
 
-    //  Title
-    document.querySelector(".btn-title1").addEventListener('click', () =>{workHandlerUI("box-Title", "title",  1) })
-    document.querySelector(".btn-title2").addEventListener('click', () =>{workHandlerUILastChild("box-Title", "title",  2, "titleError") })
+    // //  Title
+    // document.querySelector(".btn-title1").addEventListener('click', () =>{workHandlerUI("box-Title", "title",  1) })
+    // document.querySelector(".btn-title2").addEventListener('click', () =>{workHandlerUILastChild("box-Title", "title",  2, "titleError") })
 
-    // Education
-    document.querySelector(".btn-edu1").addEventListener('click', () =>{workHandlerUI("box-Edu", "eduAchievement",  1) })
-    document.querySelector(".btn-edu2").addEventListener('click', () =>{workHandlerUI("box-Edu", "eduAchievement",  2) })
-    document.querySelector(".btn-edu3").addEventListener('click', () =>{workHandlerUILastChild("box-Edu", "eduAchievement",  3, "eduError") })
+    // // Education
+    // document.querySelector(".btn-edu1").addEventListener('click', () =>{workHandlerUI("box-Edu", "eduAchievement",  1) })
+    // document.querySelector(".btn-edu2").addEventListener('click', () =>{workHandlerUI("box-Edu", "eduAchievement",  2) })
+    // document.querySelector(".btn-edu3").addEventListener('click', () =>{workHandlerUILastChild("box-Edu", "eduAchievement",  3, "eduError") })
 
     
     // document.querySelector(".btn-title1").addEventListener('click', () =>{
@@ -1040,23 +1045,24 @@ document.getElementById('projectCompleted').addEventListener('change', function(
 
 
   
-document.querySelector('#yes').addEventListener('change', function(e){
-    if(this.checked){
-        document.querySelector("#companyEndMonth").readOnly = true;
-        document.querySelector("#companyEndYear").readOnly = true;
-    }
-});
+// document.querySelector('#yes').addEventListener('change', function(e){
+//     if(this.checked){
+//         document.querySelector("#companyEndMonth").readOnly = true;
+//         document.querySelector("#companyEndYear").readOnly = true;
+//     }
+// });
 
 
-document.querySelector('#no').addEventListener('change', function(e){
-    if(this.checked){
-        document.querySelector("#companyEndMonth").readOnly = false;
-        document.querySelector("#companyEndYear").readOnly = false;
+// document.querySelector('#no').addEventListener('change', function(e){
+//     if(this.checked){
+//         document.querySelector("#companyEndMonth").readOnly = false;
+//         document.querySelector("#companyEndYear").readOnly = false;
         
-    }
-});
+//     }
+// });
 
-document.querySelector("#submit_work").addEventListener('click', (e) =>{
+// document.querySelector("#submit_work").addEventListener('click', (e) =>{
 
-    document.querySelector("#workAchiev4").readOnly = false;    
-})
+//     document.querySelector("#workAchiev4").readOnly = false;    
+// })
+

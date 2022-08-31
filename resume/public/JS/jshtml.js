@@ -1,6 +1,6 @@
 console.log("Hello there" )
 
-let loadHtmlForm = () =>{
+export let loadHtmlForm = () =>{
     const mainContainer = document.querySelector(".container")
     const bannerDiv = document.createElement('div')
     bannerDiv.classList.add('banner')
@@ -42,7 +42,7 @@ let loadHtmlForm = () =>{
     leftPara3.textContent = 'Contact Information'
     const leftPara4 =  document.createElement('p')
     leftPara4.classList.add('socialForm')
-    leftPara4.textContent = 'Professional Social media link'
+    leftPara4.textContent = 'Social Media'
     const leftPara5 =  document.createElement('p')
     leftPara5.classList.add('resObjectiveForm')
     leftPara5.textContent = 'Professional Summary'
@@ -85,7 +85,7 @@ let loadHtmlForm = () =>{
 
     const formWrapper = document.createElement('div')
     middleMainContainer.append(formWrapper)
-
+    // START OF PERSONFORM
     const personForm = document.createElement('form')
     personForm.setAttribute("method", "POST")
     personForm.setAttribute("id", "personForm")
@@ -148,7 +148,7 @@ let loadHtmlForm = () =>{
     personFormFieldset.append(personFormLegend, personInputDiv1, personInputDiv2, personInputDiv3, personInputDiv4, personInputDiv5)
     personForm.append(personFormFieldset)
     formWrapper.append(personForm)
-    // end of personForm
+    // END OF PERSONFORM
     //  START OF TITLE FORM
     const titleForm = document.createElement('form')
     titleForm.setAttribute("method", "POST")
@@ -168,8 +168,8 @@ let loadHtmlForm = () =>{
     const titleInputDiv2 = document.createElement("div")
     const titleInput2 = document.createElement("input")
     titleInput2.setAttribute("type", "text")
-    titleInput2.setAttribute("id", "pIdTitle")
-    titleInput2.setAttribute("name", "pIdTitle")
+    titleInput2.setAttribute("id", "pidTitle")
+    titleInput2.setAttribute("name", "pidTitle")
     titleInput2.placeholder = 'personID will be displayed here'
     titleInputDiv2.append(titleInput2) 
 
@@ -230,8 +230,8 @@ let loadHtmlForm = () =>{
     const contactInputDiv2 = document.createElement("div")
     const contactInput2 = document.createElement("input")
     contactInput2.setAttribute("type", "text")
-    contactInput2.setAttribute("id", "pIdContact")
-    contactInput2.setAttribute("name", "pIdContact")
+    contactInput2.setAttribute("id", "pidContact")
+    contactInput2.setAttribute("name", "pidContact")
     contactInput2.placeholder = 'personID will be displayed here'
     contactInputDiv2.append(contactInput2) 
 
@@ -278,12 +278,12 @@ let loadHtmlForm = () =>{
 
     const contactInputDiv7 = document.createElement("div")
     const contactInputLabel7 = document.createElement("label")
-    contactInputLabel7.setAttribute("for", "remote")
-    contactInputLabel7.textContent = 'Open to relocalization:'
+    contactInputLabel7.setAttribute("for", "relocation")
+    contactInputLabel7.textContent = 'Open to relocation:'
     const contactInput7 = document.createElement("input")
     contactInput7.setAttribute("type", "checkbox")
-    contactInput7.setAttribute("id", "relocalization")
-    contactInput7.setAttribute("name", "relocalization")
+    contactInput7.setAttribute("id", "relocation")
+    contactInput7.setAttribute("name", "relocation")
     contactInput7.setAttribute("value", "yes")
     contactInputDiv7.append(contactInput7, contactInputLabel7)
 
@@ -344,8 +344,8 @@ let loadHtmlForm = () =>{
     const socialInputDiv2 = document.createElement("div")   
     const socialInput2 = document.createElement("input")
     socialInput2.setAttribute("type", "text")
-    socialInput2.setAttribute("id", "pIdSocial")
-    socialInput2.setAttribute("name", "pIdSocial")
+    socialInput2.setAttribute("id", "pidSocial")
+    socialInput2.setAttribute("name", "pidSocial")
     socialInput2.placeholder = 'personID will be displayed here'
     socialInputDiv2.append(socialInput2)  
 
@@ -416,8 +416,8 @@ let loadHtmlForm = () =>{
     const summaryInputDiv2 = document.createElement("div")   
     const summaryInput2 = document.createElement("input")
     summaryInput2.setAttribute("type", "text")
-    summaryInput2.setAttribute("id", "pIdObjective")
-    summaryInput2.setAttribute("name", "pIdObjective")
+    summaryInput2.setAttribute("id", "pidObjective")
+    summaryInput2.setAttribute("name", "pidObjective")
     summaryInput2.placeholder = 'personID will be displayed here'
     summaryInputDiv2.append(summaryInput2)  
 
@@ -467,18 +467,18 @@ let loadHtmlForm = () =>{
     const educationInputDiv2 = document.createElement("div")   
     const educationInput2 = document.createElement("input")
     educationInput2.setAttribute("type", "text")
-    educationInput2.setAttribute("id", "pIdEducation")
-    educationInput2.setAttribute("name", "pIdEducation")
+    educationInput2.setAttribute("id", "pidEducation")
+    educationInput2.setAttribute("name", "pidEducation")
     educationInput2.placeholder = 'personID will be displayed here'
     educationInputDiv2.append(educationInput2)   
     
-    const educationInputDiv3 = document.createElement("div")   
-    const educationInput3 = document.createElement("input")
-    educationInput3.setAttribute("type", "text")
-    educationInput3.setAttribute("id", "education_number")
-    educationInput3.setAttribute("name", "education_number")
-    educationInput3.placeholder = 'education # will be displayed here'
-    educationInputDiv3.append(educationInput3)   
+    // const educationInputDiv3 = document.createElement("div")   
+    // const educationInput3 = document.createElement("input")
+    // educationInput3.setAttribute("type", "text")
+    // educationInput3.setAttribute("id", "education_number")
+    // educationInput3.setAttribute("name", "education_number")
+    // educationInput3.placeholder = 'education # will be displayed here'
+    // educationInputDiv3.append(educationInput3)   
 
     const educationInputDiv4 = document.createElement("div")
     const educationInputLabel4 = document.createElement("label")
@@ -644,7 +644,7 @@ let loadHtmlForm = () =>{
     educationBtn2.innerHTML = "Save & continue"
     educationInputDiv14.append(educationBtn1, educationBtn2)
 
-    educationFormFieldset.append(educationFormLegend, educationInputDiv1, educationInputDiv2, educationInputDiv3, educationInputDiv4, educationInputDiv5, educationInputDiv6, educationInputDiv7, educationInputDiv8, educationInputDiv9, educationInputDiv10, educationInputDiv11, educationInputDiv12, educationInputDiv13, educationInputDiv14)
+    educationFormFieldset.append(educationFormLegend, educationInputDiv1, educationInputDiv2, educationInputDiv4, educationInputDiv5, educationInputDiv6, educationInputDiv7, educationInputDiv8, educationInputDiv9, educationInputDiv10, educationInputDiv11, educationInputDiv12, educationInputDiv13, educationInputDiv14)
     educationForm.append(educationFormFieldset)
     formWrapper.append(educationForm)
     // END OF EDUCATION FORM
@@ -786,7 +786,7 @@ let loadHtmlForm = () =>{
     techBtn2.innerHTML = "Save & continue"
     techSkillsInputDiv13.append(techBtn1, techBtn2)
 
-    techSkillsFormFieldset.append(techSkillsFormLegend, techSkillsInputDiv3, techSkillsInputDiv4, techSkillsInputDiv5, techSkillsInputDiv6, techSkillsInputDiv7, techSkillsInputDiv8, techSkillsInputDiv9, techSkillsInputDiv10, techSkillsInputDiv11, techSkillsInputDiv12, techSkillsInputDiv13)
+    techSkillsFormFieldset.append(techSkillsFormLegend, techSkillsInputDiv1, techSkillsInputDiv2, techSkillsInputDiv3, techSkillsInputDiv4, techSkillsInputDiv5, techSkillsInputDiv6, techSkillsInputDiv7, techSkillsInputDiv8, techSkillsInputDiv9, techSkillsInputDiv10, techSkillsInputDiv11, techSkillsInputDiv12, techSkillsInputDiv13)
     techSkillsForm.append(techSkillsFormFieldset)
     formWrapper.append(techSkillsForm)    
     // END OF TECH SKILLS FORM
@@ -930,7 +930,7 @@ let loadHtmlForm = () =>{
     marketBtn2.innerHTML = "Save & continue"
     marketSkillsInputDiv13.append(marketBtn1, marketBtn2)
 
-    marketSkillsFormFieldset.append(marketSkillsFormLegend, marketSkillsInputDiv3, marketSkillsInputDiv4, marketSkillsInputDiv5, marketSkillsInputDiv6, marketSkillsInputDiv7, marketSkillsInputDiv8, marketSkillsInputDiv9, marketSkillsInputDiv10, marketSkillsInputDiv11, marketSkillsInputDiv12, marketSkillsInputDiv13)
+    marketSkillsFormFieldset.append(marketSkillsFormLegend, marketSkillsInputDiv1, marketSkillsInputDiv2, marketSkillsInputDiv3, marketSkillsInputDiv4, marketSkillsInputDiv5, marketSkillsInputDiv6, marketSkillsInputDiv7, marketSkillsInputDiv8, marketSkillsInputDiv9, marketSkillsInputDiv10, marketSkillsInputDiv11, marketSkillsInputDiv12, marketSkillsInputDiv13)
     marketSkillsForm.append(marketSkillsFormFieldset)
     formWrapper.append(marketSkillsForm)
     // END OF MARKET SKILLS FORM
@@ -1403,6 +1403,6 @@ let loadHtmlForm = () =>{
 
    
 }
-loadHtmlForm()
+// loadHtmlForm()
 
 

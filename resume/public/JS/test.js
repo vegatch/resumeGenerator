@@ -1,5 +1,5 @@
 let hideForms = () =>{
-    document.querySelector("#personForm").style.display = "none"
+    document.getElementById("personForm").style.display = "none"
     document.querySelector("#titleForm").style.display = "none"
     document.querySelector("#contactForm").style.display = "none"
     document.querySelector("#socialForm").style.display = "none"
@@ -235,7 +235,7 @@ let createPerform =() =>{
     formPerson.id = "personForm"
 }
 
-let setInputReadOnly = () =>{
+export let setInputReadOnly = () =>{
     document.getElementById("tech2").readOnly = true;
     document.getElementById("tech3").readOnly = true;
     document.getElementById("tech4").readOnly = true;
@@ -258,7 +258,7 @@ let setInputReadOnly = () =>{
 } 
 setInputReadOnly()
 
-let handleDuplicateEntry = (myform, myEntry1, myEntry2, myEntry3, myEntry4, myEntry5, myEntry6, myEntry7, myEntry8, myEntry9, myEntry10 ) =>{
+export let handleDuplicateEntry = (myform, myEntry1, myEntry2, myEntry3, myEntry4, myEntry5, myEntry6, myEntry7, myEntry8, myEntry9, myEntry10 ) =>{
     let validationArray = [];
     let msgError = document.querySelector(".error")
     
@@ -404,6 +404,8 @@ let handleDuplicateEntry = (myform, myEntry1, myEntry2, myEntry3, myEntry4, myEn
 handleDuplicateEntry("titleForm", "title1", "title2")
 handleDuplicateEntry("techSkillsForm", "tech1", "tech2", "tech3", "tech4", "tech5", "tech6", "tech7", "tech8", "tech9", "tech10")
 handleDuplicateEntry("marketSkillsForm", "market1", "market2", "market3", "market4", "market5", "market6", "market7", "market8", "market9", "market10")
+
+
 
 
 
