@@ -6,6 +6,7 @@ const env = require('dotenv');
 const db = require('./config');
 const { check, validationResult } = require('express-validator');
 const nodemon = require('nodemon');
+const { json } = require('body-parser');
 
 
 
@@ -27,7 +28,8 @@ const renderMysql = function(sql, data){
 }
 
 const response = function(res){
-  res.status(200).send('Record added successfully');
+  const message = 'Record added successfully'
+  res.status(200).send(JSON.stringify(message));
 }
 
 const errorHandling = function(myreq, myres){
@@ -35,7 +37,7 @@ const errorHandling = function(myreq, myres){
         if (!validationResult(myreq).isEmpty()) {
         return myres.status(422).json({ errors: errors.array() })
         }
-     
+      
 }
 
 app
@@ -128,9 +130,9 @@ app
         
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-        return res.status(422).json({ errors: errors.array() })
-          
+        return res.status(422).json({ errors: errors.array() })          
         }
+
         // if(!(errorHandling(req, res)) ===''){errorHandling(req, res)};
         try{
           //   const sql = `INSERT INTO resumedb.person( person_id, first_name, middle_name, last_name, create_user) 
@@ -146,8 +148,7 @@ app
         }catch (err){
           console.log(err);
        }
-        
-        
+          
 
   })
 

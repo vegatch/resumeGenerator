@@ -2,7 +2,8 @@
 // import { loadToHtml } from './resume.js'
 import { clearPersonForm } from "./clearForm.js";
 import { loadHtmlForm } from "./jshtml.js"
-// import { hideForms} from "./hideForms.js"
+// import { postForm} from "./postForm.js"
+
 loadHtmlForm()
 // hideForms()
 // import {shortid} from "https://unpkg.com/shortid-dist@1.0.5/dist/shortid-2.2.13.min.js"
@@ -18,6 +19,7 @@ const formTech = document.querySelector('#techSkillsForm')
 const formMarket = document.querySelector('#marketSkillsForm')
 const formProject = document.querySelector('#projectsForm')
 const formWork = document.querySelector('#workForm')
+
 
 
 //==========================================================================
@@ -277,12 +279,56 @@ let errorContainer = document.querySelector('.error');
 
 const renderError = function(data){
     errorContainer.innerHTML ='';
+    if(data !== 'Record added successfully'){
     data.errors.forEach(err =>{
         errorContainer.innerHTML +=`<li>${err.msg} for ${err.param}</li>`
-        setTimeout(() =>{ errorContainer.innerHTML = " " },4000000)
+        setTimeout(() =>{ errorContainer.innerHTML = " " },6000)
     })
+    }
 }
 
+
+const postForm = (myForm, myUrl) =>{
+    const formData = new FormData(myForm) 
+    const searchParams = new URLSearchParams();
+    for(const pair of formData){
+        searchParams.append(pair[0], pair[1])
+    }
+
+    const option ={
+        method: "POST",     
+        body: searchParams           
+    }
+    
+    fetch(myUrl, option)
+    .then(response => response.json())
+    .then(data => {
+        if(data === 'Record added successfully'){
+            // renderError(data)
+            console.log('in'. data)
+            
+        }
+        console.log('out',data)        
+        renderError(data)
+    } )   
+    // .then(res => console.log(res))    
+    // .catch(error => {throw new Error(console.error(error))})
+    
+    // .catch(error => console.log(error))
+    // .then((result) => {
+    //     if(result.status != 200){throw new Error("Server didn't response")}
+    //     return result.text();
+    // })
+    // .then(data => {
+    //     console.log(data.errors)        
+    //     renderError(data);        
+    // })
+    // .then((response) => {
+    //     console.log(response)
+    // })    
+    // .catch((error) => {throw new Error("something wrong")})
+    // // return false;
+}
 
 //===============================================================
 //=========== PERSON
@@ -315,36 +361,37 @@ const renderError = function(data){
 
 form.addEventListener('submit', (e) =>{
     e.preventDefault();
-
-    const formData = new FormData(form);
-
-    const searchParams = new URLSearchParams();
-    for(const pair of formData){
-        searchParams.append(pair[0], pair[1])
-    }
+    postForm(form, resumeUrl)
     
-    fetch(resumeUrl, {
-        method: "POST",
-        body: searchParams
-    })
-    // .then((result) => {
-    //     if (result.status != 200) { throw new Error("Bad Server Response"); }
-    //     renderError(data);
-    //     // return result.text();
-    //   })
-      .then(response => response.json())
-      .then(data => {
-          console.log(data.errors)
+    // const formData = new FormData(form);
+
+    // const searchParams = new URLSearchParams();
+    // for(const pair of formData){
+    //     searchParams.append(pair[0], pair[1])
+    // }
+    
+    // fetch(resumeUrl, {
+    //     method: "POST",
+    //     body: searchParams
+    // })
+    // // .then((result) => {
+    // //     if (result.status != 200) { throw new Error("Bad Server Response"); }
+    // //     renderError(data);
+    // //     // return result.text();
+    // //   })
+    //   .then(response => response.json())
+    //   .then(data => {
+    //       console.log(data.errors)
           
-          renderError(data);
-          return false
+    //       renderError(data);
+    //       return false
           
-      })   
-    .catch(error => {
-        console.log(error)
-        return false
-    })
-    // document.querySelector('#titleForm').refresh()    
+    //   })   
+    // .catch(error => {
+    //     console.log(error)
+    //     return false
+    // })
+    // // document.querySelector('#titleForm').refresh()    
     clearPersonForm()
     // document.querySelector("#fname").value = "";
     // document.querySelector("#middlename").value = "";
@@ -397,26 +444,31 @@ formTitle.addEventListener('submit', (e) =>{
 //========================= CONTACT
 formContact.addEventListener('submit', (e) =>{
     e.preventDefault();
+    postForm(formContact, contactUrl)
 
-    const formData = new FormData(formContact);
+    // const formData = new FormData(formContact);
 
-    const searchParams = new URLSearchParams();
-    for(const pair of formData){
-        searchParams.append(pair[0], pair[1])
-    }
+    // const searchParams = new URLSearchParams();
+    // for(const pair of formData){
+    //     searchParams.append(pair[0], pair[1])
+    // }
     
-    fetch(contactUrl, {
-        method: "POST",
-        body: searchParams
-        // headers: {'content-type': 'application/json'}
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.errors)        
-        renderError(data);        
-    })
-    .catch(error => console.error(error))
-    document.querySelector('#contactId').defaultValue = shortid.generate();
+    // fetch(contactUrl, {
+    //     method: "POST",
+    //     headers:{
+    //         'content-type' : 'application/json'
+    //     },
+    //     body: searchParams
+    //     // body: formData
+    //     // headers: {'content-type': 'application/json'}
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //     console.log(data.errors)        
+    //     renderError(data);        
+    // })
+    // .catch(error => console.error(error))
+    // document.querySelector('#contactId').defaultValue = shortid.generate();
     // titleId.defaultValue = generateString(12);
     document.querySelector("#city").value ='';
     document.querySelector("#state").value ='';
