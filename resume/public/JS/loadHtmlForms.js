@@ -1,4 +1,3 @@
-console.log("Hello there" )
 
 export let loadHtmlForm = () =>{
     const mainContainer = document.querySelector(".container")
@@ -10,8 +9,8 @@ export let loadHtmlForm = () =>{
     searchContainerDiv.classList.add('flex-component')
     const searchInputDiv = document.createElement('div')
     const searchInput = document.createElement('input')
-    searchInput.setAttribute('id', "searchInput")
-    searchInput.setAttribute('name', "searchInput")
+    searchInput.setAttribute('id', "resumeId")
+    searchInput.setAttribute('name', "resumeId")
     searchInputDiv.append(searchInput)
     searchInput.placeholder = 'Insert your resumeID here'
     const searchParaDiv = document.createElement('div')
@@ -580,7 +579,7 @@ export let loadHtmlForm = () =>{
     educationInput9.setAttribute("name", "graduated")
     educationInput9.setAttribute("value", "yes")
     educationInputDiv9.append(educationInputLabel9, educationInput9) 
-    
+
     const educationInputDiv10 = document.createElement("div")   
     const educationInputLabel10 = document.createElement("label")
     educationInputLabel10.setAttribute("for", "graduationDate")

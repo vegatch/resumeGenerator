@@ -70,31 +70,21 @@ app
         // res.render('resume', results);rs
       });
     })
+
    
+    .get('/api/search/:resumeId', async (req, res) => {     
+      let sqlQuery = "SELECT * FROM resumedb.view_data WHERE person_id = ? ";
+      const ID = req.params.resumeId
+      // const lname = req.params.lastname
+      db.query(sqlQuery, [ID], (err, results) => {
+        if(err) throw err;
 
-    // .get('/api/search/:fullname',[
-    //   check("fullname").escape()
-    //   // check('firstName').isAlpha().withMessage('Only letters are allowed').trim()
-    //   //                  .escape().not().isEmpty().withMessage("Search can't be null"),
-    //   // check('lastName').isAlpha().withMessage('Only letters are allowed').trim()
-    //   //                  .escape().not().isEmpty().withMessage("Search can't be null")
-    // ], async (req, res) => {     
-    //   const flname = req.params.fullname;
+        res.send(results);
+        // res.render('resume', results);rs
+      });
+    })
+   
     
-    //   console.log(req.body)
-    //   const errors = validationResult(req);
-    //     if (!errors.isEmpty()) {
-    //     return res.status(422).json({ errors: errors.array() })
-    //     }
-
-    //   let sqlQuery = "SELECT * FROM resumedb.complete_resume WHERE fullname = ? ";
-    //   const [rows] = await db.query(sqlQuery, flname);
-    //   if(!rows[0]){
-    //     return res.json({msg: "Resume not found!"});
-    // }
-    //     res.json(rows[0]);    
-      
-    // })
 
     .get('/user/:id', function (req, res) {
       let user_id = req.params.id;
