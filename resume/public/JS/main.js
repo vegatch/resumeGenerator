@@ -1,7 +1,12 @@
 // import {renderToHtml} from './render.js'
-// import { loadToHtml } from './resume.js'
-import { clearPersonForm } from "./clearForm.js";
-import { loadHtmlForm } from "./jshtml.js"
+// import { hideWorkAccomplishment } from './test.js'
+import { 
+    clearPersonForm, clearTitleForm, clearContactForm, 
+    clearSocialForm, clearSummaryForm, clearEducationForm, 
+    clearTechForm, clearMarketForm, clearProjectForm,
+    clearWorkForm
+     } from "./clearForm.js";
+import { loadHtmlForm } from "./loadHtmlForms.js"
 // import { postForm} from "./postForm.js"
 
 loadHtmlForm()
@@ -282,7 +287,7 @@ const renderError = function(data){
     if(data !== 'Record added successfully'){
     data.errors.forEach(err =>{
         errorContainer.innerHTML +=`<li>${err.msg} for ${err.param}</li>`
-        setTimeout(() =>{ errorContainer.innerHTML = " " },6000)
+        setTimeout(() =>{ errorContainer.innerHTML = " " },600000)
     })
     }
 }
@@ -312,52 +317,14 @@ const postForm = (myForm, myUrl) =>{
         renderError(data)
     } )   
     // .then(res => console.log(res))    
-    // .catch(error => {throw new Error(console.error(error))})
+    .catch(error => {throw new Error(console.error(error))})
     
-    // .catch(error => console.log(error))
-    // .then((result) => {
-    //     if(result.status != 200){throw new Error("Server didn't response")}
-    //     return result.text();
-    // })
-    // .then(data => {
-    //     console.log(data.errors)        
-    //     renderError(data);        
-    // })
-    // .then((response) => {
-    //     console.log(response)
-    // })    
-    // .catch((error) => {throw new Error("something wrong")})
-    // // return false;
+    
 }
 
 //===============================================================
 //=========== PERSON
-// form.addEventListener('submit', (e) =>{
-//     e.preventDefault();
 
-//     const formData = new FormData(form);
-
-//     const searchParams = new URLSearchParams();
-//     for(const pair of formData){
-//         searchParams.append(pair[0], pair[1])
-//     }
-    
-//     fetch(resumeUrl, {
-//         method: "POST",
-//         body: searchParams
-//     })
-//     .then(response => response.json())
-//     .then(data => renderError(data) )       
-//     .catch(error => console.log(error))
-//     // document.querySelector('#titleForm').refresh()    
-        
-//     document.querySelector("#fname").value = "";
-//     document.querySelector("#middlename").value = "";
-//     document.querySelector("#lastname").value = "";
-//     // document.querySelector("#createUser").value ="";
-//     // cUser.defaultValue='SBA'
-
-// })
 
 form.addEventListener('submit', (e) =>{
     e.preventDefault();
@@ -408,32 +375,33 @@ form.addEventListener('submit', (e) =>{
 //=========== TITLE
 formTitle.addEventListener('submit', (e) =>{
     e.preventDefault();
+    postForm(formTitle, titleUrl)
+    clearTitleForm()
+    // const formData = new FormData(formTitle);
 
-    const formData = new FormData(formTitle);
-
-    const searchParams = new URLSearchParams();
-    for(const pair of formData){
-        searchParams.append(pair[0], pair[1])
-    }
+    // const searchParams = new URLSearchParams();
+    // for(const pair of formData){
+    //     searchParams.append(pair[0], pair[1])
+    // }
     
-    fetch(titleUrl, {
-        method: "POST",
-        body: searchParams
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.errors)        
-        renderError(data);        
-    })
-    .catch(error => console.log(error))
-    titleId.defaultValue = shortid.generate();
-    document.querySelector('#title1').value = '';
-    document.querySelector('#title2').value = '';
+    // fetch(titleUrl, {
+    //     method: "POST",
+    //     body: searchParams
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //     console.log(data.errors)        
+    //     renderError(data);        
+    // })
+    // .catch(error => console.log(error))
+    // titleId.defaultValue = shortid.generate();
+    // document.querySelector('#title1').value = '';
+    // document.querySelector('#title2').value = '';
 
     // hideInput()
     // document.querySelector(".box-Title2").style.display = "none"
     // document.querySelector(".box-Title1").style.display = "block"
-    document.querySelector("#title2").readOnly = false;
+    // document.querySelector("#title2").readOnly = false;
     
 
 })
@@ -445,7 +413,7 @@ formTitle.addEventListener('submit', (e) =>{
 formContact.addEventListener('submit', (e) =>{
     e.preventDefault();
     postForm(formContact, contactUrl)
-
+    clearContactForm()
     // const formData = new FormData(formContact);
 
     // const searchParams = new URLSearchParams();
@@ -470,13 +438,13 @@ formContact.addEventListener('submit', (e) =>{
     // .catch(error => console.error(error))
     // document.querySelector('#contactId').defaultValue = shortid.generate();
     // titleId.defaultValue = generateString(12);
-    document.querySelector("#city").value ='';
-    document.querySelector("#state").value ='';
-    document.querySelector("#zcode").value ='';
-    document.querySelector("#remote").value ='';
-    document.querySelector("#relocation").value ='';
-    document.querySelector("#email").value ='';
-    document.querySelector("#phoneNumber").value ='';
+    // document.querySelector("#city").value ='';
+    // document.querySelector("#state").value ='';
+    // document.querySelector("#zcode").value ='';
+    // document.querySelector("#remote").value ='';
+    // document.querySelector("#relocation").value ='';
+    // document.querySelector("#email").value ='';
+    // document.querySelector("#phoneNumber").value ='';
 
 })
 
@@ -485,26 +453,27 @@ formContact.addEventListener('submit', (e) =>{
 //========================= MEDIA
 formMedia.addEventListener('submit', (e) =>{
     e.preventDefault();
+    postForm(formMedia, mediaUrl)
+    clearSocialForm()
+    // const formData = new FormData(formMedia);
 
-    const formData = new FormData(formMedia);
-
-    const searchParams = new URLSearchParams();
-    for(const pair of formData){
-        searchParams.append(pair[0], pair[1])
-    }
+    // const searchParams = new URLSearchParams();
+    // for(const pair of formData){
+    //     searchParams.append(pair[0], pair[1])
+    // }
     
-    fetch(mediaUrl, {
-        method: "POST",
-        body: searchParams
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.log(error))
-    document.querySelector('#media_id').defaultValue = shortid.generate();
+    // fetch(mediaUrl, {
+    //     method: "POST",
+    //     body: searchParams
+    // })
+    // .then(response => response.json())
+    // .then(data => console.log(data))
+    // .catch(error => console.log(error))
+    // document.querySelector('#mediaId').defaultValue = shortid.generate();
     // titleId.defaultValue = generateString(12);
-    document.querySelector("#linkedIn").value ='';
-    document.querySelector("#gitHub").value ='';
-    document.querySelector("#portfolio").value ='';
+    // document.querySelector("#linkedIn").value ='';
+    // document.querySelector("#gitHub").value ='';
+    // document.querySelector("#portfolio").value ='';
 
 })
 
@@ -514,60 +483,109 @@ formMedia.addEventListener('submit', (e) =>{
 //========================= OBJECTIVE
 formObjective.addEventListener('submit', (e) =>{
     e.preventDefault();
+    postForm(formObjective, objectiveUrl)
+    clearSummaryForm()
+    // const formData = new FormData(formObjective);
 
-    const formData = new FormData(formObjective);
-
-    const searchParams = new URLSearchParams();
-    for(const pair of formData){
-        searchParams.append(pair[0], pair[1])
-    }
+    // const searchParams = new URLSearchParams();
+    // for(const pair of formData){
+    //     searchParams.append(pair[0], pair[1])
+    // }
     
-    fetch(objectiveUrl, {
-        method: "POST",
-        body: searchParams
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.log(error))
+    // fetch(objectiveUrl, {
+    //     method: "POST",
+    //     body: searchParams
+    // })
+    // .then(response => response.json())
+    // .then(data => console.log(data))
+    // .catch(error => console.log(error))
     // document.querySelector('#objective_id').defaultValue = generateString(12);
-    document.querySelector('#objective_id').defaultValue = shortid.generate();
-    document.querySelector("#objective").value ='';
+    // document.querySelector('#objectiveId').defaultValue = shortid.generate();
+    // document.querySelector("#objective").value ='';
 
 })
 
+
+//========================= EDUCATION
+formEducation.addEventListener('submit', (e) =>{
+    e.preventDefault();
+    postForm(formEducation, educationUrl)
+    clearEducationForm()
+    // const formData = new FormData(formEducation);
+
+    // const searchParams = new URLSearchParams();
+    // for(const pair of formData){
+    //     searchParams.append(pair[0], pair[1])
+    // }
+    
+    // fetch(educationUrl, {
+    //     method: "POST",
+    //     body: searchParams
+    // })
+    // .then(response => response.json())
+    // .then(data => console.log(data))
+    // .catch(error => console.log(error))
+    // // document.querySelector('#objective_id').defaultValue = generateString(12);
+    // const educ = document.getElementsByName("school_attendance_method");
+    //     for(var i=0; i<educ.length; i++)
+    //     educ[i].checked = false;
+        // clearRadio("school_attendance_method")
+        // clearRadio("eduFieldStudy")
+    // document.querySelector('#educationId').defaultValue = shortid.generate(); 
+    // const fieldStudy = document.getElementsByName("eduFieldStudy");
+    //     for(let i = 0; i < fieldStudy.length; i +=1)
+    //     fieldStudy[i].checked = false;
+    // const schoolAttendadance = document.getElementsByName("school_attendance_method");
+    //     for(let i = 0; i < schoolAttendadance.length; i +=1)
+    //     schoolAttendadance[i].checked = false;
+    // document.querySelector("#school_name").value ='';
+    // document.querySelector("#school_city").value ='';
+    // document.querySelector("#school_state").value ='';
+    // // document.querySelector("[name='school_attendance_method']").value = clearRadio("school_attendance_method");
+    // document.querySelector("#remote").checked = false;
+    // document.querySelector("#InPerson").checked = false;
+    // document.querySelector("#certificate_title").value ='';
+    // document.querySelector("#completion_date_month").value ='';
+    // document.querySelector("#completion_date_year").value ='';
+    // document.querySelector("#eduAchievement1").value ='';
+    // document.querySelector("#eduAchievement2").value ='';
+    // document.querySelector("#eduAchievement3").value ='';    
+
+})
 
 
 
 //========================= TECH SKILLS
 formTech.addEventListener('submit', (e) =>{
     e.preventDefault();
+    postForm(formTech, techUrl)
+    clearTechForm()
+    // const formData = new FormData(formTech);
 
-    const formData = new FormData(formTech);
-
-    const searchParams = new URLSearchParams();
-    for(const pair of formData){
-        searchParams.append(pair[0], pair[1])
-    }
+    // const searchParams = new URLSearchParams();
+    // for(const pair of formData){
+    //     searchParams.append(pair[0], pair[1])
+    // }
     
-    fetch(techUrl, {
-        method: "POST",
-        body: searchParams
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.log(error))
+    // fetch(techUrl, {
+    //     method: "POST",
+    //     body: searchParams
+    // })
+    // .then(response => response.json())
+    // .then(data => console.log(data))
+    // .catch(error => console.log(error))
     // document.querySelector('#objective_id').defaultValue = generateString(12);
-    document.querySelector('#tech_id').defaultValue = shortid.generate();
-    document.querySelector("#tech1").value ='';
-    document.querySelector("#tech2").value ='';
-    document.querySelector("#tech3").value ='';
-    document.querySelector("#tech4").value ='';
-    document.querySelector("#tech5").value ='';
-    document.querySelector("#tech6").value ='';
-    document.querySelector("#tech7").value ='';
-    document.querySelector("#tech8").value ='';
-    document.querySelector("#tech9").value ='';
-    document.querySelector("#tech10").value ='';
+    // document.querySelector('#techId').defaultValue = shortid.generate();
+    // document.querySelector("#tech1").value ='';
+    // document.querySelector("#tech2").value ='';
+    // document.querySelector("#tech3").value ='';
+    // document.querySelector("#tech4").value ='';
+    // document.querySelector("#tech5").value ='';
+    // document.querySelector("#tech6").value ='';
+    // document.querySelector("#tech7").value ='';
+    // document.querySelector("#tech8").value ='';
+    // document.querySelector("#tech9").value ='';
+    // document.querySelector("#tech10").value ='';
 
 })
 
@@ -577,33 +595,34 @@ formTech.addEventListener('submit', (e) =>{
 //========================= MARKET SKILSS
 formMarket.addEventListener('submit', (e) =>{
     e.preventDefault();
+    postForm(formMarket, marketUrl)
+    clearMarketForm()
+    // const formData = new FormData(formMarket);
 
-    const formData = new FormData(formMarket);
-
-    const searchParams = new URLSearchParams();
-    for(const pair of formData){
-        searchParams.append(pair[0], pair[1])
-    }
+    // const searchParams = new URLSearchParams();
+    // for(const pair of formData){
+    //     searchParams.append(pair[0], pair[1])
+    // }
     
-    fetch(marketUrl, {
-        method: "POST",
-        body: searchParams
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.log(error))
+    // fetch(marketUrl, {
+    //     method: "POST",
+    //     body: searchParams
+    // })
+    // .then(response => response.json())
+    // .then(data => console.log(data))
+    // .catch(error => console.log(error))
     // document.querySelector('#objective_id').defaultValue = generateString(12);
-    document.querySelector('#market_id').defaultValue = shortid.generate();
-    document.querySelector("#market1").value ='';
-    document.querySelector("#market2").value ='';
-    document.querySelector("#market3").value ='';
-    document.querySelector("#market4").value ='';
-    document.querySelector("#market5").value ='';
-    document.querySelector("#market6").value ='';
-    document.querySelector("#market7").value ='';
-    document.querySelector("#market8").value ='';
-    document.querySelector("#market9").value ='';
-    document.querySelector("#market10").value ='';
+    // document.querySelector('#market_id').defaultValue = shortid.generate();
+    // document.querySelector("#market1").value ='';
+    // document.querySelector("#market2").value ='';
+    // document.querySelector("#market3").value ='';
+    // document.querySelector("#market4").value ='';
+    // document.querySelector("#market5").value ='';
+    // document.querySelector("#market6").value ='';
+    // document.querySelector("#market7").value ='';
+    // document.querySelector("#market8").value ='';
+    // document.querySelector("#market9").value ='';
+    // document.querySelector("#market10").value ='';
 
 })
 
@@ -612,34 +631,35 @@ formMarket.addEventListener('submit', (e) =>{
 //========================= PROJECTS
 formProject.addEventListener('submit', (e) =>{
     e.preventDefault();
+    postForm(formProject, projectUrl)
+    clearProjectForm()
+    // const formData = new FormData(formProject);
 
-    const formData = new FormData(formProject);
-
-    const searchParams = new URLSearchParams();
-    for(const pair of formData){
-        searchParams.append(pair[0], pair[1])
-    }
+    // const searchParams = new URLSearchParams();
+    // for(const pair of formData){
+    //     searchParams.append(pair[0], pair[1])
+    // }
     
-    fetch(projectUrl, {
-        method: "POST",
-        body: searchParams
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.log(error))
+    // fetch(projectUrl, {
+    //     method: "POST",
+    //     body: searchParams
+    // })
+    // .then(response => response.json())
+    // .then(data => console.log(data))
+    // .catch(error => console.log(error))
     // document.querySelector('#objective_id').defaultValue = generateString(12);
-    document.querySelector('#project_id').defaultValue = shortid.generate();
-    document.querySelector("#projectRole").value ='';
-    document.querySelector("#projectName").value ='';
-    document.querySelector("#projectLanguage").value ='';
-    document.querySelector("#projectNonthStart").value ='';
-    document.querySelector("#projectYearStart").value ='';
-    document.querySelector("#projectNonthEnd").value ='';
-    document.querySelector("#projectYearEnd").value ='';
-    document.querySelector("#projectUrl").value ='';
-    document.querySelector("#project_achievementOne").value ='';
-    document.querySelector("#project_achievementTwo").value ='';
-    document.querySelector("#project_achievementThree").value ='';
+    // document.querySelector('#project_id').defaultValue = shortid.generate();
+    // document.querySelector("#projectRole").value ='';
+    // document.querySelector("#projectName").value ='';
+    // document.querySelector("#projectLanguage").value ='';
+    // document.querySelector("#projectNonthStart").value ='';
+    // document.querySelector("#projectYearStart").value ='';
+    // document.querySelector("#projectNonthEnd").value ='';
+    // document.querySelector("#projectYearEnd").value ='';
+    // document.querySelector("#projectUrl").value ='';
+    // document.querySelector("#project_achievementOne").value ='';
+    // document.querySelector("#project_achievementTwo").value ='';
+    // document.querySelector("#project_achievementThree").value ='';
     
 
 })
@@ -648,72 +668,72 @@ formProject.addEventListener('submit', (e) =>{
 
 //========================= WORK EXPERIENCE
 
-let clearFormWork = () => {
-    document.querySelector("#workAchiev1").value ='';
-    document.querySelector("#workAchiev2").value ='';
-    document.querySelector("#workAchiev3").value ='';    
-    document.querySelector("#workAchiev4").value =''; 
-    document.querySelector("#workAchiev5").value ='';  
-    document.querySelector("#workAchiev6").value ='';    
-    document.querySelector("#workAchiev7").value ='';   
-    document.querySelector("#workAchiev8").value ='';   
-    document.querySelector("#workAchiev9").value ='';   
-    document.querySelector("#workAchiev10").value ='';   
-    
+// let clearFormWork = () => {
+//     document.querySelector("#workAchiev1").value ='';
+//     document.querySelector("#workAchiev2").value ='';
+//     document.querySelector("#workAchiev3").value ='';    
+//     document.querySelector("#workAchiev4").value =''; 
+//     document.querySelector("#workAchiev5").value ='';  
+//     document.querySelector("#workAchiev6").value ='';    
+//     document.querySelector("#workAchiev7").value ='';   
+//     document.querySelector("#workAchiev8").value ='';   
+//     document.querySelector("#workAchiev9").value ='';   
+//     document.querySelector("#workAchiev10").value ='';   
+// }
 
-}
 formWork.addEventListener('submit', (e) =>{
     e.preventDefault();
+    postForm(formWork, workUrl)
+    clearWorkForm()
+    // const formData = new FormData(formWork);
 
-    const formData = new FormData(formWork);
-
-    const searchParams = new URLSearchParams();
-    for(const pair of formData){
-        searchParams.append(pair[0], pair[1])
-    }
+    // const searchParams = new URLSearchParams();
+    // for(const pair of formData){
+    //     searchParams.append(pair[0], pair[1])
+    // }
     
-    fetch(workUrl, {
-        method: "POST",
-        body: searchParams
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.log(error))
+    // fetch(workUrl, {
+    //     method: "POST",
+    //     body: searchParams
+    // })
+    // .then(response => response.json())
+    // .then(data => console.log(data))
+    // .catch(error => console.log(error))
 
         // clearRadio("stillWorkHere")
         // clearRadio("workType")   
-        const workHere = document.getElementsByName("stillWorkHere");
-        for(let i = 0; i < workHere.length; i +=1)
-        workHere[i].checked = false;
-        const workType = document.getElementsByName("workType");
-        for(let i = 0; i < workType.length; i +=1)
-        workType[i].checked = false;
-    document.querySelector('#work_id').defaultValue = shortid.generate();
-    document.querySelector("#companyName").value ='';
-    document.querySelector("#companyCity").value ='';
-    document.querySelector("#companyState").value ='';
-    document.querySelector("#positionInCompany").value ='';
-    document.querySelector("#companyStartMonth").value ='';
-    document.querySelector("#companyStartYear").checked =false;
-    // document.querySelector("#stillWorkThere").value ='';
-    document.querySelector("#companyEndMonth").value ='';
-    document.querySelector("#companyEndYear").value ='';
-    document.querySelector("#workAchiev1").value ='';
-    document.querySelector("#workAchiev2").value ='';
-    document.querySelector("#workAchiev3").value ='';    
-    document.querySelector("#workAchiev4").value =''; 
-    document.querySelector("#workAchiev5").value ='';  
-    document.querySelector("#workAchiev6").value ='';    
-    document.querySelector("#workAchiev7").value ='';   
-    document.querySelector("#workAchiev8").value ='';   
-    document.querySelector("#workAchiev9").value ='';   
-    document.querySelector("#workAchiev10").value ='';   
-    
-    hideInput()
-    document.querySelector('#nonItWork').checked = false;
-    document.querySelector(".box-Work1").style.display = "block"
-    document.querySelector("#workAchiev4").readOnly = false;
-    document.querySelector(".btn-work1").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 1) })
+        // const workHere = document.getElementsByName("stillWorkHere");
+        // for(let i = 0; i < workHere.length; i +=1)
+        // workHere[i].checked = false;
+        // const workType = document.getElementsByName("workType");
+        // for(let i = 0; i < workType.length; i +=1)
+        // workType[i].checked = false;
+    // document.querySelector('#work_id').defaultValue = shortid.generate();
+    // document.querySelector("#companyName").value ='';
+    // document.querySelector("#companyCity").value ='';
+    // document.querySelector("#companyState").value ='';
+    // document.querySelector("#positionInCompany").value ='';
+    // document.querySelector("#companyStartMonth").value ='';
+    // document.querySelector("#companyStartYear").checked =false;
+    // // document.querySelector("#stillWorkThere").value ='';
+    // document.querySelector("#companyEndMonth").value ='';
+    // document.querySelector("#companyEndYear").value ='';
+    // document.querySelector("#workAchiev1").value ='';
+    // document.querySelector("#workAchiev2").value ='';
+    // document.querySelector("#workAchiev3").value ='';    
+    // document.querySelector("#workAchiev4").value =''; 
+    // document.querySelector("#workAchiev5").value ='';  
+    // document.querySelector("#workAchiev6").value ='';    
+    // document.querySelector("#workAchiev7").value ='';   
+    // document.querySelector("#workAchiev8").value ='';   
+    // document.querySelector("#workAchiev9").value ='';   
+    // document.querySelector("#workAchiev10").value ='';   
+    // hideWorkAccomplishment()
+    // hideInput()
+    // document.querySelector('#nonItWork').checked = false;
+    // document.querySelector(".box-Work1").style.display = "block"
+    // document.querySelector("#workAchiev4").readOnly = false;
+    // document.querySelector(".btn-work1").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 1) })
 
     // document.querySelector("#workAchiev1").readOnly = false
     // document.querySelector("#workAchiev2").readOnly = false
@@ -730,51 +750,6 @@ formWork.addEventListener('submit', (e) =>{
 
 
 
-//========================= EDUCATION
-formEducation.addEventListener('submit', (e) =>{
-    e.preventDefault();
-
-    const formData = new FormData(formEducation);
-
-    const searchParams = new URLSearchParams();
-    for(const pair of formData){
-        searchParams.append(pair[0], pair[1])
-    }
-    
-    fetch(educationUrl, {
-        method: "POST",
-        body: searchParams
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.log(error))
-    // document.querySelector('#objective_id').defaultValue = generateString(12);
-    // const educ = document.getElementsByName("school_attendance_method");
-    //     for(var i=0; i<educ.length; i++)
-    //     educ[i].checked = false;
-        // clearRadio("school_attendance_method")
-        // clearRadio("eduFieldStudy")
-    const fieldStudy = document.getElementsByName("eduFieldStudy");
-        for(let i = 0; i < fieldStudy.length; i +=1)
-        fieldStudy[i].checked = false;
-    const schoolAttendadance = document.getElementsByName("school_attendance_method");
-        for(let i = 0; i < schoolAttendadance.length; i +=1)
-        schoolAttendadance[i].checked = false;
-    document.querySelector('#education_id').defaultValue = shortid.generate(); 
-    document.querySelector("#school_name").value ='';
-    document.querySelector("#school_city").value ='';
-    document.querySelector("#school_state").value ='';
-    // document.querySelector("[name='school_attendance_method']").value = clearRadio("school_attendance_method");
-    document.querySelector("#remote").checked = false;
-    document.querySelector("#in_person").checked = false;
-    document.querySelector("#certificate_title").value ='';
-    document.querySelector("#completion_date_month").value ='';
-    document.querySelector("#completion_date_year").value ='';
-    document.querySelector("#eduAchievement1").value ='';
-    document.querySelector("#eduAchievement2").value ='';
-    document.querySelector("#eduAchievement3").value ='';    
-
-})
 
 
 
@@ -788,7 +763,8 @@ fetch(countriesAPI)
 .then(response => response.json())
 .then(countriesData => {
     const my = countriesData.find(el =>{ el.CIOC==='CYP'})
-    console.log(countriesData)})
+    // console.log(countriesData)
+})
 .catch(err => console.log(err.message))
 
 
@@ -872,7 +848,7 @@ fetch(countriesAPI)
 
 // }
 // // hideInput()
-
+ 
 
     // document.querySelector(".btn-title1").addEventListener('click', () =>{
     //         // e.preventDefault();
@@ -959,59 +935,59 @@ fetch(countriesAPI)
     }
 
      // Tech work   
-     document.querySelector('#itWork').addEventListener('change',function(e){
-        if(this.checked){
-            hideInput()
-            clearFormWork()
-            document.querySelector(".box-Work1").style.display = "block"
-            document.querySelector("#workAchiev4").readOnly = false;  
+    //  document.querySelector('#itWork').addEventListener('change',function(e){
+    //     if(this.checked){
+    //         displayWorkAccomplishment()
+    //         clearFormWork()
+    //         document.querySelector(".box-Work1").style.display = "block"
+    //         document.querySelector("#workAchiev4").readOnly = false;  
 
-            document.querySelector(".btn-work1").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 1) })
-            document.querySelector(".btn-work2").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 2) })
-            document.querySelector(".btn-work3").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 3) })
-            document.querySelector(".btn-work4").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 4) })
-            document.querySelector(".btn-work5").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 5) })
-            document.querySelector(".btn-work6").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 6) })
-            document.querySelector(".btn-work7").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 7) })
-            document.querySelector(".btn-work8").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 8) })
-            document.querySelector(".btn-work9").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 9) })
-            document.querySelector(".btn-work10").addEventListener('click', () =>{workHandlerUILastChild("box-Work", "workAchiev", 10, "msgError") })
+    //         document.querySelector(".btn-work1").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 1) })
+    //         document.querySelector(".btn-work2").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 2) })
+    //         document.querySelector(".btn-work3").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 3) })
+    //         document.querySelector(".btn-work4").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 4) })
+    //         document.querySelector(".btn-work5").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 5) })
+    //         document.querySelector(".btn-work6").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 6) })
+    //         document.querySelector(".btn-work7").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 7) })
+    //         document.querySelector(".btn-work8").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 8) })
+    //         document.querySelector(".btn-work9").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 9) })
+    //         document.querySelector(".btn-work10").addEventListener('click', () =>{workHandlerUILastChild("box-Work", "workAchiev", 10, "msgError") })
 
-        }
-    });
+    //     }
+    // });
     
-    document.querySelector('#nonItWork').addEventListener('change',function(e){
-        if(this.checked){
-            hideInput()
-            clearFormWork()            
-            document.querySelector(".box-Work1").style.display = "block"  
-            document.querySelector("#workAchiev4").readOnly = false;          
+    // document.querySelector('#nonItWork').addEventListener('change',function(e){
+    //     if(this.checked){
+    //         hideInput()
+    //         clearFormWork()            
+    //         document.querySelector(".box-Work1").style.display = "block"  
+    //         document.querySelector("#workAchiev4").readOnly = false;          
             
-            document.querySelector(".btn-work1").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 1) })
-            document.querySelector(".btn-work2").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 2) })
-            document.querySelector(".btn-work3").addEventListener('click', () =>{
-                workHandlerUI("box-Work", "workAchiev", 3)
-                // ddocument.querySelector(".box-Work3").style.display = "block"
-                document.querySelector(".box-Work4").style.display = "none"
-                document.querySelector(".box-Work3").style.display = "block"
-                document.querySelector("#workAchiev4").value = "";
-                document.querySelector("#msgError").innerHTML = 'Oops! you reach the max alloqed. Please press button above'
-                setTimeout(() => {document.querySelector("#msgError").style.display = "none" }, 6000)
-                // document.querySelector("#workAchiev4").readOnly = false;    
-             })
-            // document.querySelector(".btn-work4").addEventListener('click', () =>{ 
-            //     // document.querySelector("#workAchiev4").readOnly = true
-            //     // document.querySelector("#msgError").innerHTML = 'Oops! you reach the max alloqed. Please press button above'
-            //     // document.querySelector("#workAchiev4").value = "";
-            //     // setTimeout(() => {document.querySelector("#msgError").style.display = "none" }, 6000)
-            //     document.querySelector("#workAchiev4").readOnly = false;     
+    //         document.querySelector(".btn-work1").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 1) })
+    //         document.querySelector(".btn-work2").addEventListener('click', () =>{workHandlerUI("box-Work", "workAchiev", 2) })
+    //         document.querySelector(".btn-work3").addEventListener('click', () =>{
+    //             workHandlerUI("box-Work", "workAchiev", 3)
+    //             // ddocument.querySelector(".box-Work3").style.display = "block"
+    //             document.querySelector(".box-Work4").style.display = "none"
+    //             document.querySelector(".box-Work3").style.display = "block"
+    //             document.querySelector("#workAchiev4").value = "";
+    //             document.querySelector("#msgError").innerHTML = 'Oops! you reach the max alloqed. Please press button above'
+    //             setTimeout(() => {document.querySelector("#msgError").style.display = "none" }, 6000)
+    //             // document.querySelector("#workAchiev4").readOnly = false;    
+    //          })
+    //         // document.querySelector(".btn-work4").addEventListener('click', () =>{ 
+    //         //     // document.querySelector("#workAchiev4").readOnly = true
+    //         //     // document.querySelector("#msgError").innerHTML = 'Oops! you reach the max alloqed. Please press button above'
+    //         //     // document.querySelector("#workAchiev4").value = "";
+    //         //     // setTimeout(() => {document.querySelector("#msgError").style.display = "none" }, 6000)
+    //         //     document.querySelector("#workAchiev4").readOnly = false;     
             
-            // })
+    //         // })
             
-        }else{
-            document.querySelector("#workAchiev4").readOnly = false
-        }
-    });
+    //     }else{
+    //         document.querySelector("#workAchiev4").readOnly = false
+    //     }
+    // });
 
 
 
@@ -1070,30 +1046,30 @@ fetch(countriesAPI)
 
 //  ================ form validation==============================
 
-document.querySelector('#eduOther').addEventListener('change',function(e){
-    if(this.checked){
-        document.querySelector(".box-Edu1").style.visibility = "hidden";
-    }
-});
+// document.querySelector('#eduOther').addEventListener('change',function(e){
+//     if(this.checked){
+//         document.querySelector(".box-Edu1").style.visibility = "hidden";
+//     }
+// });
 
 
-document.querySelector('#eduIt').addEventListener('change',function(e){
-    if(this.checked){
-        document.querySelector(".box-Edu1").style.visibility = "visible";
-    }
-});
+// document.querySelector('#eduIt').addEventListener('change',function(e){
+//     if(this.checked){
+//         document.querySelector(".box-Edu1").style.visibility = "visible";
+//     }
+// });
 
 
-document.getElementById('projectCompleted').addEventListener('change', function() {
+// document.getElementById('projectCompleted').addEventListener('change', function() {
     
-    if(this.value ==='Yes'){
-        document.querySelector('#projectNonthEnd').readOnly = false
-        document.querySelector('#projectYearEnd').readOnly = false
-    }else{
-        document.querySelector('#projectNonthEnd').readOnly = true
-        document.querySelector('#projectYearEnd').readOnly = true
-    }
-  });
+//     if(this.value ==='Yes'){
+//         document.querySelector('#projectNonthEnd').readOnly = false
+//         document.querySelector('#projectYearEnd').readOnly = false
+//     }else{
+//         document.querySelector('#projectNonthEnd').readOnly = true
+//         document.querySelector('#projectYearEnd').readOnly = true
+//     }
+//   });
 
 
   

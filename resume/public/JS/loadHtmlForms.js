@@ -424,7 +424,7 @@ export let loadHtmlForm = () =>{
     const summaryInputDiv3 = document.createElement("div")
     const summaryInputLabel3 = document.createElement("label")
     summaryInputLabel3.setAttribute("for", "objective")
-    summaryInputLabel3.textContent = 'Insert your linkedIn url here:'
+    summaryInputLabel3.textContent = 'Insert your resume summary here:'
     const summaryInput3 = document.createElement("textarea")
     summaryInput3.setAttribute("id", "objective")
     summaryInput3.setAttribute("name", "objective")
@@ -480,12 +480,12 @@ export let loadHtmlForm = () =>{
     // educationInput3.placeholder = 'education # will be displayed here'
     // educationInputDiv3.append(educationInput3)   
 
-    const educationInputDiv4 = document.createElement("div")
-    const educationInputLabel4 = document.createElement("label")
-    educationInputLabel4.setAttribute("for", "eduFieldStudy")
-    educationInputLabel4.textContent = 'Select your field of study below:'
-    const radioContainerDiv4 = document.createElement("div")
-    radioContainerDiv4.classList.add("radioGroup")
+    const educationInputDiv3 = document.createElement("div")
+    const educationInputLabel3 = document.createElement("label")
+    educationInputLabel3.setAttribute("for", "eduFieldStudy")
+    educationInputLabel3.textContent = 'Select your field of study below:'
+    const radioContainerDiv3 = document.createElement("div")
+    radioContainerDiv3.classList.add("radioGroup")
     const eduInputRadio1 = document.createElement("input")
     eduInputRadio1.setAttribute("type", "radio")
     eduInputRadio1.setAttribute("id", "eduIt")
@@ -502,45 +502,45 @@ export let loadHtmlForm = () =>{
     const eduInputRadioLabel2 = document.createElement("label")
     eduInputRadioLabel2.setAttribute("for", "Other")
     eduInputRadioLabel2.textContent = 'Other'
-    radioContainerDiv4.append(eduInputRadio1, eduInputRadioLabel1, eduInputRadio2, eduInputRadioLabel2)
-    educationInputDiv4.append(educationInputLabel4, radioContainerDiv4)
+    radioContainerDiv3.append(eduInputRadio1, eduInputRadioLabel1, eduInputRadio2, eduInputRadioLabel2)
+    educationInputDiv3.append(educationInputLabel3, radioContainerDiv3)
         
+    const educationInputDiv4 = document.createElement("div")   
+    const educationInputLabel4 = document.createElement("label")
+    educationInputLabel4.setAttribute("for", "school_name")
+    educationInputLabel4.textContent = 'Insert your school name:'
+    const educationInput4 = document.createElement("input")
+    educationInput4.setAttribute("type", "text")
+    educationInput4.setAttribute("id", "school_name")
+    educationInput4.setAttribute("name", "school_name")
+    educationInputDiv4.append(educationInputLabel4, educationInput4)  
+
     const educationInputDiv5 = document.createElement("div")   
     const educationInputLabel5 = document.createElement("label")
-    educationInputLabel5.setAttribute("for", "school_name")
-    educationInputLabel5.textContent = 'Insert your school name:'
+    educationInputLabel5.setAttribute("for", "school_city")
+    educationInputLabel5.textContent = 'Insert the city of your school:'
     const educationInput5 = document.createElement("input")
     educationInput5.setAttribute("type", "text")
-    educationInput5.setAttribute("id", "school_name")
-    educationInput5.setAttribute("name", "school_name")
+    educationInput5.setAttribute("id", "school_city")
+    educationInput5.setAttribute("name", "school_city")
     educationInputDiv5.append(educationInputLabel5, educationInput5)  
 
     const educationInputDiv6 = document.createElement("div")   
     const educationInputLabel6 = document.createElement("label")
-    educationInputLabel6.setAttribute("for", "school_city")
-    educationInputLabel6.textContent = 'Insert the city of your school:'
+    educationInputLabel6.setAttribute("for", "school_state")
+    educationInputLabel6.textContent = 'Insert the state of your school:'
     const educationInput6 = document.createElement("input")
     educationInput6.setAttribute("type", "text")
-    educationInput6.setAttribute("id", "school_city")
-    educationInput6.setAttribute("name", "school_city")
+    educationInput6.setAttribute("id", "school_state")
+    educationInput6.setAttribute("name", "school_state")
     educationInputDiv6.append(educationInputLabel6, educationInput6)  
-
-    const educationInputDiv7 = document.createElement("div")   
-    const educationInputLabel7 = document.createElement("label")
-    educationInputLabel7.setAttribute("for", "school_state")
-    educationInputLabel7.textContent = 'Insert the state of your school:'
-    const educationInput7 = document.createElement("input")
-    educationInput7.setAttribute("type", "text")
-    educationInput7.setAttribute("id", "school_state")
-    educationInput7.setAttribute("name", "school_state")
-    educationInputDiv7.append(educationInputLabel7, educationInput7)  
     
-    const educationInputDiv8 = document.createElement("div")
-    const educationInputLabel8 = document.createElement("label")
-    educationInputLabel8.setAttribute("for", "school_attendance_method")
-    educationInputLabel8.textContent = 'Select attendance method below:'
-    const radioContainerDiv8 = document.createElement("div")
-    radioContainerDiv8.classList.add("radioGroup")
+    const educationInputDiv7 = document.createElement("div")
+    const educationInputLabel7 = document.createElement("label")
+    educationInputLabel7.setAttribute("for", "school_attendance_method")
+    educationInputLabel7.textContent = 'Select attendance method below:'
+    const radioContainerDiv7 = document.createElement("div")
+    radioContainerDiv7.classList.add("radioGroup")
     const attendanceInputRadio1 = document.createElement("input")
     attendanceInputRadio1.setAttribute("type", "radio")
     attendanceInputRadio1.setAttribute("id", "remote")
@@ -553,23 +553,34 @@ export let loadHtmlForm = () =>{
     attendanceInputRadio2.setAttribute("type", "radio")
     attendanceInputRadio2.setAttribute("id", "InPerson")
     attendanceInputRadio2.setAttribute("name", "school_attendance_method")
-    attendanceInputRadio2.setAttribute("value", "in person")
+    attendanceInputRadio2.setAttribute("value", "inPerson")
     const attendanceInputRadioLabel2 = document.createElement("label")
     attendanceInputRadioLabel2.setAttribute("for", "inPerson")
     attendanceInputRadioLabel2.textContent = 'In person'
-    radioContainerDiv8.append(attendanceInputRadio1, attendanceInputRadioLabel1, attendanceInputRadio2, attendanceInputRadioLabel2)
-    educationInputDiv8.append(educationInputLabel8, radioContainerDiv8)
+    radioContainerDiv7.append(attendanceInputRadio1, attendanceInputRadioLabel1, attendanceInputRadio2, attendanceInputRadioLabel2)
+    educationInputDiv7.append(educationInputLabel7, radioContainerDiv7)
+
+    const educationInputDiv8 = document.createElement("div")   
+    const educationInputLabel8 = document.createElement("label")
+    educationInputLabel8.setAttribute("for", "certificate_title")
+    educationInputLabel8.textContent = 'Insert the title of the certificate obtained:'
+    const educationInput8 = document.createElement("input")
+    educationInput8.setAttribute("type", "text")
+    educationInput8.setAttribute("id", "certificate_title")
+    educationInput8.setAttribute("name", "certificate_title")
+    educationInputDiv8.append(educationInputLabel8, educationInput8) 
 
     const educationInputDiv9 = document.createElement("div")   
     const educationInputLabel9 = document.createElement("label")
     educationInputLabel9.setAttribute("for", "certificate_title")
-    educationInputLabel9.textContent = 'Insert the title of the certificate obtained:'
+    educationInputLabel9.textContent = 'Graduated:'
     const educationInput9 = document.createElement("input")
-    educationInput9.setAttribute("type", "text")
-    educationInput9.setAttribute("id", "certificate_title")
-    educationInput9.setAttribute("name", "certificate_title")
+    educationInput9.setAttribute("type", "checkbox")
+    educationInput9.setAttribute("id", "graduated")
+    educationInput9.setAttribute("name", "graduated")
+    educationInput9.setAttribute("value", "yes")
     educationInputDiv9.append(educationInputLabel9, educationInput9) 
-
+    
     const educationInputDiv10 = document.createElement("div")   
     const educationInputLabel10 = document.createElement("label")
     educationInputLabel10.setAttribute("for", "graduationDate")
@@ -644,7 +655,7 @@ export let loadHtmlForm = () =>{
     educationBtn2.innerHTML = "Save & continue"
     educationInputDiv14.append(educationBtn1, educationBtn2)
 
-    educationFormFieldset.append(educationFormLegend, educationInputDiv1, educationInputDiv2, educationInputDiv4, educationInputDiv5, educationInputDiv6, educationInputDiv7, educationInputDiv8, educationInputDiv9, educationInputDiv10, educationInputDiv11, educationInputDiv12, educationInputDiv13, educationInputDiv14)
+    educationFormFieldset.append(educationFormLegend, educationInputDiv1, educationInputDiv2, educationInputDiv3, educationInputDiv4, educationInputDiv5, educationInputDiv6, educationInputDiv7, educationInputDiv8, educationInputDiv9, educationInputDiv10, educationInputDiv11, educationInputDiv12, educationInputDiv13, educationInputDiv14)
     educationForm.append(educationFormFieldset)
     formWrapper.append(educationForm)
     // END OF EDUCATION FORM
@@ -1251,7 +1262,7 @@ export let loadHtmlForm = () =>{
     workSEndMonth9.setAttribute("name", "companyEndMonth")
     const workEndMonthOption9 = document.createElement("option") 
     workEndMonthOption9.classList.add("option", "monthOption")
-    workEndMonthOption9.setAttribute("value", " ")
+    workEndMonthOption9.setAttribute("value", "")
     workEndMonthOption9.text = 'Select month'
     workSEndMonth9.append(workEndMonthOption9)
     const workEndYear9 = document.createElement("select")    
@@ -1259,7 +1270,7 @@ export let loadHtmlForm = () =>{
     workEndYear9.setAttribute("name", "companyEndYear")
     const workEndYearOption9 = document.createElement("option") 
     workEndYearOption9.classList.add("option", "yearOption")
-    workEndYearOption9.setAttribute("value", " ")
+    workEndYearOption9.setAttribute("value", "")
     workEndYearOption9.setAttribute("id", "selectOption ")
     workEndYearOption9.text= 'Select year'
     workEndYear9.append(workEndYearOption9)

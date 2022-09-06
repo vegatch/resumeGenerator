@@ -255,6 +255,16 @@ export let setInputReadOnly = () =>{
     document.getElementById("market8").readOnly = true;
     document.getElementById("market9").readOnly = true;
     document.getElementById("market10").readOnly = true;    
+
+    document.getElementById("workAchiev2").readOnly = true; 
+    document.getElementById("workAchiev3").readOnly = true; 
+    document.getElementById("workAchiev4").readOnly = true; 
+    document.getElementById("workAchiev5").readOnly = true; 
+    document.getElementById("workAchiev6").readOnly = true; 
+    document.getElementById("workAchiev7").readOnly = true; 
+    document.getElementById("workAchiev8").readOnly = true; 
+    document.getElementById("workAchiev9").readOnly = true; 
+    document.getElementById("workAchiev10").readOnly = true; 
 } 
 setInputReadOnly()
 
@@ -282,7 +292,7 @@ export let handleDuplicateEntry = (myform, myEntry1, myEntry2, myEntry3, myEntry
 
             })
     } 
-    if(myform === "techSkillsForm" || myform === "marketSkillsForm"){
+    if(myform === "techSkillsForm" || myform === "marketSkillsForm" || myform === "workForm"){
         document.getElementById(myEntry1).addEventListener('change', () =>{
             const string1 = (document.getElementById(myEntry1).value).toLowerCase();
             validationArray.push(string1)
@@ -404,9 +414,12 @@ export let handleDuplicateEntry = (myform, myEntry1, myEntry2, myEntry3, myEntry
 handleDuplicateEntry("titleForm", "title1", "title2")
 handleDuplicateEntry("techSkillsForm", "tech1", "tech2", "tech3", "tech4", "tech5", "tech6", "tech7", "tech8", "tech9", "tech10")
 handleDuplicateEntry("marketSkillsForm", "market1", "market2", "market3", "market4", "market5", "market6", "market7", "market8", "market9", "market10")
+handleDuplicateEntry("workForm", "workAchiev1","workAchiev2", "workAchiev3", "workAchiev4", "workAchiev5", "workAchiev6", "workAchiev7", "workAchiev8", "workAchiev9", "workAchiev10")
 
 
-
+document.querySelector('#submit_work').addEventListener('click', ()=>{
+    hideWorkAccomplishment()
+})
 
 
 
