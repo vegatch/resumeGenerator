@@ -1,5 +1,87 @@
+// import {displayData} from './js/view_result.js'
 
-export let loadHtmlForm = () =>{
+// export let headerHtml = () =>{
+//     const mainContainer = document.querySelector(".container")
+//     const bannerDiv = document.createElement('div')
+//     bannerDiv.classList.add('banner')
+//     const bannerHeader = document.createElement('h1')
+//     bannerHeader.textContent ='Resume Generator'
+//     const searchContainerDiv = document.createElement('div')
+//     searchContainerDiv.classList.add('flex-component')
+//     const searchInputDiv = document.createElement('div')
+//     const searchInput = document.createElement('input')
+//     searchInput.setAttribute('id', "myResumeId")
+//     searchInput.setAttribute('name', "myResumeId")
+//     searchInputDiv.append(searchInput)
+//     searchInput.placeholder = 'Insert your resumeID here'
+//     const searchParaDiv = document.createElement('div')
+//     // const searchPara = document.createElement('p')
+//     // searchPara.classList.add('searchResume')
+//     // searchPara.textContent = 'Search'
+//     const searchPara = document.createElement('p')
+//     searchPara.classList.add('searchResume')
+//     searchPara.textContent = 'Search'
+//     searchParaDiv.append(searchPara)
+//     searchContainerDiv.append(searchInputDiv, searchParaDiv)
+//     bannerDiv.append(bannerHeader, searchContainerDiv)
+//     mainContainer.append(bannerDiv)
+
+//     const sectionContainer = document.createElement('div')
+//     sectionContainer.classList.add("wrapper-flex")
+//     mainContainer.append(sectionContainer)
+
+//     const leftSectionContainer = document.createElement('div')
+//     leftSectionContainer.classList.add("left-container")
+//     const leftSectionContainerElement = document.createElement('div')
+//     leftSectionContainerElement.classList.add("control-container")
+   
+    
+
+//     const leftPara1 =  document.createElement('p')
+//     leftPara1.classList.add('personForm')
+//     leftPara1.textContent = 'Personal Information'
+//     const leftPara2 =  document.createElement('p')
+//     leftPara2.classList.add('titleForm')
+//     leftPara2.textContent = 'Professional Title'
+//     const leftPara3 =  document.createElement('p')
+//     leftPara3.classList.add('contactForm')
+//     leftPara3.textContent = 'Contact Information'
+//     const leftPara4 =  document.createElement('p')
+//     leftPara4.classList.add('socialForm')
+//     leftPara4.textContent = 'Social Media'
+//     const leftPara5 =  document.createElement('p')
+//     leftPara5.classList.add('resObjectiveForm')
+//     leftPara5.textContent = 'Professional Summary'
+//     const leftPara6 =  document.createElement('p')
+//     leftPara6.classList.add('educationForm')
+//     leftPara6.textContent = 'Education Information'
+//     const leftPara7 =  document.createElement('p')
+//     leftPara7.classList.add('techSkillsForm')
+//     leftPara7.textContent = 'Technical Skills'
+//     const leftPara8 =  document.createElement('p')
+//     leftPara8.classList.add('marketSkillsForm')
+//     leftPara8.textContent = 'Marketable Skills'
+//     const leftPara9 =  document.createElement('p')
+//     leftPara9.classList.add('projectsForm')
+//     leftPara9.textContent = 'Projects Realized'
+//     const leftPara10 =  document.createElement('p')
+//     leftPara10.classList.add('workForm')
+//     leftPara10.textContent = 'Work Experience'
+//     const leftPara11 =  document.createElement('p')
+//     leftPara11.textContent = 'Edit Indormation'
+//     const leftPara12 =  document.createElement('p')
+//     leftPara12.textContent = 'View Resume'    
+//     leftSectionContainerElement.append(leftPara1, leftPara2, leftPara3, leftPara4, leftPara5, leftPara6, leftPara7, leftPara8, leftPara9, leftPara10, leftPara11, leftPara12)
+//     leftSectionContainer.append(leftSectionContainerElement)
+//     sectionContainer.append(leftSectionContainer)
+//  }
+
+//  headerHtml()
+
+
+
+export let loadHtmlForm = (data) =>{
+
     const mainContainer = document.querySelector(".container")
     const bannerDiv = document.createElement('div')
     bannerDiv.classList.add('banner')
@@ -11,10 +93,15 @@ export let loadHtmlForm = () =>{
     const searchInput = document.createElement('input')
     searchInput.setAttribute('id', "resumeId")
     searchInput.setAttribute('name', "resumeId")
+    // searchInput.value = 1
     searchInputDiv.append(searchInput)
     searchInput.placeholder = 'Insert your resumeID here'
     const searchParaDiv = document.createElement('div')
-    const searchPara = document.createElement('p')
+    // const searchPara = document.createElement('p')
+    // searchPara.classList.add('searchPara')
+    // searchPara.textContent = 'Search'
+    // searchParaDiv.append(searchPara)
+    const searchPara = document.createElement('button')
     searchPara.classList.add('searchPara')
     searchPara.textContent = 'Search'
     searchParaDiv.append(searchPara)
@@ -30,36 +117,39 @@ export let loadHtmlForm = () =>{
     leftSectionContainer.classList.add("left-container")
     const leftSectionContainerElement = document.createElement('div')
     leftSectionContainerElement.classList.add("control-container")
+   
+      
+
     const leftPara1 =  document.createElement('p')
     leftPara1.classList.add('personForm')
-    leftPara1.textContent = 'Personal Information'
+    leftPara1.textContent = 'Personal Info'
     const leftPara2 =  document.createElement('p')
     leftPara2.classList.add('titleForm')
-    leftPara2.textContent = 'Professional Title'
+    leftPara2.textContent = 'Title'
     const leftPara3 =  document.createElement('p')
     leftPara3.classList.add('contactForm')
-    leftPara3.textContent = 'Contact Information'
+    leftPara3.textContent = 'Contact Info'
     const leftPara4 =  document.createElement('p')
     leftPara4.classList.add('socialForm')
     leftPara4.textContent = 'Social Media'
     const leftPara5 =  document.createElement('p')
     leftPara5.classList.add('resObjectiveForm')
-    leftPara5.textContent = 'Professional Summary'
+    leftPara5.textContent = 'Summary'
     const leftPara6 =  document.createElement('p')
     leftPara6.classList.add('educationForm')
-    leftPara6.textContent = 'Education Information'
+    leftPara6.textContent = 'Education'
     const leftPara7 =  document.createElement('p')
     leftPara7.classList.add('techSkillsForm')
-    leftPara7.textContent = 'Technical Skills'
+    leftPara7.textContent = 'Tech Skills'
     const leftPara8 =  document.createElement('p')
     leftPara8.classList.add('marketSkillsForm')
-    leftPara8.textContent = 'Marketable Skills'
+    leftPara8.textContent = 'Market Skills'
     const leftPara9 =  document.createElement('p')
     leftPara9.classList.add('projectsForm')
-    leftPara9.textContent = 'Projects Realized'
+    leftPara9.textContent = 'Projects'
     const leftPara10 =  document.createElement('p')
     leftPara10.classList.add('workForm')
-    leftPara10.textContent = 'Work Experience'
+    leftPara10.textContent = 'Work'
     const leftPara11 =  document.createElement('p')
     leftPara11.textContent = 'Edit Indormation'
     const leftPara12 =  document.createElement('p')
@@ -78,13 +168,16 @@ export let loadHtmlForm = () =>{
     const errorDiv = document.createElement('div')
     const errorUl = document.createElement('ul')
     errorUl.classList.add('error')
-    errorUl.textContent = 'Error will be displayed here'
+    errorUl.textContent = ''
     errorDiv.append(errorUl)
     middleMainContainer.append(errorDiv)
 
     const formWrapper = document.createElement('div')
     middleMainContainer.append(formWrapper)
+
+    // data.forEach((el)=>{  
     // START OF PERSONFORM
+
     const personForm = document.createElement('form')
     personForm.setAttribute("method", "POST")
     personForm.setAttribute("id", "personForm")
@@ -99,6 +192,7 @@ export let loadHtmlForm = () =>{
     personIdInput1.setAttribute("type", "text")
     personIdInput1.setAttribute("id", "pId")
     personIdInput1.setAttribute("name", "pId")
+    // personIdInput1.value = 1
     personInputDiv1.append(personInputLable1, personIdInput1)    
 
     const personInputDiv2 = document.createElement("div")
@@ -1394,7 +1488,8 @@ export let loadHtmlForm = () =>{
     workForm.append(workFormFieldset)
     formWrapper.append(workForm)
     // END OF WORK EXPERIENCE FORM
-
+    
+    // })
 
 
     //RIGHT CONTAINER START HERE
@@ -1408,11 +1503,78 @@ export let loadHtmlForm = () =>{
     rightSectionContainer.append(rightSectionContainerElement)
     sectionContainer.append(rightSectionContainer)
 
-    console.log(personForm)
-
-
+    // console.log(personForm)
    
 }
 // loadHtmlForm()
+
+
+// const mainContainer = document.querySelector(".container")
+//                // START OF PERSONFORM
+//     const personForm = document.createElement('form')
+//     personForm.setAttribute("method", "POST")
+//     personForm.setAttribute("id", "personForm")
+//     const personFormFieldset = document.createElement('fieldset')
+//     const personFormLegend = document.createElement('legend')
+//     personFormLegend.textContent = 'Personal Information'    
+//     const personInputDiv1 = document.createElement("div")
+//     const personInputLable1 = document.createElement("label")
+//     personInputLable1.setAttribute("for", "pId")
+//     personInputLable1.textContent = 'Insert your ID'
+//     const personIdInput1 = document.createElement("input")
+//     personIdInput1.setAttribute("type", "text")
+//     personIdInput1.setAttribute("id", "pId")
+//     personIdInput1.setAttribute("name", "pId")
+//     // personIdInput1.value = 1
+//     personInputDiv1.append(personInputLable1, personIdInput1)    
+
+//     const personInputDiv2 = document.createElement("div")
+//     const personInputLable2 = document.createElement("label")
+//     personInputLable2.setAttribute("for", "firstName")
+//     personInputLable2.textContent = 'Insert your first name'
+//     const personIdInput2 = document.createElement("input")
+//     personIdInput2.setAttribute("type", "text")
+//     personIdInput2.setAttribute("id", "firstName")
+//     personIdInput2.setAttribute("name", "firstName")
+//     personInputDiv2.append(personInputLable2, personIdInput2) 
+
+//     const personInputDiv3 = document.createElement("div")
+//     const personInputLable3 = document.createElement("label")
+//     personInputLable3.setAttribute("for", "middleName")
+//     personInputLable3.textContent = 'Insert your middle name'
+//     const personIdInput3 = document.createElement("input")
+//     personIdInput3.setAttribute("type", "text")
+//     personIdInput3.setAttribute("id", "middleName")
+//     personIdInput3.setAttribute("name", "middleName")
+//     personInputDiv3.append(personInputLable3, personIdInput3)
+    
+//     const personInputDiv4 = document.createElement("div")
+//     const personInputLable4 = document.createElement("label")
+//     personInputLable4.setAttribute("for", "lastName")
+//     personInputLable4.textContent = 'Insert your last name'
+//     const personIdInput4 = document.createElement("input")
+//     personIdInput4.setAttribute("type", "text")
+//     personIdInput4.setAttribute("id", "lastName")
+//     personIdInput4.setAttribute("name", "lastName")
+//     personInputDiv4.append(personInputLable4, personIdInput4)
+
+//     const personInputDiv5 = document.createElement("div")    
+//     const personBtn1 = document.createElement("input")
+//     personBtn1.setAttribute("type", "submit")
+//     personBtn1.setAttribute("id", "SavePerson")
+//     personBtn1.setAttribute("value", "Save")
+//     personBtn1.innerHTML = "Save"
+//     const personBtn2 = document.createElement("input")
+//     personBtn2.setAttribute("type", "submit")
+//     personBtn2.setAttribute("id", "submit_Person")
+//     personBtn2.setAttribute("value", "Save & continue")
+//     personBtn2.innerHTML = "Save & continue"
+//     personInputDiv5.append(personBtn1, personBtn2)
+
+//     personFormFieldset.append(personFormLegend, personInputDiv1, personInputDiv2, personInputDiv3, personInputDiv4, personInputDiv5)
+//     personForm.append(personFormFieldset)
+//     mainContainer.append(personForm)
+//     // END OF PERSONFORM
+    
 
 

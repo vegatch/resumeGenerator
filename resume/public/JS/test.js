@@ -1,4 +1,7 @@
-let hideForms = () =>{
+import { clearAnyForm } from "./clearForm.js"
+
+
+export let hideForms = () =>{
     document.getElementById("personForm").style.display = "none"
     document.querySelector("#titleForm").style.display = "none"
     document.querySelector("#contactForm").style.display = "none"
@@ -13,15 +16,16 @@ let hideForms = () =>{
 }
 hideForms()
 
-let displayForm =(myform) =>{
+export let displayForm =(myform) =>{
     document.getElementById(myform).style.display = "block"
 }
 
-let addEventOnForm = (myform) =>{
+export let addEventOnForm = (myform) =>{
 
     document.querySelector(`.${myform}`).addEventListener('click', () =>{
         hideForms()
         displayForm(`${myform}`)
+        // clearAnyForm(myform)
     })
 
 }
@@ -45,8 +49,19 @@ let selectYear = (myselect) =>{
 
     for (year; year >= endyear; year -= 1){
         yearArray.push(year)
-        console.log(yearArray)  
+        // console.log(yearArray)  
     }
+
+    // let selectFutureYear = (myselect) =>{
+    //     let year = new Date().getFullYear() + 4
+    //     const futureYearArray =[]
+    //     let endyear = 1950
+    //     const select = document.getElementById(myselect)
+    
+    //     for (year; year >= endyear; year -= 1){
+    //         futureYearArray.push(year)
+    //         console.log(yearArray)  
+    //     }
 
     for (let i = 0; i < yearArray.length; i += 1){
         const option = document.createElement("option");
@@ -56,7 +71,28 @@ let selectYear = (myselect) =>{
         select.appendChild(option);
     }
 }
-selectYear("completion_date_year");
+
+let selectFutureYear = (myselect) =>{
+    let year = new Date().getFullYear() + 4
+    const yearArray =[]
+    let endyear = 1950
+    const select = document.getElementById(myselect)
+
+    for (year; year >= endyear; year -= 1){
+        yearArray.push(year)
+        // console.log(yearArray)  
+    }
+    
+    for (let i = 0; i < yearArray.length; i += 1){
+        const option = document.createElement("option");
+        option.classList.add("option")    
+        option.value = yearArray[i];
+        option.text = yearArray[i];
+        select.appendChild(option);
+    }
+}
+selectFutureYear("completion_date_year");
+// selectYear("completion_date_year");
 selectYear("projectYearStart");
 selectYear("projectYearEnd");
 selectYear("companyStartYear");

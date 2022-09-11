@@ -7,7 +7,7 @@ console.log('hello my friend')
       const paramsLastname = document.querySelector("#lastname").value
       const baseUrl = 'http://localhost:5555'
       const endPoint = '/api/search/'
-      console.log('click')
+      // console.log('click')
       fetch(baseUrl + endPoint + paramsFirstname + "/" + paramsLastname)
         .then(response => response.json())
         .then(data =>{

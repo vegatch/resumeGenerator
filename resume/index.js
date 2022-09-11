@@ -72,7 +72,7 @@ app
     })
 
    
-    .get('/api/search/:resumeId', async (req, res) => {     
+    .get('/api/history/:resumeId', async (req, res) => {     
       let sqlQuery = "SELECT * FROM resumedb.view_data WHERE person_id = ? ";
       const ID = req.params.resumeId
       // const lname = req.params.lastname

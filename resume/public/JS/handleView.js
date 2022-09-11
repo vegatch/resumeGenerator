@@ -1,6 +1,5 @@
-console.log("Hello there" )
-
-let loadHtmlForm = () =>{
+ 
+ export let headerHtml = () =>{
     const mainContainer = document.querySelector(".container")
     const bannerDiv = document.createElement('div')
     bannerDiv.classList.add('banner')
@@ -10,13 +9,16 @@ let loadHtmlForm = () =>{
     searchContainerDiv.classList.add('flex-component')
     const searchInputDiv = document.createElement('div')
     const searchInput = document.createElement('input')
-    searchInput.setAttribute('id', "searchInput")
-    searchInput.setAttribute('name', "searchInput")
+    searchInput.setAttribute('id', "myResumeId")
+    searchInput.setAttribute('name', "myResumeId")
     searchInputDiv.append(searchInput)
     searchInput.placeholder = 'Insert your resumeID here'
     const searchParaDiv = document.createElement('div')
+    // const searchPara = document.createElement('p')
+    // searchPara.classList.add('searchResume')
+    // searchPara.textContent = 'Search'
     const searchPara = document.createElement('p')
-    searchPara.classList.add('searchPara')
+    searchPara.classList.add('searchResume')
     searchPara.textContent = 'Search'
     searchParaDiv.append(searchPara)
     searchContainerDiv.append(searchInputDiv, searchParaDiv)
@@ -31,6 +33,9 @@ let loadHtmlForm = () =>{
     leftSectionContainer.classList.add("left-container")
     const leftSectionContainerElement = document.createElement('div')
     leftSectionContainerElement.classList.add("control-container")
+   
+    
+
     const leftPara1 =  document.createElement('p')
     leftPara1.classList.add('personForm')
     leftPara1.textContent = 'Personal Information'
@@ -42,7 +47,87 @@ let loadHtmlForm = () =>{
     leftPara3.textContent = 'Contact Information'
     const leftPara4 =  document.createElement('p')
     leftPara4.classList.add('socialForm')
-    leftPara4.textContent = 'Professional Social media link'
+    leftPara4.textContent = 'Social Media'
+    const leftPara5 =  document.createElement('p')
+    leftPara5.classList.add('resObjectiveForm')
+    leftPara5.textContent = 'Professional Summary'
+    const leftPara6 =  document.createElement('p')
+    leftPara6.classList.add('educationForm')
+    leftPara6.textContent = 'Education Information'
+    const leftPara7 =  document.createElement('p')
+    leftPara7.classList.add('techSkillsForm')
+    leftPara7.textContent = 'Technical Skills'
+    const leftPara8 =  document.createElement('p')
+    leftPara8.classList.add('marketSkillsForm')
+    leftPara8.textContent = 'Marketable Skills'
+    const leftPara9 =  document.createElement('p')
+    leftPara9.classList.add('projectsForm')
+    leftPara9.textContent = 'Projects Realized'
+    const leftPara10 =  document.createElement('p')
+    leftPara10.classList.add('workForm')
+    leftPara10.textContent = 'Work Experience'
+    const leftPara11 =  document.createElement('p')
+    leftPara11.textContent = 'Edit Indormation'
+    const leftPara12 =  document.createElement('p')
+    leftPara12.textContent = 'View Resume'    
+    leftSectionContainerElement.append(leftPara1, leftPara2, leftPara3, leftPara4, leftPara5, leftPara6, leftPara7, leftPara8, leftPara9, leftPara10, leftPara11, leftPara12)
+    leftSectionContainer.append(leftSectionContainerElement)
+    sectionContainer.append(leftSectionContainer)
+ }
+
+//  headerHtml()
+ 
+ export let loadForm = (data) =>{
+    // data.forEach((el)=>{
+    
+    const mainContainer = document.querySelector(".container")
+    const bannerDiv = document.createElement('div')
+    bannerDiv.classList.add('banner')
+    const bannerHeader = document.createElement('h1')
+    bannerHeader.textContent ='Resume Generator'
+    const searchContainerDiv = document.createElement('div')
+    searchContainerDiv.classList.add('flex-component')
+    const searchInputDiv = document.createElement('div')
+    const searchInput = document.createElement('input')
+    searchInput.setAttribute('id', "myResumeId")
+    searchInput.setAttribute('name', "myResumeId")
+    searchInputDiv.append(searchInput)
+    searchInput.placeholder = 'Insert your resumeID here'
+    const searchParaDiv = document.createElement('div')
+    // const searchPara = document.createElement('p')
+    // searchPara.classList.add('searchResume')
+    // searchPara.textContent = 'Search'
+    const searchPara = document.createElement('button')
+    searchPara.classList.add('searchResume')
+    searchPara.textContent = 'Search'
+    searchParaDiv.append(searchPara)
+    searchContainerDiv.append(searchInputDiv, searchParaDiv)
+    bannerDiv.append(bannerHeader, searchContainerDiv)
+    mainContainer.append(bannerDiv)
+
+    const sectionContainer = document.createElement('div')
+    sectionContainer.classList.add("wrapper-flex")
+    mainContainer.append(sectionContainer)
+
+    const leftSectionContainer = document.createElement('div')
+    leftSectionContainer.classList.add("left-container")
+    const leftSectionContainerElement = document.createElement('div')
+    leftSectionContainerElement.classList.add("control-container")
+   
+    
+
+    const leftPara1 =  document.createElement('p')
+    leftPara1.classList.add('personForm')
+    leftPara1.textContent = 'Personal Information'
+    const leftPara2 =  document.createElement('p')
+    leftPara2.classList.add('titleForm')
+    leftPara2.textContent = 'Professional Title'
+    const leftPara3 =  document.createElement('p')
+    leftPara3.classList.add('contactForm')
+    leftPara3.textContent = 'Contact Information'
+    const leftPara4 =  document.createElement('p')
+    leftPara4.classList.add('socialForm')
+    leftPara4.textContent = 'Social Media'
     const leftPara5 =  document.createElement('p')
     leftPara5.classList.add('resObjectiveForm')
     leftPara5.textContent = 'Professional Summary'
@@ -69,6 +154,10 @@ let loadHtmlForm = () =>{
     leftSectionContainer.append(leftSectionContainerElement)
     sectionContainer.append(leftSectionContainer)
 
+    // const sectionContainer = document.createElement('div')
+    // sectionContainer.classList.add("wrapper-flex")
+    // mainContainer.append(sectionContainer)
+
     const middleSectionContainer = document.createElement('div')
     middleSectionContainer.classList.add("middle-container")
     const middleMainContainer = document.createElement('div')
@@ -86,6 +175,8 @@ let loadHtmlForm = () =>{
     const formWrapper = document.createElement('div')
     middleMainContainer.append(formWrapper)
 
+    // START OF PERSONFORM
+
     const personForm = document.createElement('form')
     personForm.setAttribute("method", "POST")
     personForm.setAttribute("id", "personForm")
@@ -100,6 +191,7 @@ let loadHtmlForm = () =>{
     personIdInput1.setAttribute("type", "text")
     personIdInput1.setAttribute("id", "pId")
     personIdInput1.setAttribute("name", "pId")
+    // personIdInput1.value = `${element.personId}`
     personInputDiv1.append(personInputLable1, personIdInput1)    
 
     const personInputDiv2 = document.createElement("div")
@@ -148,7 +240,7 @@ let loadHtmlForm = () =>{
     personFormFieldset.append(personFormLegend, personInputDiv1, personInputDiv2, personInputDiv3, personInputDiv4, personInputDiv5)
     personForm.append(personFormFieldset)
     formWrapper.append(personForm)
-    // end of personForm
+    // END OF PERSONFORM
     //  START OF TITLE FORM
     const titleForm = document.createElement('form')
     titleForm.setAttribute("method", "POST")
@@ -168,8 +260,8 @@ let loadHtmlForm = () =>{
     const titleInputDiv2 = document.createElement("div")
     const titleInput2 = document.createElement("input")
     titleInput2.setAttribute("type", "text")
-    titleInput2.setAttribute("id", "pIdTitle")
-    titleInput2.setAttribute("name", "pIdTitle")
+    titleInput2.setAttribute("id", "pidTitle")
+    titleInput2.setAttribute("name", "pidTitle")
     titleInput2.placeholder = 'personID will be displayed here'
     titleInputDiv2.append(titleInput2) 
 
@@ -230,8 +322,8 @@ let loadHtmlForm = () =>{
     const contactInputDiv2 = document.createElement("div")
     const contactInput2 = document.createElement("input")
     contactInput2.setAttribute("type", "text")
-    contactInput2.setAttribute("id", "pIdContact")
-    contactInput2.setAttribute("name", "pIdContact")
+    contactInput2.setAttribute("id", "pidContact")
+    contactInput2.setAttribute("name", "pidContact")
     contactInput2.placeholder = 'personID will be displayed here'
     contactInputDiv2.append(contactInput2) 
 
@@ -278,12 +370,12 @@ let loadHtmlForm = () =>{
 
     const contactInputDiv7 = document.createElement("div")
     const contactInputLabel7 = document.createElement("label")
-    contactInputLabel7.setAttribute("for", "remote")
-    contactInputLabel7.textContent = 'Open to relocalization:'
+    contactInputLabel7.setAttribute("for", "relocation")
+    contactInputLabel7.textContent = 'Open to relocation:'
     const contactInput7 = document.createElement("input")
     contactInput7.setAttribute("type", "checkbox")
-    contactInput7.setAttribute("id", "relocalization")
-    contactInput7.setAttribute("name", "relocalization")
+    contactInput7.setAttribute("id", "relocation")
+    contactInput7.setAttribute("name", "relocation")
     contactInput7.setAttribute("value", "yes")
     contactInputDiv7.append(contactInput7, contactInputLabel7)
 
@@ -344,8 +436,8 @@ let loadHtmlForm = () =>{
     const socialInputDiv2 = document.createElement("div")   
     const socialInput2 = document.createElement("input")
     socialInput2.setAttribute("type", "text")
-    socialInput2.setAttribute("id", "pIdSocial")
-    socialInput2.setAttribute("name", "pIdSocial")
+    socialInput2.setAttribute("id", "pidSocial")
+    socialInput2.setAttribute("name", "pidSocial")
     socialInput2.placeholder = 'personID will be displayed here'
     socialInputDiv2.append(socialInput2)  
 
@@ -416,15 +508,15 @@ let loadHtmlForm = () =>{
     const summaryInputDiv2 = document.createElement("div")   
     const summaryInput2 = document.createElement("input")
     summaryInput2.setAttribute("type", "text")
-    summaryInput2.setAttribute("id", "pIdObjective")
-    summaryInput2.setAttribute("name", "pIdObjective")
+    summaryInput2.setAttribute("id", "pidObjective")
+    summaryInput2.setAttribute("name", "pidObjective")
     summaryInput2.placeholder = 'personID will be displayed here'
     summaryInputDiv2.append(summaryInput2)  
 
     const summaryInputDiv3 = document.createElement("div")
     const summaryInputLabel3 = document.createElement("label")
     summaryInputLabel3.setAttribute("for", "objective")
-    summaryInputLabel3.textContent = 'Insert your linkedIn url here:'
+    summaryInputLabel3.textContent = 'Insert your resume summary here:'
     const summaryInput3 = document.createElement("textarea")
     summaryInput3.setAttribute("id", "objective")
     summaryInput3.setAttribute("name", "objective")
@@ -467,25 +559,25 @@ let loadHtmlForm = () =>{
     const educationInputDiv2 = document.createElement("div")   
     const educationInput2 = document.createElement("input")
     educationInput2.setAttribute("type", "text")
-    educationInput2.setAttribute("id", "pIdEducation")
-    educationInput2.setAttribute("name", "pIdEducation")
+    educationInput2.setAttribute("id", "pidEducation")
+    educationInput2.setAttribute("name", "pidEducation")
     educationInput2.placeholder = 'personID will be displayed here'
     educationInputDiv2.append(educationInput2)   
     
-    const educationInputDiv3 = document.createElement("div")   
-    const educationInput3 = document.createElement("input")
-    educationInput3.setAttribute("type", "text")
-    educationInput3.setAttribute("id", "education_number")
-    educationInput3.setAttribute("name", "education_number")
-    educationInput3.placeholder = 'education # will be displayed here'
-    educationInputDiv3.append(educationInput3)   
+    // const educationInputDiv3 = document.createElement("div")   
+    // const educationInput3 = document.createElement("input")
+    // educationInput3.setAttribute("type", "text")
+    // educationInput3.setAttribute("id", "education_number")
+    // educationInput3.setAttribute("name", "education_number")
+    // educationInput3.placeholder = 'education # will be displayed here'
+    // educationInputDiv3.append(educationInput3)   
 
-    const educationInputDiv4 = document.createElement("div")
-    const educationInputLabel4 = document.createElement("label")
-    educationInputLabel4.setAttribute("for", "eduFieldStudy")
-    educationInputLabel4.textContent = 'Select your field of study below:'
-    const radioContainerDiv4 = document.createElement("div")
-    radioContainerDiv4.classList.add("radioGroup")
+    const educationInputDiv3 = document.createElement("div")
+    const educationInputLabel3 = document.createElement("label")
+    educationInputLabel3.setAttribute("for", "eduFieldStudy")
+    educationInputLabel3.textContent = 'Select your field of study below:'
+    const radioContainerDiv3 = document.createElement("div")
+    radioContainerDiv3.classList.add("radioGroup")
     const eduInputRadio1 = document.createElement("input")
     eduInputRadio1.setAttribute("type", "radio")
     eduInputRadio1.setAttribute("id", "eduIt")
@@ -502,45 +594,45 @@ let loadHtmlForm = () =>{
     const eduInputRadioLabel2 = document.createElement("label")
     eduInputRadioLabel2.setAttribute("for", "Other")
     eduInputRadioLabel2.textContent = 'Other'
-    radioContainerDiv4.append(eduInputRadio1, eduInputRadioLabel1, eduInputRadio2, eduInputRadioLabel2)
-    educationInputDiv4.append(educationInputLabel4, radioContainerDiv4)
+    radioContainerDiv3.append(eduInputRadio1, eduInputRadioLabel1, eduInputRadio2, eduInputRadioLabel2)
+    educationInputDiv3.append(educationInputLabel3, radioContainerDiv3)
         
+    const educationInputDiv4 = document.createElement("div")   
+    const educationInputLabel4 = document.createElement("label")
+    educationInputLabel4.setAttribute("for", "school_name")
+    educationInputLabel4.textContent = 'Insert your school name:'
+    const educationInput4 = document.createElement("input")
+    educationInput4.setAttribute("type", "text")
+    educationInput4.setAttribute("id", "school_name")
+    educationInput4.setAttribute("name", "school_name")
+    educationInputDiv4.append(educationInputLabel4, educationInput4)  
+
     const educationInputDiv5 = document.createElement("div")   
     const educationInputLabel5 = document.createElement("label")
-    educationInputLabel5.setAttribute("for", "school_name")
-    educationInputLabel5.textContent = 'Insert your school name:'
+    educationInputLabel5.setAttribute("for", "school_city")
+    educationInputLabel5.textContent = 'Insert the city of your school:'
     const educationInput5 = document.createElement("input")
     educationInput5.setAttribute("type", "text")
-    educationInput5.setAttribute("id", "school_name")
-    educationInput5.setAttribute("name", "school_name")
+    educationInput5.setAttribute("id", "school_city")
+    educationInput5.setAttribute("name", "school_city")
     educationInputDiv5.append(educationInputLabel5, educationInput5)  
 
     const educationInputDiv6 = document.createElement("div")   
     const educationInputLabel6 = document.createElement("label")
-    educationInputLabel6.setAttribute("for", "school_city")
-    educationInputLabel6.textContent = 'Insert the city of your school:'
+    educationInputLabel6.setAttribute("for", "school_state")
+    educationInputLabel6.textContent = 'Insert the state of your school:'
     const educationInput6 = document.createElement("input")
     educationInput6.setAttribute("type", "text")
-    educationInput6.setAttribute("id", "school_city")
-    educationInput6.setAttribute("name", "school_city")
+    educationInput6.setAttribute("id", "school_state")
+    educationInput6.setAttribute("name", "school_state")
     educationInputDiv6.append(educationInputLabel6, educationInput6)  
-
-    const educationInputDiv7 = document.createElement("div")   
-    const educationInputLabel7 = document.createElement("label")
-    educationInputLabel7.setAttribute("for", "school_state")
-    educationInputLabel7.textContent = 'Insert the state of your school:'
-    const educationInput7 = document.createElement("input")
-    educationInput7.setAttribute("type", "text")
-    educationInput7.setAttribute("id", "school_state")
-    educationInput7.setAttribute("name", "school_state")
-    educationInputDiv7.append(educationInputLabel7, educationInput7)  
     
-    const educationInputDiv8 = document.createElement("div")
-    const educationInputLabel8 = document.createElement("label")
-    educationInputLabel8.setAttribute("for", "school_attendance_method")
-    educationInputLabel8.textContent = 'Select attendance method below:'
-    const radioContainerDiv8 = document.createElement("div")
-    radioContainerDiv8.classList.add("radioGroup")
+    const educationInputDiv7 = document.createElement("div")
+    const educationInputLabel7 = document.createElement("label")
+    educationInputLabel7.setAttribute("for", "school_attendance_method")
+    educationInputLabel7.textContent = 'Select attendance method below:'
+    const radioContainerDiv7 = document.createElement("div")
+    radioContainerDiv7.classList.add("radioGroup")
     const attendanceInputRadio1 = document.createElement("input")
     attendanceInputRadio1.setAttribute("type", "radio")
     attendanceInputRadio1.setAttribute("id", "remote")
@@ -553,21 +645,32 @@ let loadHtmlForm = () =>{
     attendanceInputRadio2.setAttribute("type", "radio")
     attendanceInputRadio2.setAttribute("id", "InPerson")
     attendanceInputRadio2.setAttribute("name", "school_attendance_method")
-    attendanceInputRadio2.setAttribute("value", "in person")
+    attendanceInputRadio2.setAttribute("value", "inPerson")
     const attendanceInputRadioLabel2 = document.createElement("label")
     attendanceInputRadioLabel2.setAttribute("for", "inPerson")
     attendanceInputRadioLabel2.textContent = 'In person'
-    radioContainerDiv8.append(attendanceInputRadio1, attendanceInputRadioLabel1, attendanceInputRadio2, attendanceInputRadioLabel2)
-    educationInputDiv8.append(educationInputLabel8, radioContainerDiv8)
+    radioContainerDiv7.append(attendanceInputRadio1, attendanceInputRadioLabel1, attendanceInputRadio2, attendanceInputRadioLabel2)
+    educationInputDiv7.append(educationInputLabel7, radioContainerDiv7)
+
+    const educationInputDiv8 = document.createElement("div")   
+    const educationInputLabel8 = document.createElement("label")
+    educationInputLabel8.setAttribute("for", "certificate_title")
+    educationInputLabel8.textContent = 'Insert the title of the certificate obtained:'
+    const educationInput8 = document.createElement("input")
+    educationInput8.setAttribute("type", "text")
+    educationInput8.setAttribute("id", "certificate_title")
+    educationInput8.setAttribute("name", "certificate_title")
+    educationInputDiv8.append(educationInputLabel8, educationInput8) 
 
     const educationInputDiv9 = document.createElement("div")   
     const educationInputLabel9 = document.createElement("label")
     educationInputLabel9.setAttribute("for", "certificate_title")
-    educationInputLabel9.textContent = 'Insert the title of the certificate obtained:'
+    educationInputLabel9.textContent = 'Graduated:'
     const educationInput9 = document.createElement("input")
-    educationInput9.setAttribute("type", "text")
-    educationInput9.setAttribute("id", "certificate_title")
-    educationInput9.setAttribute("name", "certificate_title")
+    educationInput9.setAttribute("type", "checkbox")
+    educationInput9.setAttribute("id", "graduated")
+    educationInput9.setAttribute("name", "graduated")
+    educationInput9.setAttribute("value", "yes")
     educationInputDiv9.append(educationInputLabel9, educationInput9) 
 
     const educationInputDiv10 = document.createElement("div")   
@@ -786,7 +889,7 @@ let loadHtmlForm = () =>{
     techBtn2.innerHTML = "Save & continue"
     techSkillsInputDiv13.append(techBtn1, techBtn2)
 
-    techSkillsFormFieldset.append(techSkillsFormLegend, techSkillsInputDiv3, techSkillsInputDiv4, techSkillsInputDiv5, techSkillsInputDiv6, techSkillsInputDiv7, techSkillsInputDiv8, techSkillsInputDiv9, techSkillsInputDiv10, techSkillsInputDiv11, techSkillsInputDiv12, techSkillsInputDiv13)
+    techSkillsFormFieldset.append(techSkillsFormLegend, techSkillsInputDiv1, techSkillsInputDiv2, techSkillsInputDiv3, techSkillsInputDiv4, techSkillsInputDiv5, techSkillsInputDiv6, techSkillsInputDiv7, techSkillsInputDiv8, techSkillsInputDiv9, techSkillsInputDiv10, techSkillsInputDiv11, techSkillsInputDiv12, techSkillsInputDiv13)
     techSkillsForm.append(techSkillsFormFieldset)
     formWrapper.append(techSkillsForm)    
     // END OF TECH SKILLS FORM
@@ -930,7 +1033,7 @@ let loadHtmlForm = () =>{
     marketBtn2.innerHTML = "Save & continue"
     marketSkillsInputDiv13.append(marketBtn1, marketBtn2)
 
-    marketSkillsFormFieldset.append(marketSkillsFormLegend, marketSkillsInputDiv3, marketSkillsInputDiv4, marketSkillsInputDiv5, marketSkillsInputDiv6, marketSkillsInputDiv7, marketSkillsInputDiv8, marketSkillsInputDiv9, marketSkillsInputDiv10, marketSkillsInputDiv11, marketSkillsInputDiv12, marketSkillsInputDiv13)
+    marketSkillsFormFieldset.append(marketSkillsFormLegend, marketSkillsInputDiv1, marketSkillsInputDiv2, marketSkillsInputDiv3, marketSkillsInputDiv4, marketSkillsInputDiv5, marketSkillsInputDiv6, marketSkillsInputDiv7, marketSkillsInputDiv8, marketSkillsInputDiv9, marketSkillsInputDiv10, marketSkillsInputDiv11, marketSkillsInputDiv12, marketSkillsInputDiv13)
     marketSkillsForm.append(marketSkillsFormFieldset)
     formWrapper.append(marketSkillsForm)
     // END OF MARKET SKILLS FORM
@@ -1251,7 +1354,7 @@ let loadHtmlForm = () =>{
     workSEndMonth9.setAttribute("name", "companyEndMonth")
     const workEndMonthOption9 = document.createElement("option") 
     workEndMonthOption9.classList.add("option", "monthOption")
-    workEndMonthOption9.setAttribute("value", " ")
+    workEndMonthOption9.setAttribute("value", "")
     workEndMonthOption9.text = 'Select month'
     workSEndMonth9.append(workEndMonthOption9)
     const workEndYear9 = document.createElement("select")    
@@ -1259,7 +1362,7 @@ let loadHtmlForm = () =>{
     workEndYear9.setAttribute("name", "companyEndYear")
     const workEndYearOption9 = document.createElement("option") 
     workEndYearOption9.classList.add("option", "yearOption")
-    workEndYearOption9.setAttribute("value", " ")
+    workEndYearOption9.setAttribute("value", "")
     workEndYearOption9.setAttribute("id", "selectOption ")
     workEndYearOption9.text= 'Select year'
     workEndYear9.append(workEndYearOption9)
@@ -1399,10 +1502,16 @@ let loadHtmlForm = () =>{
     sectionContainer.append(rightSectionContainer)
 
     console.log(personForm)
+    
+    // });
 
 
    
 }
-loadHtmlForm()
+loadForm()
+
+console.log('from handlet', 'hello')
+
+
 
 
